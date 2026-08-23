@@ -4,31 +4,46 @@ Canonical specifications for the one-level reboot of **Surveillance Survivor**.
 
 ## Product thesis
 
-Surveillance Survivor is a deterministic, top-down survival action game in which surveillance is an active systemic threat. The first release contains one polished San Francisco level. The player must manage exposure, survive escalating enforcement, defeat the response captain, and reach extraction.
+Surveillance Survivor is a deterministic, top-down survival action game in which surveillance is an active systemic threat. The first release contains one polished San Francisco level. The player must manage Exposure, survive escalating enforcement, defeat the Response Captain, and reach Extraction.
 
 ## Canonical sequence
 
 1. [Constitution](specs/000-constitution.md)
 2. [Product specification](specs/001-single-level-vertical-slice/spec.md)
 3. [Technical plan](specs/001-single-level-vertical-slice/plan.md)
-4. [Implementation tasks](specs/001-single-level-vertical-slice/tasks.md)
-5. [Legacy admission inventory](specs/001-single-level-vertical-slice/legacy-admission.md)
-6. [Acceptance and playtest gates](specs/001-single-level-vertical-slice/acceptance.md)
+4. [Visual asset specification](specs/001-single-level-vertical-slice/visual-assets.md)
+5. [Animation specification](specs/001-single-level-vertical-slice/animation.md)
+6. [Arena specification](specs/001-single-level-vertical-slice/arena.md)
+7. [Visual production plan](specs/001-single-level-vertical-slice/visual-production.md)
+8. [Implementation tasks](specs/001-single-level-vertical-slice/tasks.md)
+9. [Legacy admission inventory](specs/001-single-level-vertical-slice/legacy-admission.md)
+10. [Acceptance and playtest gates](specs/001-single-level-vertical-slice/acceptance.md)
+11. [Decision register](specs/001-single-level-vertical-slice/decisions.md)
 
 Implementation belongs in a separate runtime repository. This repository defines product intent, contracts, decisions, and acceptance evidence.
 
-## Current status
+## Current baseline
 
-- Scope: one level
-- Canonical location: San Francisco
-- Target experience: 8–12 minute complete run
-- Specification state: baseline
-- Runtime state: not yet authorized by this repository
-- Additional cities: deferred
+```yaml
+scope: one authored San Francisco level
+platform: iPhone
+orientation: landscape-left-and-right
+minimum_os: iOS 18.0
+language: Swift 6
+renderer: SpriteKit
+shell: SwiftUI
+simulation: deterministic-fixed-step-60Hz
+presentation_target: 60fps
+networking: none
+accounts: none
+target_run: 8-12 minutes
+runtime_repository: scrimshawlife-ctrl/SS
+additional_cities: deferred
+```
 
 ## Core loop
 
-`evade surveillance → manage exposure → gain power → survive lockdown → defeat captain → extract`
+`evade surveillance → manage Exposure → gain power → survive Lockdown → defeat Captain → extract`
 
 ## Change rule
 

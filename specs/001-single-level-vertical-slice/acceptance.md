@@ -5,7 +5,7 @@ Feature: SS-001
 
 ## Evidence rule
 
-Each criterion requires a linked test, replay fixture, measurement, or recorded playtest result. A verbal assertion is not evidence.
+Each criterion requires a linked test, replay fixture, measurement, review plate, device capture, or recorded playtest result. A verbal assertion is not evidence.
 
 ## Gate A — Functional completion
 
@@ -14,11 +14,11 @@ Each criterion requires a linked test, replay fixture, measurement, or recorded 
 - [ ] A-003 Camera regions match authoritative detection.
 - [ ] A-004 Blocking geometry reliably interrupts Camera detection.
 - [ ] A-005 Exposure and every Detection State transition are communicated.
-- [ ] A-006 Guards and Interceptors never spawn inside blocking geometry or the protected spawn area.
+- [ ] A-006 Guards and Interceptors never spawn inside blocking geometry or protected Spawn Alley.
 - [ ] A-007 Damage always has a visible or communicated source.
-- [ ] A-008 All three upgrades materially change play and can complete the level.
+- [ ] A-008 All three upgrades materially change play and complete the level.
 - [ ] A-009 Captain defeat reliably unlocks Extraction.
-- [ ] A-010 Extraction countdown visibly resets when the player leaves.
+- [ ] A-010 Extraction countdown visibly resets when the Player leaves.
 - [ ] A-011 Terminal events occur once and obey documented precedence.
 - [ ] A-012 Result records contain all fields required by FR-045.
 
@@ -31,43 +31,84 @@ Each criterion requires a linked test, replay fixture, measurement, or recorded 
 - [ ] B-005 Unknown replay versions fail with a typed incompatibility result.
 - [ ] B-006 Collection order, targeting ties, spawn ties, and terminal ties have tests.
 - [ ] B-007 A rules-affecting change cannot alter a golden result without an explicit version change and rationale.
+- [ ] B-008 Animation, VFX, audio, haptics, camera, and refresh rate do not mutate authoritative results.
 
 ## Gate C — Stability and performance
 
-Owner decisions T000 and T001 must set exact thresholds.
+Run three consecutive complete runs on a physical iPhone 12 or approved no-better equivalent.
 
-- [ ] C-001 Full runs complete without crash, soft lock, or unbounded memory growth.
-- [ ] C-002 Worst-case encounters maintain the declared frame-time budget.
-- [ ] C-003 Pools remain bounded and contain no stale lifecycle state.
-- [ ] C-004 Development instrumentation confirms entity counts remain within declared limits.
-- [ ] C-005 Ten consecutive automated complete-run simulations pass.
-- [ ] C-006 Twenty manual restarts across all phases pass.
+- [ ] C-001 No crash, soft lock, memory warning, or unbounded growth.
+- [ ] C-002 Frame-time p50 ≤ 16.67 ms.
+- [ ] C-003 Frame-time p95 ≤ 16.67 ms.
+- [ ] C-004 Frame-time p99 ≤ 25 ms.
+- [ ] C-005 No gameplay frame exceeds 50 ms.
+- [ ] C-006 No sustained presentation interval falls below 55 fps.
+- [ ] C-007 No serious or critical thermal state occurs.
+- [ ] C-008 Pools remain bounded and contain no stale lifecycle state.
+- [ ] C-009 Ten consecutive automated complete-run simulations pass.
+- [ ] C-010 Twenty manual restarts across all phases pass.
+- [ ] C-011 Atlas, resident-memory, entity, projectile, particle, and transient ceilings match D-021.
 
-## Gate D — Comprehension and fairness
+## Gate D — Visual assets and animation
 
-- [ ] D-001 New players learn movement without external explanation.
-- [ ] D-002 New players correctly identify Camera detection regions.
-- [ ] D-003 New players can explain how to reduce Exposure.
-- [ ] D-004 Players understand why Lockdown began.
-- [ ] D-005 Players can attribute each recorded death to an observable cause.
-- [ ] D-006 Color is not the sole carrier of Detection State or damage information.
-- [ ] D-007 Text and critical indicators are readable on every supported display size.
-- [ ] D-008 Every upgrade path can defeat the Captain without requiring undocumented exploits.
+- [ ] D-001 Player remains identifiable at peak density and 50% gameplay scale.
+- [ ] D-002 Lethal telegraphs and projectiles outrank decoration in every capture.
+- [ ] D-003 Guard, Interceptor, and Captain silhouettes are distinguishable without color.
+- [ ] D-004 Sprite contact points remain stable across clips.
+- [ ] D-005 Camera fields and attack cones remain distinguishable.
+- [ ] D-006 Every damaging animation provides its required anticipation.
+- [ ] D-007 Animation commit markers align with authoritative event ticks.
+- [ ] D-008 Reduced Motion preserves timing, meaning, and difficulty.
+- [ ] D-009 No uncontrolled full-screen flash or unbounded emitter exists.
+- [ ] D-010 Every shipped asset passes provenance, manifest, atlas, dimension, color-space, alpha, content, and reachability checks.
+- [ ] D-011 No source master, rejected asset, other-city asset, or unreachable asset ships.
+- [ ] D-012 Visual review plates pass on light, dark, grayscale, color-vision, dense-combat, and reduced-presentation variants.
 
-## Gate E — Playtest signal
+## Gate E — Arena design and fairness
+
+- [ ] E-001 All seven zones are reachable and preserve minimum path widths.
+- [ ] E-002 No false wall, false opening, unexplained invisible boundary, or collision trap remains.
+- [ ] E-003 The first Camera is seen before it can detect the Player.
+- [ ] E-004 The Player escapes one isolated observation event before combined combat pressure.
+- [ ] E-005 Civic Plaza and Lockdown retain at least one readable circulation loop.
+- [ ] E-006 Pressure Route provides stealth-favored and combat-favored paths that reconnect.
+- [ ] E-007 Every hostile spawn satisfies region, geometry, viewport, distance, reachability, and telegraph rules.
+- [ ] E-008 When no valid spawn exists, spawning delays or skips without weakening constraints.
+- [ ] E-009 Every upgrade retains viable Captain positioning.
+- [ ] E-010 Extraction uses only previously taught pressure systems.
+- [ ] E-011 Competent segment and complete-run pacing falls within the arena targets.
+- [ ] E-012 Debug overlays and heatmaps show no invalid geometry, unreachable area, or spawn leak.
+
+## Gate F — Accessibility and comprehension
+
+- [ ] F-001 New players learn movement without external explanation.
+- [ ] F-002 New players identify Camera fields and explain how to reduce Exposure.
+- [ ] F-003 Players understand why Lockdown began.
+- [ ] F-004 Players attribute each recorded death to an observable cause.
+- [ ] F-005 Color is not the sole carrier of Detection State, damage, objective, or telegraph class.
+- [ ] F-006 Critical non-text state contrast reaches 3:1 and normal text reaches 4.5:1.
+- [ ] F-007 Menus, upgrades, pause, and results work with VoiceOver.
+- [ ] F-008 Dynamic Type up to 200% reflows or scrolls without loss of function.
+- [ ] F-009 Touch targets are at least 44 × 44 points.
+- [ ] F-010 Both handedness modes pass on the SE-class screen.
+- [ ] F-011 Reduced Flash, Reduced Motion, captions, HUD scale, and separate audio/haptic controls pass.
+- [ ] F-012 Every upgrade defeats the Captain without undocumented exploits.
+
+## Gate G — Playtest signal
 
 Test with at least five people who did not implement the feature.
 
-- [ ] E-001 At least four of five complete the onboarding sequence without instruction.
-- [ ] E-002 At least four of five correctly describe Exposure after one run.
-- [ ] E-003 No repeated confusion pattern remains unresolved.
-- [ ] E-004 At least three of five voluntarily begin another run.
-- [ ] E-005 Median competent successful run duration is within 8–12 minutes after onboarding.
-- [ ] E-006 Qualitative feedback identifies surveillance pressure—not generic combat—as a defining feature.
+- [ ] G-001 At least four of five complete onboarding without instruction.
+- [ ] G-002 At least four of five correctly describe Exposure after one run.
+- [ ] G-003 No repeated confusion pattern remains unresolved.
+- [ ] G-004 At least three of five voluntarily begin another run.
+- [ ] G-005 Median competent successful run duration is 8–12 minutes after onboarding.
+- [ ] G-006 Feedback identifies surveillance pressure—not generic combat—as a defining feature.
+- [ ] G-007 At least four of five can distinguish Guard, Interceptor, Camera field, enemy projectile, and objective without a legend after one run.
 
 ## Expansion decision
 
-A second level is authorized only when Gates A–E pass and all severity-one and severity-two defects are closed.
+A second level is authorized only when Gates A–G pass, D-013 and D-021 are settled, and all severity-one and severity-two defects are closed.
 
 Possible decisions:
 
@@ -75,4 +116,4 @@ Possible decisions:
 - `EXPANSION_GATE_FAILED`
 - `EXPANSION_GATE_NOT_COMPUTABLE`
 
-Failure does not authorize scope reduction through undocumented exceptions. Correct the slice, update the specification through governance, or record why evidence is insufficient.
+Failure does not authorize undocumented exceptions. Correct the slice, update the specification through governance, or record why evidence is insufficient.

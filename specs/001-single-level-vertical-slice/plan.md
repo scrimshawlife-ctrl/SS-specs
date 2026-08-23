@@ -1,13 +1,31 @@
 # Technical Plan: San Francisco Vertical Slice
 
-Status: PROPOSED  
+Status: BASELINE  
 Depends on: `spec.md`, constitution 1.0.0
 
-## 1. Runtime boundary
+## 1. Platform baseline
 
-The runtime SHOULD use Swift and SpriteKit unless an explicit architecture decision replaces the existing platform direction. SpriteKit owns presentation, input sampling, audio, and animation. A platform-independent deterministic simulation module owns authoritative gameplay.
+```yaml
+platform: iPhone
+orientation: landscape-left-and-right
+minimum_os: iOS 18.0
+language: Swift 6
+renderer: SpriteKit
+application_shell: SwiftUI
+simulation_step: 60Hz
+presentation_target: 60fps
+networking: none
+accounts: none
+persistence: settings-and-local-run-receipts
+```
 
-## 2. Module model
+The runtime repository will be `scrimshawlife-ctrl/SS` after the specifications pass their completeness review.
+
+## 2. Runtime boundary
+
+SpriteKit owns presentation, input sampling, audio, and animation. A platform-independent deterministic simulation module owns authoritative gameplay. SwiftUI owns application lifecycle, menus, settings, protected overlays, and accessible non-gameplay controls.
+
+## 3. Module model
 
 | Module | Responsibility | Prohibited ownership |
 |---|---|---|
@@ -21,11 +39,14 @@ The runtime SHOULD use Swift and SpriteKit unless an explicit architecture decis
 | ExposureDirector | Escalation schedule and Lockdown latch | Audio cues |
 | ObjectiveSystem | Captain and Extraction prerequisites | UI navigation |
 | ResultBuilder | Immutable run result | Persistence policy |
+| ArenaLoader | Validated arena data | Sprite bounds as collision |
+| VisualCatalog | Asset IDs, atlases, clips, provenance receipts | Gameplay rules |
+| AnimationProjector | Authoritative event-to-clip projection | Rule mutation |
 | Renderer | Projection of authoritative state | Rule mutation |
 
-## 3. Determinism
+## 4. Determinism
 
-- Use a fixed simulation step.
+- Use a fixed 60 Hz simulation step.
 - Use an injected seeded random generator.
 - Do not iterate unordered collections when order affects results.
 - Give every authoritative entity a stable identifier.
@@ -33,6 +54,7 @@ The runtime SHOULD use Swift and SpriteKit unless an explicit architecture decis
 - Quantize or otherwise control floating-point behavior where cross-device equivalence requires it.
 - Record normalized input commands by tick.
 - Compute a final authoritative state digest for test comparison.
+- Keep camera, animation, VFX, audio, haptics, and display refresh outside gameplay authority.
 
 Replay envelope:
 
@@ -46,49 +68,64 @@ ordered { tick, command }[]
 
 A replay with an unknown version MUST be rejected with a typed incompatibility result.
 
-## 4. Simulation state
+## 5. Simulation state
 
 Minimum authoritative state:
 
-- tick
-- run phase
-- player position, velocity intent, health, cooldowns, upgrade
-- entity registry with stable IDs
-- Camera definitions and active status
-- current Exposure and Detection State
-- Lockdown latch
-- Captain state
-- Extraction lock and countdown
-- seeded generator state
-- terminal result, if any
+- tick and run phase;
+- Player position, velocity intent, health, cooldowns, and upgrade;
+- entity registry with stable IDs;
+- Camera definitions and active status;
+- current Exposure and Detection State;
+- Lockdown latch;
+- Captain state;
+- Extraction lock and countdown;
+- seeded generator state;
+- terminal result, if any.
 
-## 5. Data contracts
+## 6. Versioned data contracts
 
-Versioned data SHOULD define:
+Versioned data defines:
 
-- Level geometry and spawn regions
+- Arena geometry, zones, navigation, and spawn regions
 - Camera transforms, fields of view, range, and occlusion masks
 - Exposure thresholds, rates, grace periods, and recovery
 - Enemy attributes and escalation eligibility
 - Weapon and upgrade parameters
-- Captain phases and attack vocabulary
+- Captain phases, telegraphs, and attack vocabulary
 - Extraction duration
+- Visual asset records, atlases, anchors, and provenance
+- Animation clips and authoritative event markers
 - Performance budgets
 
 Data loading MUST validate invariants and fail before starting a run when configuration is invalid.
 
-## 6. Test strategy
+## 7. Visual and arena contracts
 
-### Unit
+The following artifacts are normative:
+
+- `visual-assets.md`: art direction, inventory, palette roles, VFX, HUD, atlases, and validation
+- `animation.md`: state machines, clip metadata, telegraphs, event alignment, and reduced motion
+- `arena.md`: 36 × 24-cell baseline arena, seven zones, pacing, navigation, surveillance, and spawn fairness
+- `visual-production.md`: blockout-first workflow, provenance, intake, review plates, and budgets
+
+Final art begins only after grayscale blockout, collision truth, Camera truth, and dense-frame readability pass.
+
+## 8. Test strategy
+
+### Unit and contract tests
 
 - Seeded generator sequences
 - Fixed-step advancement
-- Collision and occlusion
+- Collision, reachability, and occlusion
 - Exposure accumulation, recovery, thresholds, and latch
-- Target tie-breaking
+- Target and spawn tie-breaking
 - Damage and terminal precedence
 - Projectile lifecycle reset
 - Extraction reset rule
+- Arena-schema invariants
+- Asset manifest, atlas, frame, anchor, and provenance invariants
+- Animation event-marker alignment
 
 ### Golden vectors
 
@@ -100,51 +137,79 @@ Commit canonical fixtures containing Replay Identity, ordered inputs, expected r
 - Player death in each encounter phase
 - Restart from every phase
 - Suspend/resume
-- Upgrade paths
-- Captain defeat and extraction
+- All upgrade paths
+- Captain defeat and Extraction
 - Invalid replay version
+- Small-screen and both handedness layouts
+- Reduced Motion and Differentiate Without Color
 
 ### Presentation contract
 
-Automated or recorded checks MUST compare visible Camera regions with authoritative geometry and confirm that player-facing state cues follow the authoritative event stream.
+Automated or recorded checks compare:
 
-## 7. Performance
+- visible Camera regions with authoritative geometry;
+- telegraphs with authoritative affected areas and commit ticks;
+- sprite contact points with authoritative transforms;
+- HUD and objective cues with state events;
+- reduced presentation with mechanical equivalence.
 
-The runtime plan MUST declare target devices before implementation acceptance. Initial budgets:
+## 9. Performance
 
-- Stable target frame rate under worst supported encounter
-- No unbounded entity growth
-- Bounded projectile and enemy pools
-- No authoritative allocations inside hot loops where avoidable
-- Frame-time and entity-count instrumentation available in development builds
+Measure on physical iPhone 12 during three consecutive complete runs.
 
-Exact device and frame-time thresholds remain an owner decision and block final performance acceptance, not specification work.
+| Metric | Threshold |
+|---|---:|
+| Frame-time p50 | ≤ 16.67 ms |
+| Frame-time p95 | ≤ 16.67 ms |
+| Frame-time p99 | ≤ 25 ms |
+| Worst gameplay frame | ≤ 50 ms |
+| Sustained presentation | no sustained interval below 55 fps |
+| Memory warnings | 0 |
+| Serious/critical thermal state | 0 |
+| Unbounded entity or transient growth | 0 |
 
-## 8. Legacy migration procedure
+Application/loading transitions are reported separately. Profiled blockout evidence sets exact entity, projectile, particle, atlas-memory, and resident-memory ceilings in D-021.
 
-For each candidate:
+Textures used together are grouped into bounded atlases and preloaded before their encounter. Offscreen cosmetic animation may reduce frequency. Particle and transient-node counts remain bounded.
 
-1. Inventory source path and behavior.
-2. Identify dependencies and global state.
-3. Write or recover behavioral tests.
-4. Evaluate deterministic fitness.
-5. Decide ADMIT, ADAPT, REWRITE, or REJECT.
-6. Port only the smallest admitted responsibility.
-7. Verify against the new contract without referencing legacy success as acceptance.
+## 10. Device matrix
 
-Recommended order: seeded randomness, simulation clock, movement/collision, Camera LOS, projectile pooling, combat, enemies, extraction, approved assets.
+Physical acceptance classes:
 
-## 9. Delivery slices
+1. iPhone SE, 3rd generation — small-screen layout
+2. iPhone 12 — performance floor
+3. current standard iPhone — primary acceptance
+4. current iPhone Pro — high-refresh behavior
 
-1. Deterministic kernel and replay harness
-2. Movement sandbox
-3. Camera and Exposure sandbox
-4. Combat sandbox
-5. Enemy escalation
-6. Upgrades
-7. Captain encounter
-8. Extraction and results
-9. Level assembly
-10. Performance, accessibility, playtest, and polish
+Equivalent devices require a recorded equivalence rationale. Routine CI uses SE-class and current-standard simulators. Physical devices remain mandatory for performance, thermal, audio, haptics, and touch acceptance.
 
-Each slice must remain executable and testable.
+## 11. Legacy migration procedure
+
+1. Resolve and tag the exact legacy `main` head as `legacy-multicity-2026-08-23`.
+2. Stop active legacy development.
+3. Inventory each bounded candidate.
+4. Identify dependencies and global state.
+5. Write or recover behavioral tests.
+6. Decide ADMIT, ADAPT, REWRITE, or REJECT.
+7. Port only the smallest admitted responsibility.
+8. Verify against the new contract.
+9. Archive the legacy repository only after every candidate has a disposition.
+
+Recommended migration order: seeded randomness, simulation clock, movement/collision, Camera LOS, projectile pooling, combat, accessibility/settings shell, audio infrastructure, approved SF assets. Campaign authority, other cities, procedural districts, challenges, and generalized city profiles are excluded.
+
+## 12. Delivery slices
+
+1. Specification closure and legacy freeze
+2. Deterministic kernel and replay harness
+3. Grayscale movement/arena blockout
+4. Camera and Exposure blockout
+5. Combat and density blockout
+6. Visual language and minimum animation set
+7. Enemy escalation
+8. Upgrades
+9. Captain encounter
+10. Extraction and results
+11. Final SF art, audio, and polish
+12. Performance, accessibility, playtest, and release evidence
+
+Each slice remains executable and testable.

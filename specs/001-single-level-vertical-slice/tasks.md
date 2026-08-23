@@ -5,90 +5,108 @@ Feature: SS-001
 
 Tasks are ordered. Runtime implementation belongs in the future runtime repository.
 
-## Phase 0 — Decisions and repository boundary
+## Phase 0 — Specification and repository boundary
 
-- [ ] T000 Record target Apple platforms, minimum OS, device matrix, orientation, and input methods.
-- [ ] T001 Record frame-rate and frame-time acceptance thresholds.
-- [ ] T002 Create the runtime repository and link it to this specification commit.
-- [ ] T003 Establish ruleset, level, replay-schema, and save-schema version policies.
-- [ ] T004 Identify the immutable legacy repository revision used for migration analysis.
+- [x] T000 Record iPhone-only, iOS 18, landscape, touch, and device-matrix decisions.
+- [x] T001 Record 60 Hz simulation and physical-device frame-time thresholds.
+- [x] T002 Reserve `scrimshawlife-ctrl/SS` as the future runtime repository identity.
+- [x] T003 Define visual, animation, arena, production, and accessibility baselines.
+- [ ] T004 Resolve the immutable legacy head and create annotated tag `legacy-multicity-2026-08-23`.
+- [ ] T005 Complete cross-artifact consistency and specification-quality review.
+- [ ] T006 Create the runtime repository and link its first commit to the accepted specification SHA.
+- [ ] T007 Establish ruleset, level, replay-schema, asset-schema, arena-schema, and save-schema version policies.
 
-## Phase 1 — Deterministic kernel
+## Phase 1 — Legacy admission
 
-- [ ] T010 Implement fixed-step SimulationClock.
-- [ ] T011 Implement seeded random generator with golden sequence tests.
-- [ ] T012 Define stable entity IDs and ordered iteration rules.
-- [ ] T013 Define normalized tick-indexed player commands.
-- [ ] T014 Implement replay envelope loading and incompatibility errors.
-- [ ] T015 Implement final state digest and first golden replay fixture.
-- [ ] T016 Verify restart restores the initial authoritative state.
+- [ ] T100 Inventory exact source paths for LC-001 through LC-010.
+- [ ] T101 Recover tests and dependency boundaries for deterministic kernel candidates.
+- [ ] T102 Classify campaign, procedural district, challenge, and non-SF content as excluded.
+- [ ] T103 Classify SF assets individually with provenance and runtime relevance.
+- [ ] T104 Record ADMIT, ADAPT, REWRITE, or REJECT for every candidate.
+- [ ] T105 Stop legacy migration when any copied source lacks an approved record.
 
-## Phase 2 — Movement sandbox
+## Phase 2 — Deterministic kernel
 
-- [ ] T020 Implement authoritative movement and collision.
-- [ ] T021 Define level geometry validation.
-- [ ] T022 Build Spawn Alley teaching layout.
-- [ ] T023 Project authoritative transforms into SpriteKit.
-- [ ] T024 Add movement, collision, boundary, restart, and suspend/resume tests.
+- [ ] T200 Implement fixed-step SimulationClock.
+- [ ] T201 Implement seeded random generator with golden sequence tests.
+- [ ] T202 Define stable entity IDs and ordered iteration rules.
+- [ ] T203 Define normalized tick-indexed player commands.
+- [ ] T204 Implement replay envelope loading and incompatibility errors.
+- [ ] T205 Implement final state digest and first golden replay fixture.
+- [ ] T206 Verify restart restores the initial authoritative state.
 
-## Phase 3 — Surveillance sandbox
+## Phase 3 — Grayscale arena blockout
 
-- [ ] T030 Define Camera data contract.
-- [ ] T031 Implement deterministic line-of-sight and occlusion.
-- [ ] T032 Implement Exposure accumulation, grace, recovery, and thresholds.
-- [ ] T033 Implement Detection State transitions and Lockdown latch.
-- [ ] T034 Render Camera regions from the same definitions used by detection.
-- [ ] T035 Implement state cues and accessibility-safe alternatives.
-- [ ] T036 Add single-camera, multi-camera, occlusion, boundary, and transition vectors.
+- [ ] T300 Define arena, zone, collision, Camera, navigation, and spawn schemas.
+- [ ] T301 Build the 36 × 24-cell baseline arena with seven canonical zones.
+- [ ] T302 Validate reachability, minimum widths, viewport margins, and Spawn Alley protection.
+- [ ] T303 Implement collision, Camera, spawn, safe-area, and density debug overlays.
+- [ ] T304 Build SE-class and standard-iPhone HUD blockouts for both handedness modes.
+- [ ] T305 Run first-run and competent-run pacing probes.
+- [ ] T306 Freeze the accepted blockout before final environment production.
 
-## Phase 4 — Combat sandbox
+## Phase 4 — Surveillance and combat blockout
 
-- [ ] T040 Implement deterministic target selection and tie-breakers.
-- [ ] T041 Implement base automatic attack.
-- [ ] T042 Implement damage, death, and terminal-event precedence.
-- [ ] T043 Implement safe projectile pooling with full lifecycle reset.
-- [ ] T044 Add visible damage attribution.
-- [ ] T045 Add combat and pooling stress tests.
+- [ ] T400 Implement Camera data, deterministic LOS, and occlusion.
+- [ ] T401 Implement Exposure, recovery, thresholds, state cues, and Lockdown latch.
+- [ ] T402 Render Camera fields from authoritative data.
+- [ ] T403 Implement deterministic target selection, base attack, damage, and death.
+- [ ] T404 Implement projectile pooling with complete lifecycle reset.
+- [ ] T405 Implement Guard and Interceptor blockouts with distinct silhouettes.
+- [ ] T406 Profile peak density on iPhone 12 and decide D-021 ceilings.
+- [ ] T407 Validate spawn fairness and visual escape corridors.
 
-## Phase 5 — Escalation and enemies
+## Phase 5 — Visual language and asset pipeline
 
-- [ ] T050 Implement Guard behavior.
-- [ ] T051 Implement Interceptor behavior.
-- [ ] T052 Implement validated spawn regions and protected Spawn Alley.
-- [ ] T053 Implement ExposureDirector escalation schedule.
-- [ ] T054 Assemble Camera Corridor, Civic Plaza, and Pressure Route.
-- [ ] T055 Test spawn validity, escalation eligibility, and bounded entity counts.
+- [ ] T500 Establish role palette, shape language, contact points, and salience hierarchy.
+- [ ] T501 Implement asset manifest and provenance validation.
+- [ ] T502 Implement deterministic naming, dimensions, alpha, sRGB, content, duplicate, and atlas checks.
+- [ ] T503 Produce Player, Guard, Interceptor, Captain, Camera, objective, and upgrade silhouette sheets.
+- [ ] T504 Produce grayscale, color-vision, dense-combat, and reduced-presentation review plates.
+- [ ] T505 Establish bounded atlases and preload measurements.
+- [ ] T506 Approve the minimum asset inventory before polish assets.
 
-## Phase 6 — Upgrades
+## Phase 6 — Animation and VFX
 
-- [ ] T060 Implement protected upgrade selection.
-- [ ] T061 Implement Signal Jammer.
-- [ ] T062 Implement Ricochet Pulse.
-- [ ] T063 Implement Ghost Step.
-- [ ] T064 Add quantitative and visual tests that each upgrade changes play.
-- [ ] T065 Verify every upgrade can complete the level.
+- [ ] T600 Implement clip metadata and authoritative event markers.
+- [ ] T601 Produce minimum Player clips.
+- [ ] T602 Produce Guard and Interceptor clip families.
+- [ ] T603 Produce the finite Captain animation and telegraph vocabulary.
+- [ ] T604 Implement bounded procedural VFX and reduced variants.
+- [ ] T605 Verify anchors, mirroring, interruption, cancellation, and event alignment.
+- [ ] T606 Measure animation, VFX, draw, and transient-node budgets on iPhone 12.
 
-## Phase 7 — Captain and Extraction
+## Phase 7 — Upgrades, Captain, and Extraction
 
-- [ ] T070 Implement finite, readable Captain attack vocabulary.
-- [ ] T071 Implement Captain phase rules and defeat event.
-- [ ] T072 Lock Extraction until Captain defeat.
-- [ ] T073 Implement visible extraction countdown with reset-on-exit.
-- [ ] T074 Implement terminal precedence and single-completion guarantee.
-- [ ] T075 Build immutable result record and result screen.
-- [ ] T076 Add complete-run golden vectors for all upgrades.
+- [ ] T700 Implement protected upgrade selection.
+- [ ] T701 Implement Signal Jammer, Ricochet Pulse, and Ghost Step.
+- [ ] T702 Implement Captain phases and defeat.
+- [ ] T703 Implement Extraction locking, countdown, reset-on-exit, and completion.
+- [ ] T704 Implement terminal precedence and immutable result records.
+- [ ] T705 Add complete-run golden vectors for every upgrade.
+- [ ] T706 Verify every upgrade completes the level without exploits.
 
-## Phase 8 — Validation and polish
+## Phase 8 — Final San Francisco production
 
-- [ ] T080 Instrument frame time, entity counts, spawns, Exposure, damage, and outcomes.
-- [ ] T081 Pass the deterministic replay suite on the target device matrix.
-- [ ] T082 Pass functional and edge-case acceptance criteria.
-- [ ] T083 Run onboarding comprehension playtests.
-- [ ] T084 Run voluntary-replay playtests with at least five external participants.
-- [ ] T085 Fix all severity-one and severity-two defects.
-- [ ] T086 Record acceptance evidence in the release candidate.
-- [ ] T087 Decide whether the expansion gate passes.
+- [ ] T800 Produce approved SF modular environment families.
+- [ ] T801 Integrate only runtime-reachable SS-001 assets.
+- [ ] T802 Perform San Francisco identity pass without weakening affordances.
+- [ ] T803 Complete audio, haptic, HUD, and objective presentation.
+- [ ] T804 Pass asset provenance and device acceptance.
+- [ ] T805 Remove unreachable, duplicate, source, and non-SF assets from the bundle.
+
+## Phase 9 — Acceptance
+
+- [ ] T900 Instrument frame time, memory, thermal state, entities, particles, Exposure, damage, and outcomes.
+- [ ] T901 Pass deterministic replays across the supported matrix.
+- [ ] T902 Pass functional, visual, arena, animation, accessibility, and edge-case gates.
+- [ ] T903 Run onboarding comprehension playtests.
+- [ ] T904 Run voluntary-replay playtests with at least five external participants.
+- [ ] T905 Run three consecutive physical-device complete runs on the performance floor.
+- [ ] T906 Fix all severity-one and severity-two defects.
+- [ ] T907 Record release-candidate evidence.
+- [ ] T908 Decide whether the expansion gate passes.
 
 ## Traceability rule
 
-Every runtime pull request MUST cite task IDs and affected requirement IDs. A task may close only when its verification evidence is linked.
+Every runtime pull request MUST cite task IDs and affected requirement or gate IDs. A task closes only when its verification evidence is linked.
