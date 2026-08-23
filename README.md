@@ -11,21 +11,22 @@ Surveillance Survivor is a deterministic, top-down survival action game in which
 1. [Constitution](specs/000-constitution.md)
 2. [Product specification](specs/001-single-level-vertical-slice/spec.md)
 3. [Technical plan](specs/001-single-level-vertical-slice/plan.md)
-4. [Visual asset specification](specs/001-single-level-vertical-slice/visual-assets.md)
-5. [Animation specification](specs/001-single-level-vertical-slice/animation.md)
-6. [Arena specification](specs/001-single-level-vertical-slice/arena.md)
-7. [Visual production plan](specs/001-single-level-vertical-slice/visual-production.md)
-8. [Implementation tasks](specs/001-single-level-vertical-slice/tasks.md)
-9. [Legacy admission inventory](specs/001-single-level-vertical-slice/legacy-admission.md)
-10. [Acceptance and playtest gates](specs/001-single-level-vertical-slice/acceptance.md)
-11. [Decision register](specs/001-single-level-vertical-slice/decisions.md)
+4. [Civic Seam visual direction](specs/001-single-level-vertical-slice/civic-seam-visual-direction.md)
+5. [Visual asset specification](specs/001-single-level-vertical-slice/visual-assets.md)
+6. [Animation specification](specs/001-single-level-vertical-slice/animation.md)
+7. [Arena specification](specs/001-single-level-vertical-slice/arena.md)
+8. [Visual production plan](specs/001-single-level-vertical-slice/visual-production.md)
+9. [Implementation tasks](specs/001-single-level-vertical-slice/tasks.md)
+10. [Legacy admission inventory](specs/001-single-level-vertical-slice/legacy-admission.md)
+11. [Acceptance and playtest gates](specs/001-single-level-vertical-slice/acceptance.md)
+12. [Decision register](specs/001-single-level-vertical-slice/decisions.md)
 
 Implementation belongs in a separate runtime repository. This repository defines product intent, contracts, decisions, and acceptance evidence.
 
 ## Current baseline
 
 ```yaml
-scope: one authored San Francisco level
+scope: one authored San Francisco level — The Civic Seam
 platform: iPhone
 orientation: landscape-left-and-right
 minimum_os: iOS 18.0

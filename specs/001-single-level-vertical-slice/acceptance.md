@@ -63,6 +63,11 @@ Run three consecutive complete runs on a physical iPhone 12 or approved no-bette
 - [ ] D-010 Every shipped asset passes provenance, manifest, atlas, dimension, color-space, alpha, content, and reachability checks.
 - [ ] D-011 No source master, rejected asset, other-city asset, or unreachable asset ships.
 - [ ] D-012 Visual review plates pass on light, dark, grayscale, color-vision, dense-combat, and reduced-presentation variants.
+- [ ] D-013 The Civic Seam is recognizable through grid, architecture, transit, repair, and surveillance language without labels.
+- [ ] D-014 P0 inventory is complete before P1/P2 polish is admitted.
+- [ ] D-015 No exact seal, real logo, copied street art, film/game asset, tourist collage, arbitrary cable car, or full-neon skin ships.
+- [ ] D-016 Fog and ambient motion never conceal or outrank required gameplay information.
+- [ ] D-017 Each landmark supports navigation, threat, cover, or progression.
 
 ## Gate E — Arena design and fairness
 
@@ -78,6 +83,10 @@ Run three consecutive complete runs on a physical iPhone 12 or approved no-bette
 - [ ] E-010 Extraction uses only previously taught pressure systems.
 - [ ] E-011 Competent segment and complete-run pacing falls within the arena targets.
 - [ ] E-012 Debug overlays and heatmaps show no invalid geometry, unreachable area, or spawn leak.
+- [ ] E-013 The diagonal transit spine remains readable from at least four major landmarks.
+- [ ] E-014 All seven zones are distinguishable by massing and material language.
+- [ ] E-015 Apparent grade, stairs, and pitched vehicles do not create false movement or ballistic expectations.
+- [ ] E-016 Phoenix Steps are visually unique and readable as the final destination.
 
 ## Gate F — Accessibility and comprehension
 

@@ -257,3 +257,65 @@ Every asset family MUST pass:
 - runtime atlas lookup test.
 
 A beautiful asset that weakens gameplay readability fails.
+
+
+## 13. Civic Seam environment authority
+
+The canonical location-specific direction is `civic-seam-visual-direction.md`. When a general visual rule conflicts with that artifact, gameplay readability remains supreme and the conflict requires a recorded decision.
+
+The environment MUST use:
+
+- a southwest–northeast diagonal transit spine;
+- Victorian/Edwardian Residential Wedge;
+- rail, trolley-wire, island, and ventilation infrastructure in Transit Cut;
+- formal Classical massing in Civic Plaza and Phoenix Steps;
+- brick, steel-sash, fire-escape, loading, and rooftop-service language in Service Seam;
+- temporary sensor infrastructure at Grid Junction;
+- restrained Art Deco authority language at Captain Court.
+
+The approved environment palette extends the role palette with the exact material colors in the Civic Seam direction. Surveillance cyan and Detection red remain active-system colors, not general decoration.
+
+## 14. Location-specific production inventory
+
+P0:
+
+- diagonal road/rail modules;
+- Victorian, Edwardian, and Classical façade families;
+- Civic Plaza landmark kit;
+- six Camera housing families;
+- trolley-wire system;
+- two-layer fog;
+- core street furniture;
+- Detection State materials;
+- original phoenix relief;
+- basic rooftop kit.
+
+P1:
+
+- fire escapes;
+- Art Deco corner/court kit;
+- transit shelter and island;
+- parklet;
+- original protest-poster decals;
+- seismic retrofit kit;
+- signs/signals;
+- pigeon and parrot animation;
+- fictional autonomous vehicle;
+- distant three-pronged tower glyph.
+
+P2:
+
+- window-interior cards;
+- rare environmental events;
+- rooftop narrative props;
+- fictional historic plaques;
+- repair variations;
+- rain-darkened material state;
+- storefront dressing;
+- architectural Camera disguises.
+
+P1 and P2 assets may not delay P0 gameplay acceptance.
+
+## 15. Location-specific prohibitions
+
+No Golden Gate Bridge, arbitrary cable car, exact civic seal, real logo, copied street art, full-neon cyberpunk skin, geographically incoherent neighborhood mixture, or dense fog that weakens gameplay truth may ship.

@@ -1,4 +1,4 @@
-# Feature Specification: San Francisco Vertical Slice
+# Feature Specification: The Civic Seam
 
 Status: BASELINE  
 Feature ID: SS-001  
@@ -7,7 +7,7 @@ Level version: `sf-001`
 
 ## 1. Product intent
 
-Create a small, complete survival action game whose distinctive pressure comes from being observed. The player crosses a surveillance-heavy San Francisco district, develops one of three tactical strengths, survives a Lockdown, defeats the Response Captain, and reaches extraction.
+Create a small, complete survival action game whose distinctive pressure comes from being observed. The player crosses **The Civic Seam**, a compressed fictional San Francisco district organized around a diagonal transit spine where civic, residential, and service grids collide, develops one of three tactical strengths, survives a Lockdown, defeats the Response Captain, and reaches extraction.
 
 ## 2. Non-goals
 
@@ -37,16 +37,17 @@ This feature does not include:
 | Extraction | Final objective that completes a successful run after its prerequisites and survival countdown. |
 | Upgrade | One of exactly three run-local choices that visibly alters play. |
 | Replay Identity | Tuple of ruleset version, level version, seed, and ordered player inputs. |
+| Civic Seam | The fictional Level 1 district and its canonical visual identity. |
 
 ## 4. Core journey
 
-1. **Spawn Alley** teaches movement without damage pressure.
-2. **Camera Corridor** introduces visible detection geometry and breaking line of sight.
+1. **Spawn Alley / Residential Wedge** teaches movement without damage pressure.
+2. **Camera Corridor / Transit Cut** introduces visible detection geometry and breaking line of sight.
 3. **Civic Plaza** combines cameras and Guards.
-4. **Pressure Route** permits a stealth-favored or combat-favored approach without branching the ending.
-5. **Lockdown** raises pressure and introduces Interceptors.
-6. **Captain Encounter** tests movement, exposure control, and combat.
-7. **Extraction Platform** requires a final survival countdown and ends the run.
+4. **Pressure Route / Service Seam** permits a stealth-favored or combat-favored approach without branching the ending.
+5. **Lockdown / Grid Junction** raises pressure and introduces Interceptors.
+6. **Captain Encounter / Deco Authority Court** tests movement, Exposure control, and combat.
+7. **Extraction Platform / Phoenix Steps** requires a final survival countdown and ends the run.
 
 ## 5. Functional requirements
 
@@ -85,6 +86,16 @@ This feature does not include:
 - **FR-033:** Ghost Step MUST grant a brief, communicated detection immunity tied to a movement action.
 - **FR-034:** Upgrade selection MUST pause or otherwise protect authoritative gameplay from uncommanded damage.
 - **FR-035:** Each upgrade MUST visibly and measurably change player capability.
+
+### World identity
+
+- **FR-050:** The diagonal transit spine MUST remain a readable navigation landmark and a surveillance-risk axis.
+- **FR-051:** The seven zones MUST use the visual identities defined by `civic-seam-visual-direction.md` without changing their mechanical responsibilities.
+- **FR-052:** Fog, grade, rooftop depth, and architectural massing MUST NOT conceal required gameplay information.
+- **FR-053:** Historic, civic, industrial, and surveillance elements MUST use modular recombination rather than a tourist-landmark collage.
+- **FR-054:** Fictional phoenix, signage, and broadcast glyphs MUST remain original and MUST NOT reproduce municipal seals, real logos, protected art, or film/game assets.
+- **FR-055:** Ambient motion MUST remain cosmetic, bounded, accessible, and non-authoritative.
+- **FR-056:** Every visual landmark MUST support navigation, threat communication, cover, or progression.
 
 ### Objective and completion
 

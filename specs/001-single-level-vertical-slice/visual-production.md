@@ -145,3 +145,42 @@ A new asset that breaks a budget requires replacement, consolidation, or an expl
 - Apple, [Sufficient Contrast evaluation](https://developer.apple.com/help/app-store-connect/manage-app-accessibility/sufficient-contrast-evaluation-criteria/)
 
 Similar survivor games inform the high-level pattern—short legible loops, rising density, strong silhouettes, build expression, and boss punctuation—but this specification does not copy their assets, layouts, timings, names, or content.
+
+
+## 10. Civic Seam production order
+
+### P0 — blockout replacement
+
+- diagonal road/rail and transit-island kit;
+- Victorian, Edwardian, and Classical façade modules;
+- Civic Plaza massing;
+- Camera-family silhouettes;
+- trolley wires;
+- two fog layers;
+- core street furniture;
+- active-system materials;
+- original Phoenix Steps relief;
+- rooftop service kit.
+
+### P1 — identity
+
+- fire escapes and loading infrastructure;
+- Art Deco Captain Court;
+- transit shelter and parklet;
+- original protest-poster family;
+- seismic retrofit modules;
+- signals and ambient birds;
+- fictional autonomous vehicle;
+- distant broadcast glyph.
+
+### P2 — polish
+
+- window cards and blind events;
+- rare ambient events;
+- rooftop narrative props;
+- fictional plaque and repair variations;
+- rain-darkened materials;
+- additional storefront dressing;
+- architectural Camera disguises.
+
+Production may not advance a family to P1 until its P0 gameplay role passes actual-scale, dense-combat, collision, and provenance review.

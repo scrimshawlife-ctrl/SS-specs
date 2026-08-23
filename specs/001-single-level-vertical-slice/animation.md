@@ -190,3 +190,39 @@ Each clip family requires:
 - performance-floor device measurement.
 
 A clip passes only when its purpose is recognizable before its label is shown.
+
+
+## 13. Civic Seam ambient motion
+
+Ambient motion is cosmetic and seeded separately from authoritative replay state.
+
+Persistent candidates:
+
+- two-height fog drift;
+- slight trolley-wire sway;
+- asynchronous rooftop fans;
+- traffic-signal cycles;
+- distinct Camera idle scans;
+- occasional blinds;
+- bounded paper/plastic wind channels;
+- transit-display refresh;
+- pigeons scattering from nearby combat.
+
+Rare candidates:
+
+- green parrot crossing;
+- fictional autonomous vehicle hesitation;
+- passing streetcar shadow;
+- tower-light synchronization;
+- phoenix-relief apparent blink during a beam crossing;
+- occupant closing blinds;
+- fog reveal of the wider network.
+
+Rules:
+
+- rare events must not imply collision, reward, enemy, or objective state;
+- events pause or simplify under Reduced Motion where appropriate;
+- events may not begin during a high-priority Captain telegraph;
+- movement remains below gameplay salience;
+- seeded cosmetic events do not enter authoritative state digests;
+- density and device budgets may disable P1/P2 ambience before critical presentation.

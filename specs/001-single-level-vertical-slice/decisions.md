@@ -21,6 +21,11 @@
 | D-017 | Use one authored interconnected arena, not procedural generation. | ACCEPTED | Supports mastery, tuning, and controlled onboarding. |
 | D-018 | Target four-direction actor art; project eight-direction movement when valid. | ACCEPTED | Bounds production while preserving directional clarity. |
 | D-019 | Do not target 120 fps for SS-001. Request stable 60 Hz presentation on ProMotion devices. | ACCEPTED | Avoids a second presentation target before the core is proven. |
+| D-022 | Name Level 1 **The Civic Seam** and use a compressed Market/Civic Center/eastern SoMa visual grammar. | ACCEPTED | Creates local identity through urban structure rather than landmark collage. |
+| D-023 | Use one diagonal transit spine crossing civic/residential and rotated service grids. | ACCEPTED | Produces memorable sightlines, wedges, and cover transitions. |
+| D-024 | Use an original phoenix-like reconstruction motif, ordinary cooperating Cameras, fog, and seismic repair as core symbols. | ACCEPTED | Connects rebuilding, civic order, and surveillance without copying protected identities. |
+| D-025 | Use the supplied material palette and reserve emissive cyan/amber/red for active systems. | ACCEPTED | Protects threat readability and avoids generic neon cyberpunk. |
+| D-026 | Route ambient city life through bounded cosmetic animation with reduced-motion and performance fallbacks. | ACCEPTED | Adds life without creating gameplay authority or density drift. |
 
 ## Pending evidence decisions
 

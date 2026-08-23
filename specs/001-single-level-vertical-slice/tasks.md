@@ -44,6 +44,8 @@ Tasks are ordered. Runtime implementation belongs in the future runtime reposito
 - [ ] T304 Build SE-class and standard-iPhone HUD blockouts for both handedness modes.
 - [ ] T305 Run first-run and competent-run pacing probes.
 - [ ] T306 Freeze the accepted blockout before final environment production.
+- [ ] T307 Establish diagonal spine, three-grid collision, wedge parcels, and landmark sightlines.
+- [ ] T308 Validate Civic Seam identity without labels or literal map reproduction.
 
 ## Phase 4 — Surveillance and combat blockout
 
@@ -65,6 +67,9 @@ Tasks are ordered. Runtime implementation belongs in the future runtime reposito
 - [ ] T504 Produce grayscale, color-vision, dense-combat, and reduced-presentation review plates.
 - [ ] T505 Establish bounded atlases and preload measurements.
 - [ ] T506 Approve the minimum asset inventory before polish assets.
+- [ ] T507 Produce the six Civic Seam Camera housing families.
+- [ ] T508 Produce architectural module sheets and recombination tests.
+- [ ] T509 Produce the original phoenix, repair, human-counter-signal, and broadcast-glyph motif sheets.
 
 ## Phase 6 — Animation and VFX
 
@@ -74,6 +79,7 @@ Tasks are ordered. Runtime implementation belongs in the future runtime reposito
 - [ ] T603 Produce the finite Captain animation and telegraph vocabulary.
 - [ ] T604 Implement bounded procedural VFX and reduced variants.
 - [ ] T605 Verify anchors, mirroring, interruption, cancellation, and event alignment.
+- [ ] T607 Implement bounded Civic Seam ambient motion with seeded cosmetic scheduling.
 - [ ] T606 Measure animation, VFX, draw, and transient-node budgets on iPhone 12.
 
 ## Phase 7 — Upgrades, Captain, and Extraction
@@ -88,9 +94,11 @@ Tasks are ordered. Runtime implementation belongs in the future runtime reposito
 
 ## Phase 8 — Final San Francisco production
 
-- [ ] T800 Produce approved SF modular environment families.
+- [ ] T800 Produce approved Civic Seam P0 modular environment families.
 - [ ] T801 Integrate only runtime-reachable SS-001 assets.
-- [ ] T802 Perform San Francisco identity pass without weakening affordances.
+- [ ] T802 Perform Civic Seam P1 identity pass without weakening affordances.
+- [ ] T806 Add P2 polish only after P0/P1 device acceptance.
+- [ ] T807 Verify no prohibited landmark, seal, logo, copied artwork, or geographically incoherent shorthand ships.
 - [ ] T803 Complete audio, haptic, HUD, and objective presentation.
 - [ ] T804 Pass asset provenance and device acceptance.
 - [ ] T805 Remove unreachable, duplicate, source, and non-SF assets from the bundle.

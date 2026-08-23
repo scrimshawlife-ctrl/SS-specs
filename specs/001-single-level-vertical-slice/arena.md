@@ -1,4 +1,4 @@
-# San Francisco Arena Specification
+# The Civic Seam Arena Specification
 
 Status: BASELINE  
 Feature: SS-001  
@@ -6,7 +6,9 @@ Arena version: `sf-arena-001`
 
 ## 1. Arena thesis
 
-The arena is one authored, interconnected district. It combines the continuous movement pressure of survivor games with readable stealth geometry. It is not a random field and not a linear corridor. The player should form a mental map during the first run and exploit it during later runs.
+The arena is one authored, interconnected fictional district called **The Civic Seam**. Its spatial grammar compresses the collision of Market Street, Civic Center, and eastern SoMa without reproducing a literal map. It combines the continuous movement pressure of survivor games with readable stealth geometry. It is not a random field and not a linear corridor. The player should form a mental map during the first run and exploit it during later runs.
+
+A strong southwest–northeast diagonal transit spine crosses a near-orthogonal grid and a 30–45-degree service grid. This produces wedge spaces, exposed boulevard sightlines, protected rear lanes, and memorable irregular intersections.
 
 The arena teaches through spatial sequence:
 
@@ -25,7 +27,7 @@ The arena teaches through spatial sequence:
 
 ## 3. Spatial topology
 
-### Z-01 Spawn Alley
+### Z-01 Spawn Alley — Residential Wedge
 
 Purpose: movement, camera follow, and safe-area comprehension.
 
@@ -35,7 +37,7 @@ Purpose: movement, camera follow, and safe-area comprehension.
 - First Camera is visible before its field can reach the player.
 - No decorative motion that competes with the first surveillance cue.
 
-### Z-02 Camera Corridor
+### Z-02 Camera Corridor — Transit Cut
 
 Purpose: line of sight, occlusion, Exposure accumulation, and recovery.
 
@@ -55,7 +57,7 @@ Purpose: combine surveillance, Guards, auto-attack, and circulation.
 - Guard spawn regions cannot enter the current viewport.
 - Player must be able to circle the plaza without reversing through a dead end.
 
-### Z-04 Pressure Route
+### Z-04 Pressure Route — Service Seam
 
 Purpose: allow a stealth-favored or combat-favored approach.
 
@@ -65,7 +67,7 @@ Purpose: allow a stealth-favored or combat-favored approach.
 - Neither route grants an exclusive upgrade or irreversible advantage.
 - Both routes teach mechanics used by the Captain.
 
-### Z-05 Lockdown Ring
+### Z-05 Lockdown Ring — Grid Junction
 
 Purpose: convert accumulated Exposure into explicit escalation.
 
@@ -75,7 +77,7 @@ Purpose: convert accumulated Exposure into explicit escalation.
 - The player is never locked into a space narrower than the minimum combat width.
 - Lockdown does not erase the player's learned map.
 
-### Z-06 Captain Court
+### Z-06 Captain Court — Deco Authority Court
 
 Purpose: readable boss arena with reusable cover and clear telegraphs.
 
@@ -86,7 +88,7 @@ Purpose: readable boss arena with reusable cover and clear telegraphs.
 - Spawn points remain outside immediate player collision and outside unavoidable telegraphs.
 - Every upgrade path retains viable positioning.
 
-### Z-07 Extraction Platform
+### Z-07 Extraction Platform — Phoenix Steps
 
 Purpose: final survival test and closure.
 
@@ -217,3 +219,35 @@ Required tooling and evidence:
 - grayscale and reduced-motion capture.
 
 Automated validation MUST reject unreachable zones, overlapping blocking geometry, invalid spawn regions, extraction without a route, and Camera definitions without a matching render projection.
+
+
+## 12. Grid and landmark contract
+
+- The diagonal spine crosses or visually connects at least four major landmarks.
+- Triangular/wedge parcels create tactical identity without narrowing combat below minimum widths.
+- Rooftops form a visible secondary city layer but never create false traversable space.
+- Residential Wedge, Transit Cut, Civic Plaza, Service Seam, Grid Junction, Deco Authority Court, and Phoenix Steps must be identifiable in silhouette-only review plates.
+- The fictional tower glyph provides distant orientation from at least three zones.
+- The original phoenix relief marks Extraction and appears nowhere else at equal scale.
+
+## 13. Grade contract
+
+Apparent grade targets:
+
+- diagonal boulevard: 0–3%;
+- side street: 6–10%;
+- one service incline: 12–15%.
+
+Building bases step with grade; vehicles pitch with the street; stairs provide optional shortcuts. Presentation grade does not change authoritative movement or ballistics unless a later mechanics contract explicitly does so.
+
+## 14. Place-identity validation
+
+A passing arena must be recognizable as the Civic Seam without using a real landmark logo or explanatory label. Reviewers must identify:
+
+- diagonal transit infrastructure;
+- formal civic-to-worn-commercial contrast;
+- residential bay/cornice rhythm;
+- industrial service layer;
+- seismic repair layer;
+- ordinary Camera network;
+- Phoenix Steps as the final destination.
