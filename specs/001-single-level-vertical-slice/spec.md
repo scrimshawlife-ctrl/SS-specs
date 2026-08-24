@@ -29,7 +29,7 @@ This feature does not include:
 |---|---|
 | Exposure | Bounded authoritative value representing accumulated surveillance pressure. |
 | Detection State | `hidden`, `observed`, `tracked`, `hunted`, or `lockdown`. |
-| Camera | Static observer with visible line-of-sight geometry. |
+| Camera | Static destructible infrastructure observer with visible line-of-sight geometry. |
 | Guard | Standard pursuer that responds to current authoritative state. |
 | Interceptor | Faster pressure enemy introduced after escalation. |
 | Response Captain | The single boss whose defeat unlocks final extraction. |
@@ -67,6 +67,11 @@ This feature does not include:
 - **FR-014:** Detection State transitions MUST be deterministic and communicated to the player.
 - **FR-015:** Re-entering detection MUST follow documented grace-period and accumulation rules; these values belong to the versioned tuning contract.
 - **FR-016:** Maximum escalation MUST enter Lockdown exactly once per run.
+- **FR-017:** Level 1 MUST contain exactly eight standard Cameras at immutable authored positions, headings, ranges, and field angles; Cameras never pan, rotate, relocate, spawn, activate, or respawn during a run.
+- **FR-017A:** A standard Camera MUST require exactly three valid Player projectile impacts to destroy.
+- **FR-018:** Destroying a Camera MUST permanently remove only that Camera field for the current run and apply exactly +100 Tamper Exposure.
+- **FR-018A:** Destroying all eight Cameras MUST complete optional objective Network Blackout exactly once and MUST NOT alter Extraction eligibility.
+- **FR-019:** Damaged and Critical Cameras MUST retain full detection capability until destroyed.
 
 ### Combat and enemies
 
@@ -76,7 +81,9 @@ This feature does not include:
 - **FR-023:** Interceptors MUST appear only after their documented escalation condition.
 - **FR-024:** Projectiles MUST be safely reusable without retaining state from a prior lifecycle.
 - **FR-025:** Enemy removal, player damage, and death MUST occur at deterministic simulation boundaries.
-- **FR-026:** The Response Captain MUST use a readable, finite attack vocabulary and MUST be defeatable with every valid upgrade path.
+- **FR-026:** The Algorithmic Moderate MUST use a readable, finite attack vocabulary and MUST be defeatable with every valid upgrade path.
+- **FR-027:** Automatic targeting, Ricochet interaction, damage eligibility, tick order, persistence, and Camera destruction receipts MUST conform to `camera-destruction.md`.
+- **FR-028:** The Captain Camera is an attack emitter and MUST NOT be treated as independently destructible standard infrastructure.
 
 ### Upgrades
 
@@ -99,7 +106,8 @@ This feature does not include:
 
 ### Objective and completion
 
-- **FR-040:** Extraction MUST remain locked until the Captain is defeated.
+- **FR-040:** Extraction MUST remain locked until the three required mob encounters, The Improper Search Daemon elite/sub-boss, and The Algorithmic Moderate boss are complete as defined by `encounter-objectives.md`.
+- **FR-040A:** Camera destruction count and Network Blackout MUST NOT appear in the Extraction unlock predicate.
 - **FR-041:** Entering the extraction zone before it unlocks MUST communicate the unmet prerequisite.
 - **FR-042:** Unlocked Extraction MUST require a visible survival countdown.
 - **FR-043:** Leaving the zone MUST follow one documented countdown rule: pause, reset, or continue. The baseline decision is **reset**.
@@ -140,7 +148,7 @@ As a developer, I can replay the same authoritative inputs under the same Replay
 
 - Simultaneous detection by multiple Cameras MUST use one documented aggregation rule.
 - Simultaneous lethal damage and extraction completion MUST have a deterministic precedence rule. Baseline: lethal damage resolves before completion on the same tick.
-- Captain defeat and player death on the same tick MUST resolve deterministically. Baseline: player death ends the run.
+- The Algorithmic Moderate defeat and player death on the same tick MUST resolve deterministically. Baseline: player death ends the run.
 - A pooled projectile returned twice MUST not corrupt the pool.
 - A target removed between selection and attack resolution MUST be handled without retargeting inside the same resolution unless specified.
 - Application suspension and resumption MUST not advance authoritative simulation by wall-clock elapsed time.

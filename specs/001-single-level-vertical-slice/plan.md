@@ -107,6 +107,8 @@ The following artifacts are normative:
 - `visual-assets.md`: art direction, inventory, palette roles, VFX, HUD, atlases, and validation
 - `animation.md`: state machines, clip metadata, telegraphs, event alignment, and reduced motion
 - `arena.md`: 36 × 24-cell baseline arena, seven zones, pacing, navigation, surveillance, and spawn fairness
+- `camera-destruction.md`: fixed Camera geometry, Integrity, targeting, optional Network Blackout, Tamper Exposure, tick order, presentation, receipts, and golden vectors
+- `encounter-objectives.md`: canonical mob, elite/sub-boss, boss, and Extraction objective graph
 - `visual-production.md`: blockout-first workflow, provenance, intake, review plates, and budgets
 
 Final art begins only after grayscale blockout, collision truth, Camera truth, and dense-frame readability pass.
@@ -125,6 +127,7 @@ Final art begins only after grayscale blockout, collision truth, Camera truth, a
 - Extraction reset rule
 - Arena-schema invariants
 - Asset manifest, atlas, frame, anchor, and provenance invariants
+- Camera Integrity, target priority, simultaneous-hit, Tamper, dormant-state, restart, and Ricochet vectors
 - Animation event-marker alignment
 
 ### Golden vectors

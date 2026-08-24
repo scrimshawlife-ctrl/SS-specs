@@ -21,6 +21,17 @@ Each criterion requires a linked test, replay fixture, measurement, review plate
 - [ ] A-010 Extraction countdown visibly resets when the Player leaves.
 - [ ] A-011 Terminal events occur once and obey documented precedence.
 - [ ] A-012 Result records contain all fields required by FR-045.
+- [ ] A-013 Exactly eight standard Cameras exist at fixed authored transforms and fields for the full run.
+- [ ] A-013A Every standard Camera transitions 3→2→1→0 from exactly three valid impacts.
+- [ ] A-014 Camera damage does not impair detection before destruction.
+- [ ] A-015 Destruction removes only the destroyed Camera field, persists for the run, and restores on restart.
+- [ ] A-016 Each destruction applies one +100 Tamper Spike and no loot or area effect.
+- [ ] A-017 Automatic targeting and Ricochet follow the exact Camera candidate and tie-break rules.
+- [ ] A-018 Captain Camera remains outside the standard Camera destruction system.
+- [ ] A-019 Eighth Camera destruction completes Network Blackout exactly once; 0–7 remains partial.
+- [ ] A-020 Extraction succeeds at 0/8 or 7/8 Cameras when the required combat graph is complete.
+- [ ] A-021 Extraction remains locked at 8/8 Cameras when any required mob, elite/sub-boss, or boss objective is incomplete.
+- [ ] A-022 Required combat order is three mob encounters, The Improper Search Daemon, then The Algorithmic Moderate.
 
 ## Gate B — Determinism
 
@@ -32,6 +43,9 @@ Each criterion requires a linked test, replay fixture, measurement, review plate
 - [ ] B-006 Collection order, targeting ties, spawn ties, and terminal ties have tests.
 - [ ] B-007 A rules-affecting change cannot alter a golden result without an explicit version change and rationale.
 - [ ] B-008 Animation, VFX, audio, haptics, camera, and refresh rate do not mutate authoritative results.
+- [ ] B-009 CD-001 through CD-014 pass with identical ordered events and state digests.
+- [ ] B-010 Same-tick Camera destruction removes that Camera contact before continuous Exposure and applies Tamper afterward.
+- [ ] B-011 Simultaneous hits and multi-Camera destruction resolve by stable entity ID without duplicate Tamper.
 
 ## Gate C — Stability and performance
 
@@ -68,6 +82,10 @@ Run three consecutive complete runs on a physical iPhone 12 or approved no-bette
 - [ ] D-015 No exact seal, real logo, copied street art, film/game asset, tourist collage, arbitrary cable car, or full-neon skin ships.
 - [ ] D-016 Fog and ambient motion never conceal or outrank required gameplay information.
 - [ ] D-017 Each landmark supports navigation, threat, cover, or progression.
+- [ ] D-018 Operational, Damaged, Critical, and Destroyed Camera states are distinguishable without color or rapid blinking.
+- [ ] D-019 Camera field presentation clears on the authoritative destruction update.
+- [ ] D-020 Impact/destruction VFX remain bounded and reduced presentation preserves all state information.
+- [ ] D-021 No Camera idle, hit, or ambient animation translates or rotates its authoritative housing or field.
 
 ## Gate E — Arena design and fairness
 
@@ -102,6 +120,8 @@ Run three consecutive complete runs on a physical iPhone 12 or approved no-bette
 - [ ] F-010 Both handedness modes pass on the SE-class screen.
 - [ ] F-011 Reduced Flash, Reduced Motion, captions, HUD scale, and separate audio/haptic controls pass.
 - [ ] F-012 Every upgrade defeats the Captain without undocumented exploits.
+- [ ] F-013 First Camera encounter communicates `3 HITS` and `DESTRUCTION ADDS EXPOSURE` visually, through captions, and through VoiceOver.
+- [ ] F-014 Integrity notches and `+100 TAMPER` remain readable on the SE-class screen.
 
 ## Gate G — Playtest signal
 

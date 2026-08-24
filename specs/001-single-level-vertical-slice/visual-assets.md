@@ -319,3 +319,24 @@ P1 and P2 assets may not delay P0 gameplay acceptance.
 ## 15. Location-specific prohibitions
 
 No Golden Gate Bridge, arbitrary cable car, exact civic seal, real logo, copied street art, full-neon cyberpunk skin, geographically incoherent neighborhood mixture, or dense fog that weakens gameplay truth may ship.
+
+
+## 16. Camera destruction assets
+
+The normative behavior is `camera-destruction.md`.
+
+Every standard housing family requires:
+
+- Operational Integrity 3 state;
+- Damaged Integrity 2 state with one non-color damage marker;
+- Critical Integrity 1 state with two-notch/non-color damage marker;
+- Destroyed Integrity 0 state with broken-lens silhouette and no emissive field;
+- compact hit VFX;
+- bounded destruction VFX;
+- field-off transition;
+- three-notch targeting/Integrity HUD.
+
+Housing damage art MUST NOT imply reduced detection before destruction. Destroyed debris has no collision and may not resemble loot.
+
+
+All eight standard Cameras use stationary housings. No Camera animation may imply panning, tracking rotation, patrol, relocation, or changing field geometry. Housing families distinguish institutional provenance, not mechanics.

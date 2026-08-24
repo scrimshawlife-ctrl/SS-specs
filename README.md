@@ -16,10 +16,12 @@ Surveillance Survivor is a deterministic, top-down survival action game in which
 6. [Animation specification](specs/001-single-level-vertical-slice/animation.md)
 7. [Arena specification](specs/001-single-level-vertical-slice/arena.md)
 8. [Visual production plan](specs/001-single-level-vertical-slice/visual-production.md)
-9. [Implementation tasks](specs/001-single-level-vertical-slice/tasks.md)
-10. [Legacy admission inventory](specs/001-single-level-vertical-slice/legacy-admission.md)
-11. [Acceptance and playtest gates](specs/001-single-level-vertical-slice/acceptance.md)
-12. [Decision register](specs/001-single-level-vertical-slice/decisions.md)
+9. [Camera destruction contract](specs/001-single-level-vertical-slice/camera-destruction.md)
+10. [Encounter objectives and Extraction gate](specs/001-single-level-vertical-slice/encounter-objectives.md)
+11. [Implementation tasks](specs/001-single-level-vertical-slice/tasks.md)
+12. [Legacy admission inventory](specs/001-single-level-vertical-slice/legacy-admission.md)
+13. [Acceptance and playtest gates](specs/001-single-level-vertical-slice/acceptance.md)
+14. [Decision register](specs/001-single-level-vertical-slice/decisions.md)
 
 Implementation belongs in a separate runtime repository. This repository defines product intent, contracts, decisions, and acceptance evidence.
 

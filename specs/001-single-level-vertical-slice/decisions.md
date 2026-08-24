@@ -26,6 +26,17 @@
 | D-024 | Use an original phoenix-like reconstruction motif, ordinary cooperating Cameras, fog, and seismic repair as core symbols. | ACCEPTED | Connects rebuilding, civic order, and surveillance without copying protected identities. |
 | D-025 | Use the supplied material palette and reserve emissive cyan/amber/red for active systems. | ACCEPTED | Protects threat readability and avoids generic neon cyberpunk. |
 | D-026 | Route ambient city life through bounded cosmetic animation with reduced-motion and performance fallbacks. | ACCEPTED | Adds life without creating gameplay authority or density drift. |
+| D-027 | Give each standard Camera exactly 3 Integrity; each valid Player projectile impact removes 1. | ACCEPTED | Creates a legible invariant independent of combat damage tuning. |
+| D-028 | Keep Damaged and Critical Cameras fully operational until destruction. | ACCEPTED | Prevents ambiguous partial field behavior and stun-lock exploits. |
+| D-029 | Apply exactly +100 Tamper Exposure once per destroyed Camera; do not directly reduce existing Exposure. | ACCEPTED | Makes destruction a permanent local benefit with a clear immediate cost. |
+| D-030 | Remove the destroyed Camera contact before same-tick continuous Exposure, then apply Tamper. | ACCEPTED | Gives exact causal timing and matches the field visibly shutting off. |
+| D-031 | Use Camera target priority: close enemy, detecting Camera, other enemy, other Camera; then distance and stable ID. | ACCEPTED | Protects the Player while making active surveillance destructible through auto-fire. |
+| D-032 | Permit base projectiles and Ricochet to damage Cameras; exclude enemies, Ghost Step, Signal Jammer, and Captain Camera. | ACCEPTED | Keeps upgrade roles distinct and prevents environmental ambiguity. |
+| D-033 | Camera destruction creates no loot, blind-spot entity, chain explosion, repair, or respawn during a run. | ACCEPTED | Preserves one bounded mechanic and avoids farming or hidden secondary systems. |
+| D-034 | Level 1 contains exactly eight stationary Cameras with immutable position, heading, range, and field angle. | ACCEPTED | Makes surveillance geometry learnable and the destroy-all objective finite. |
+| D-035 | Destroying all eight completes optional objective Network Blackout; it is never required for Extraction. | ACCEPTED | Separates surveillance mastery from mandatory combat progression. |
+| D-036 | Extraction requires three mob encounters, The Improper Search Daemon, and The Algorithmic Moderate. | ACCEPTED | Preserves canonical San Francisco enemy lore and makes combat authority the primary gate. |
+| D-037 | Preserve the Algorithmic Moderate phases: Public Safety, Civil Liberties, Temporary Safeguard, Independent Review. | ACCEPTED | Carries forward verified canonical boss identity without importing the ten-city campaign. |
 
 ## Pending evidence decisions
 

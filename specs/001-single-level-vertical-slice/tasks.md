@@ -57,6 +57,14 @@ Tasks are ordered. Runtime implementation belongs in the future runtime reposito
 - [ ] T405 Implement Guard and Interceptor blockouts with distinct silhouettes.
 - [ ] T406 Profile peak density on iPhone 12 and decide D-021 ceilings.
 - [ ] T407 Validate spawn fairness and visual escape corridors.
+- [ ] T408 Author exactly eight stationary Cameras and assert immutable position, heading, range, and field angle.
+- [ ] T408A Implement Camera Integrity 3→2→1→0 and exact damage eligibility.
+- [ ] T409 Implement Camera-aware automatic-target priority and stable tie-breaking.
+- [ ] T410 Implement destruction contact removal, +100 Tamper, and Lockdown transition order.
+- [ ] T411 Implement permanent per-run Camera destruction with complete restart restoration.
+- [ ] T413 Implement Network Blackout counter, eighth-destruction event, partial receipt, and accolade.
+- [ ] T414 Prove Camera state never enters the Extraction predicate.
+- [ ] T412 Implement CD-001 through CD-012 golden vectors.
 
 ## Phase 5 — Visual language and asset pipeline
 
@@ -78,6 +86,9 @@ Tasks are ordered. Runtime implementation belongs in the future runtime reposito
 - [ ] T602 Produce Guard and Interceptor clip families.
 - [ ] T603 Produce the finite Captain animation and telegraph vocabulary.
 - [ ] T604 Implement bounded procedural VFX and reduced variants.
+- [ ] T608 Produce Camera operational, damaged, critical, destroyed, dormant, hit, and field-off presentation.
+- [ ] T609 Implement first-encounter Camera tutorial, Integrity notches, and +100 TAMPER feedback.
+- [ ] T610 Integrate Camera hit, critical, destruction, network-tamper, and field-off audio events.
 - [ ] T605 Verify anchors, mirroring, interruption, cancellation, and event alignment.
 - [ ] T607 Implement bounded Civic Seam ambient motion with seeded cosmetic scheduling.
 - [ ] T606 Measure animation, VFX, draw, and transient-node budgets on iPhone 12.
@@ -87,8 +98,11 @@ Tasks are ordered. Runtime implementation belongs in the future runtime reposito
 - [ ] T700 Implement protected upgrade selection.
 - [ ] T701 Implement Signal Jammer, Ricochet Pulse, and Ghost Step.
 - [ ] T702 Implement Captain phases and defeat.
-- [ ] T703 Implement Extraction locking, countdown, reset-on-exit, and completion.
+- [ ] T703 Implement the three-mob → Improper Search Daemon → Algorithmic Moderate → Extraction objective graph.
+- [ ] T703A Implement Extraction locking, countdown, reset-on-exit, and completion.
 - [ ] T704 Implement terminal precedence and immutable result records.
+- [ ] T707 Add Camera destruction/Network Blackout receipt summary and ordered destruction entries.
+- [ ] T708 Add canonical combat-authority and boss-phase receipt fields.
 - [ ] T705 Add complete-run golden vectors for every upgrade.
 - [ ] T706 Verify every upgrade completes the level without exploits.
 

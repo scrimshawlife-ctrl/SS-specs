@@ -202,7 +202,7 @@ Persistent candidates:
 - slight trolley-wire sway;
 - asynchronous rooftop fans;
 - traffic-signal cycles;
-- distinct Camera idle scans;
+- distinct Camera status patterns;
 - occasional blinds;
 - bounded paper/plastic wind channels;
 - transit-display refresh;
@@ -226,3 +226,20 @@ Rules:
 - movement remains below gameplay salience;
 - seeded cosmetic events do not enter authoritative state digests;
 - density and device budgets may disable P1/P2 ambience before critical presentation.
+
+
+## 14. Camera destruction motion
+
+Camera motion clips/events:
+
+- `camera_operational_idle` — emissive/status animation only; no translation or rotation
+- `camera_hit` — crack/outline response only; no translation or rotation; detection uninterrupted
+- `camera_critical_enter`
+- `camera_destroy` — ≤ 350 ms
+- `camera_field_off`
+- `camera_destroyed_idle`
+
+The field-off presentation begins from the authoritative destruction event and cannot wait for the destruction clip to finish. No animation callback changes Integrity or Camera functionality. Reduced Motion uses immediate state swaps, short outline changes, and labeled Tamper feedback.
+
+
+Standard Camera position, heading, range, and field angle are immutable. Any housing animation is texture/emissive-only. The renderer must never rotate a Camera field from animation state.
