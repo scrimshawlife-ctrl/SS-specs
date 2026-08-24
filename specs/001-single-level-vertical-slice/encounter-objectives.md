@@ -52,7 +52,7 @@ The Algorithmic Moderate
 Extraction Armed
 ```
 
-All five standard enemy identities must appear across the three mob encounters. Exact composition, counts, statistics, and spawn cadence require the dedicated enemy/encounter tuning contract; they cannot be inferred from Camera progress.
+All five standard enemy identities appear across the three exact wave tables in `enemies-and-encounters.md`. That contract is normative for composition, counts, statistics, spawn cadence, completion, and cleanup.
 
 ## 4. Boss requirement
 
@@ -118,4 +118,4 @@ After arming, the Player must still enter Phoenix Steps and complete the specifi
 
 ## 7. Non-goals
 
-This contract does not yet define enemy statistics, wave counts within each mob encounter, spawn cadence, loot, or exact boss attacks. Those require a separate contract before runtime implementation.
+Enemy statistics and mob waves are defined by `enemies-and-encounters.md`; elite and boss behavior by `bosses.md`; upgrade behavior by `upgrades.md`. Camera progress remains independent.

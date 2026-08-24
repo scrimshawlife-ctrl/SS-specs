@@ -16,6 +16,9 @@ Tasks are ordered. Runtime implementation belongs in the future runtime reposito
 - [ ] T006 Create the runtime repository and link its first commit to the accepted specification SHA.
 - [ ] T007 Establish ruleset, level, replay-schema, asset-schema, arena-schema, and save-schema version policies.
 
+- [x] T008 Lock Exposure, controller, base combat, simulation order, and version identities.
+- [x] T009 Lock Camera socket randomization, enemy/encounter tables, bosses, and upgrades.
+
 ## Phase 1 — Legacy admission
 
 - [ ] T100 Inventory exact source paths for LC-001 through LC-010.

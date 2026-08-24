@@ -110,6 +110,10 @@ The following artifacts are normative:
 - `camera-destruction.md`: per-run fixed Camera behavior, Integrity, targeting, optional Network Blackout, Tamper Exposure, tick order, presentation, receipts, and golden vectors
 - `camera-placement.md`: seeded authored-socket selection, zone quotas, fairness invariants, RNG isolation, schema, receipts, and golden vectors
 - `encounter-objectives.md`: canonical mob, elite/sub-boss, boss, and Extraction objective graph
+- `enemies-and-encounters.md`: exact standard-enemy state machines, statistics, wave tables, spawning, completion, and vectors
+- `bosses.md`: Improper Search Daemon and Algorithmic Moderate phases, attacks, timing, defeat, and vectors
+- `upgrades.md`: protected one-of-three selection and exact Signal Jammer, Ricochet Pulse, and Ghost Step effects
+- `contracts/combat-content-001.json`: machine-readable combat tuning source
 - `visual-production.md`: blockout-first workflow, provenance, intake, review plates, and budgets
 
 Final art begins only after grayscale blockout, collision truth, Camera truth, and dense-frame readability pass.

@@ -10,6 +10,10 @@
     "exposure": "exposure-001",
     "playerController": "player-controller-001",
     "simulationOrder": "simulation-order-001",
-    "cameraPlacement": "camera-placement-001"
+    "cameraPlacement": "camera-placement-001",
+    "enemiesEncounters": "enemies-encounters-001",
+    "upgrades": "upgrades-001",
+    "bosses": "bosses-001",
+    "combatContent": "combat-content-001"
   }
 }

@@ -45,6 +45,11 @@
 | D-043 | Allocate monotonic UInt64 entity IDs, never reuse them, and use them for deterministic ties. | ACCEPTED | Removes collection and RNG dependence from ordering. |
 | D-044 | Use xoshiro256** seeded through SplitMix64, canonical JSON, and SHA-256 for deterministic replay identity. | ACCEPTED | Defines portable RNG and digest behavior before runtime code. |
 | D-045 | Treat the global 18-phase simulation order and four-part version identity as normative. | ACCEPTED | Prevents subsystem-local timing assumptions and incompatible replay execution. |
+| D-046 | Use exactly five standard enemy archetypes with finite state machines and exact M-A/M-B/M-C wave totals of 14/17/25. | ACCEPTED | Creates readable role combinations without runtime-authored content. |
+| D-047 | Force and latch Lockdown when M-C activates. | ACCEPTED | Guarantees the promised Lockdown mastery segment without relying on player mistakes. |
+| D-048 | Offer Signal Jammer, Ricochet Pulse, and Ghost Step once after M-A; choose exactly one while simulation is protected. | ACCEPTED | Gives the run one legible tactical identity and deterministic selection timing. |
+| D-049 | Give the Improper Search Daemon one fixed six-state cycle with no summons, immunity, Camera control, or Exposure effect. | ACCEPTED | Keeps the sub-boss distinct and bounded. |
+| D-050 | Give the Algorithmic Moderate 800 HP, the four verified legacy policy phases, and four finite telegraphed attacks. | ACCEPTED | Preserves canon while making the final fight directly implementable. |
 
 ## Pending evidence decisions
 

@@ -47,6 +47,9 @@ Each criterion requires a linked test, replay fixture, measurement, review plate
 - [ ] B-010 Same-tick Camera destruction removes that Camera contact before continuous Exposure and applies Tamper afterward.
 - [ ] B-011 Simultaneous hits and multi-Camera destruction resolve by stable entity ID without duplicate Tamper.
 - [ ] B-012 CP-001 through CP-010 pass, including RNG-stream isolation and exhaustive layout fairness.
+- [ ] B-013 EN-001 through EN-010 pass with exact encounter totals and spawn fairness.
+- [ ] B-014 UP-001 through UP-010 pass for protected selection and upgrade isolation.
+- [ ] B-015 BO-001 through BO-010 pass for phases, attacks, cancellation, and terminal precedence.
 
 ## Gate C — Stability and performance
 
