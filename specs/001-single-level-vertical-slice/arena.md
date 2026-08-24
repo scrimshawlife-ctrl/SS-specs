@@ -255,24 +255,8 @@ A passing arena must be recognizable as the Civic Seam without using a real land
 - Phoenix Steps as the final destination.
 
 
-## 15. Camera destruction placement contract
+## 15. Camera socket and destruction contract
 
-The arena declares exactly eight standard Camera placements. Each declares:
+The arena provides exactly 18 enabled authored Camera sockets under `camera-placement.md` and `arena-layout.md`. Exactly eight are selected per run with the 2/1/2/2/1 zone quota. Selected geometry remains immutable for the run.
 
-- stable Camera ID and housing family;
-- immutable position, heading, range, and field angle;
-- initial activation state;
-- mount collision, hit shape, field origin, and target anchor;
-- field orientation/range;
-- return-traversal visibility after destruction.
-
-Placement rules:
-
-- The first damageable Camera provides room for three valid base-weapon impacts and teaches the Tamper trade.
-- No required route assumes a Camera will be destroyed.
-- Destroying a Camera may create a safer sightline but never a new collision route.
-- Mount collision remains after destruction.
-- Camera combinations must remain completable if the Player destroys none.
-- The arena must remain completable if the Player destroys all eight standard Cameras.
-- All eight are operational and damageable from run start, though geometry may delay access.
-- Network Blackout is optional and never gates mobs, sub-boss, boss, or Extraction.
+Every legal selection must remain completable with zero or all Cameras destroyed. Mount collision persists after destruction. Network Blackout remains optional and independent of combat and Extraction.
