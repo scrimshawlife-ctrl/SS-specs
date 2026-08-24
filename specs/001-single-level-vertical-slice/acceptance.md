@@ -21,7 +21,7 @@ Each criterion requires a linked test, replay fixture, measurement, review plate
 - [ ] A-010 Extraction countdown visibly resets when the Player leaves.
 - [ ] A-011 Terminal events occur once and obey documented precedence.
 - [ ] A-012 Result records contain all fields required by FR-045.
-- [ ] A-013 Exactly eight standard Cameras exist at fixed authored transforms and fields for the full run.
+- [ ] A-013 Exactly eight standard Cameras are deterministically selected from authored sockets; the same seed/version reproduces them and their transforms/fields remain fixed for the run.
 - [ ] A-013A Every standard Camera transitions 3→2→1→0 from exactly three valid impacts.
 - [ ] A-014 Camera damage does not impair detection before destruction.
 - [ ] A-015 Destruction removes only the destroyed Camera field, persists for the run, and restores on restart.
@@ -46,6 +46,7 @@ Each criterion requires a linked test, replay fixture, measurement, review plate
 - [ ] B-009 CD-001 through CD-014 pass with identical ordered events and state digests.
 - [ ] B-010 Same-tick Camera destruction removes that Camera contact before continuous Exposure and applies Tamper afterward.
 - [ ] B-011 Simultaneous hits and multi-Camera destruction resolve by stable entity ID without duplicate Tamper.
+- [ ] B-012 CP-001 through CP-010 pass, including RNG-stream isolation and exhaustive layout fairness.
 
 ## Gate C — Stability and performance
 

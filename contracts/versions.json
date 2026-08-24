@@ -9,6 +9,7 @@
     "encounterObjectives": "encounter-objectives-001",
     "exposure": "exposure-001",
     "playerController": "player-controller-001",
-    "simulationOrder": "simulation-order-001"
+    "simulationOrder": "simulation-order-001",
+    "cameraPlacement": "camera-placement-001"
   }
 }

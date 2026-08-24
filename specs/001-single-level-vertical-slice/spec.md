@@ -67,7 +67,7 @@ This feature does not include:
 - **FR-014:** Detection State transitions MUST be deterministic and communicated to the player.
 - **FR-015:** Re-entering detection MUST follow documented grace-period and accumulation rules; these values belong to the versioned tuning contract.
 - **FR-016:** Maximum escalation MUST enter Lockdown exactly once per run.
-- **FR-017:** Level 1 MUST contain exactly eight standard Cameras at immutable authored positions, headings, ranges, and field angles; Cameras never pan, rotate, relocate, spawn, activate, or respawn during a run.
+- **FR-017:** Level 1 MUST deterministically select exactly eight standard Cameras per run from versioned authored sockets using `camera-placement.md`; after initialization their positions, headings, ranges, and field angles are immutable, and they never pan, relocate, spawn, activate, or respawn during the run.
 - **FR-017A:** A standard Camera MUST require exactly three valid Player projectile impacts to destroy.
 - **FR-018:** Destroying a Camera MUST permanently remove only that Camera field for the current run and apply exactly +100 Tamper Exposure.
 - **FR-018A:** Destroying all eight Cameras MUST complete optional objective Network Blackout exactly once and MUST NOT alter Extraction eligibility.

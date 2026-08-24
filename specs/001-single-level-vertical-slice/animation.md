@@ -242,4 +242,4 @@ Camera motion clips/events:
 The field-off presentation begins from the authoritative destruction event and cannot wait for the destruction clip to finish. No animation callback changes Integrity or Camera functionality. Reduced Motion uses immediate state swaps, short outline changes, and labeled Tamper feedback.
 
 
-Standard Camera position, heading, range, and field angle are immutable. Any housing animation is texture/emissive-only. The renderer must never rotate a Camera field from animation state.
+After seeded socket selection, each standard Camera's position, heading, range, and field angle are immutable for the run. Any housing animation is texture/emissive-only. The renderer must never rotate a Camera field from animation state.

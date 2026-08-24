@@ -162,7 +162,7 @@ The authoritative tick order relevant to Camera destruction is:
 
 1. consume normalized Player command;
 2. resolve movement and collision;
-3. read each Camera's immutable authored position, heading, range, and field angle;
+3. read each Camera's immutable run-selected socket position, heading, range, and field angle;
 4. sample Camera detection contacts;
 5. select automatic-attack target and create eligible projectiles;
 6. advance projectiles and collect collisions;
@@ -278,7 +278,7 @@ Repeated impacts coalesce to prevent mix overload. Audio is supportive and never
 
 ## 14. Optional objective: Network Blackout
 
-Level 1 contains exactly eight standard Cameras. All eight are authored at run start, operational, stationary, and accessible before Extraction.
+Level 1 contains exactly eight standard Cameras selected deterministically at initialization under `camera-placement.md`. All eight are operational, stationary after selection, and accessible before Extraction.
 
 Objective state:
 
@@ -298,7 +298,7 @@ Rules:
 - Network Blackout is an optional secondary objective.
 - It is never an Extraction prerequisite.
 - Extraction remains valid with 0–7 Cameras destroyed.
-- No Camera spawns, activates, repairs, relocates, rotates, or respawns during the run.
+- After initialization, no Camera spawns, activates, repairs, relocates, rotates, rerolls, or respawns during the run.
 - Completion grants a result-screen accolade and receipt field only; it grants no combat power, loot, score multiplier, or progression in SS-001.
 - The HUD counter is visible after the first Camera is damaged and may be pinned through settings.
 - If the Player extracts without completing it, the receipt reports partial progress.
@@ -343,7 +343,7 @@ Telemetry is local receipt data only. No external analytics or network submissio
 - Camera is destroyed while detecting: its continuous contribution is removed before Exposure accumulation; Tamper remains.
 - Camera is destroyed at Exposure 950: Exposure becomes 1000 and Lockdown triggers.
 - Camera is destroyed at Exposure 1000: Exposure remains 1000; destruction is still recorded.
-- Restart after destruction: all eight Cameras restore Operational state at their immutable authored transforms.
+- Restart after destruction: all eight Cameras restore Operational state at the same deterministic selected sockets for the same seed and versions.
 - Player dies on the destruction tick: failure outcome stands; destruction remains in the terminal receipt.
 - Destroyed Camera mount blocks a path: mount collision remains exactly as before destruction.
 - Camera field VFX lingers from interpolation: renderer must clear it within the same presented authoritative update; lingering field is a presentation defect.
@@ -388,4 +388,4 @@ SS-001 does not include:
 - achievements that encourage farming;
 - a separate infrastructure-alarm meter;
 - manual aiming or tap-to-target solely for Cameras;
-- rotating, panning, patrolling, relocating, spawning, or dynamically activated Cameras.
+- mid-run rotating, panning, patrolling, relocating, spawning, rerolling, or dynamically activated Cameras.

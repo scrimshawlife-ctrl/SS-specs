@@ -152,7 +152,7 @@ Exact entity ceilings require runtime profiling on the iPhone 12 performance flo
 
 ## 7. Surveillance geometry
 
-Camera placement follows a grammar:
+Authored Camera sockets and every seeded selection follow this grammar:
 
 1. **Teach** one isolated field.
 2. **Test** with cover.
@@ -161,7 +161,7 @@ Camera placement follows a grammar:
 5. **Escalate** through timing or pressure, not invisible range changes.
 6. **Master** through Captain interactions with known Camera behavior.
 
-Camera range, field angle, rotation, and occlusion are data. Visual fields render from the same data. Decorative lights may not use the same wedge language.
+Camera socket position, range, field angle, heading, and occlusion are data. Eight sockets are selected at initialization under `camera-placement.md`; selected Cameras remain fixed. Visual fields render from the same data. Decorative lights may not use the same wedge language.
 
 ## 8. Spawn fairness
 

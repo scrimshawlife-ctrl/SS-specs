@@ -57,7 +57,8 @@ Tasks are ordered. Runtime implementation belongs in the future runtime reposito
 - [ ] T405 Implement Guard and Interceptor blockouts with distinct silhouettes.
 - [ ] T406 Profile peak density on iPhone 12 and decide D-021 ceilings.
 - [ ] T407 Validate spawn fairness and visual escape corridors.
-- [ ] T408 Author exactly eight stationary Cameras and assert immutable position, heading, range, and field angle.
+- [ ] T408 Author at least 18 Camera sockets; deterministically select exactly eight by seed/quota and assert selected transforms/fields remain immutable.
+- [ ] T408B Exhaustively validate every legal Camera selection and implement CP-001 through CP-010.
 - [ ] T408A Implement Camera Integrity 3→2→1→0 and exact damage eligibility.
 - [ ] T409 Implement Camera-aware automatic-target priority and stable tie-breaking.
 - [ ] T410 Implement destruction contact removal, +100 Tamper, and Lockdown transition order.
