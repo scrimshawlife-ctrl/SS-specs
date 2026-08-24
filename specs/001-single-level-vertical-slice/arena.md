@@ -2,7 +2,7 @@
 
 Status: BASELINE  
 Feature: SS-001  
-Arena version: `sf-arena-001`
+Arena version: `civic-seam-arena-001`
 
 ## 1. Arena thesis
 
@@ -16,9 +16,11 @@ The arena teaches through spatial sequence:
 
 ## 2. Coordinate and footprint contract
 
+Exact coordinates, solids, gates, triggers, spawn sockets, Camera sockets, boss emitters, viewport values, and Extraction geometry are normative in `arena-layout.md` and `contracts/civic-seam-arena-001.json`.
+
 - Authoring grid: 64 world units.
 - Baseline arena extent: 36 × 24 cells, or 2304 × 1536 world units.
-- Final extent may vary by at most 15% after playtesting without a level-version change.
+- Extent is fixed at 36 × 24 cells for `civic-seam-arena-001`; any dimension or authoritative geometry change requires an arena-version change.
 - Traversable primary paths: minimum 3 cells wide.
 - Combat circulation loops: minimum 4 cells wide at pressure points.
 - Protected Spawn Alley: no hostile spawn and no damaging Camera contact.

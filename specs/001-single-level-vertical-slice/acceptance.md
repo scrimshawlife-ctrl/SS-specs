@@ -109,6 +109,10 @@ Run three consecutive complete runs on a physical iPhone 12 or approved no-bette
 - [ ] E-014 All seven zones are distinguishable by massing and material language.
 - [ ] E-015 Apparent grade, stairs, and pitched vehicles do not create false movement or ballistic expectations.
 - [ ] E-016 Phoenix Steps are visually unique and readable as the final destination.
+- [ ] E-017 AR-001 through AR-010 pass against the canonical arena manifest.
+- [ ] E-018 Manifest contains exactly 7 zones, 14 permanent solids, 5 gates, and 18 valid Camera sockets.
+- [ ] E-019 Extraction requires 300 consecutive in-zone ticks and resets immediately on exit.
+- [ ] E-020 Every coordinate, socket, trigger, and solid is in bounds and schema-valid.
 
 ## Gate F — Accessibility and comprehension
 

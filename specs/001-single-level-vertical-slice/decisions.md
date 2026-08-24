@@ -50,6 +50,10 @@
 | D-048 | Offer Signal Jammer, Ricochet Pulse, and Ghost Step once after M-A; choose exactly one while simulation is protected. | ACCEPTED | Gives the run one legible tactical identity and deterministic selection timing. |
 | D-049 | Give the Improper Search Daemon one fixed six-state cycle with no summons, immunity, Camera control, or Exposure effect. | ACCEPTED | Keeps the sub-boss distinct and bounded. |
 | D-050 | Give the Algorithmic Moderate 800 HP, the four verified legacy policy phases, and four finite telegraphed attacks. | ACCEPTED | Preserves canon while making the final fight directly implementable. |
+| D-051 | Freeze Level 1 at 2304 × 1536 world units using a 64-unit, 36 × 24 authoring grid. | ACCEPTED | Makes collision, sockets, camera framing, and asset scale directly implementable. |
+| D-052 | Use exactly 14 permanent solids, five encounter gates, and the versioned spawn/trigger sockets in the arena manifest. | ACCEPTED | Replaces design stubs with executable geometry. |
+| D-053 | Require 300 consecutive ticks inside Phoenix Steps for Extraction and reset immediately on exit. | ACCEPTED | Defines the final survival test without ambiguous timing. |
+| D-054 | Use three fixed, cyclic Captain Camera emitter anchors independent of the 18 standard Camera sockets. | ACCEPTED | Keeps boss attack geometry deterministic and outside Network Blackout. |
 
 ## Pending evidence decisions
 

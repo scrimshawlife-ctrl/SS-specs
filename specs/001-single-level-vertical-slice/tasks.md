@@ -18,6 +18,7 @@ Tasks are ordered. Runtime implementation belongs in the future runtime reposito
 
 - [x] T008 Lock Exposure, controller, base combat, simulation order, and version identities.
 - [x] T009 Lock Camera socket randomization, enemy/encounter tables, bosses, and upgrades.
+- [x] T010 Lock exact arena coordinates, solids, gates, triggers, sockets, emitters, viewport, and Extraction geometry.
 
 ## Phase 1 — Legacy admission
 

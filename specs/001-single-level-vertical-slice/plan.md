@@ -106,7 +106,10 @@ The following artifacts are normative:
 
 - `visual-assets.md`: art direction, inventory, palette roles, VFX, HUD, atlases, and validation
 - `animation.md`: state machines, clip metadata, telegraphs, event alignment, and reduced motion
-- `arena.md`: 36 × 24-cell baseline arena, seven zones, pacing, navigation, surveillance, and spawn fairness
+- `arena.md`: arena intent, seven-zone topology, pacing, navigation, surveillance, and spawn fairness
+- `arena-layout.md`: exact coordinate semantics, geometry, gates, sockets, Extraction timing, viewport, and vectors
+- `contracts/civic-seam-arena-001.json`: executable Level 1 geometry and socket source
+- `contracts/civic-seam-arena-001.schema.json`: structural arena-manifest validation
 - `camera-destruction.md`: per-run fixed Camera behavior, Integrity, targeting, optional Network Blackout, Tamper Exposure, tick order, presentation, receipts, and golden vectors
 - `camera-placement.md`: seeded authored-socket selection, zone quotas, fairness invariants, RNG isolation, schema, receipts, and golden vectors
 - `encounter-objectives.md`: canonical mob, elite/sub-boss, boss, and Extraction objective graph
