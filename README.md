@@ -4,7 +4,7 @@ Canonical specifications for the one-level reboot of **Surveillance Survivor**.
 
 ## Product thesis
 
-Surveillance Survivor is a deterministic, top-down survival action game in which surveillance is an active systemic threat. The first release contains one polished San Francisco level. The player must manage Exposure, survive escalating enforcement, defeat the Response Captain, and reach Extraction.
+Surveillance Survivor is a deterministic, top-down survival action game in which surveillance is an active systemic threat. The first release contains one polished San Francisco level. The player must manage Exposure, survive escalating enforcement, defeat the Algorithmic Moderate, and reach Extraction.
 
 ## Canonical sequence
 
