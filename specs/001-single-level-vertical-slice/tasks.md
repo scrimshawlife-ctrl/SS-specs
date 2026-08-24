@@ -11,8 +11,8 @@ Tasks are ordered. Runtime implementation belongs in the future runtime reposito
 - [x] T001 Record 60 Hz simulation and physical-device frame-time thresholds.
 - [x] T002 Reserve `scrimshawlife-ctrl/SS` as the future runtime repository identity.
 - [x] T003 Define visual, animation, arena, production, and accessibility baselines.
-- [ ] T004 Resolve the immutable legacy head and create annotated tag `legacy-multicity-2026-08-23`.
-- [ ] T005 Complete cross-artifact consistency and specification-quality review.
+- [ ] T004 Create annotated legacy-repository tag `legacy-multicity-2026-08-24` at accepted SHA `3b20d88d6a6e1fe8f07f45f581359d371fa65d98`.
+- [x] T005 Complete cross-artifact consistency and specification-quality review.
 - [ ] T006 Create the runtime repository and link its first commit to the accepted specification SHA.
 - [ ] T007 Establish ruleset, level, replay-schema, asset-schema, arena-schema, and save-schema version policies.
 
@@ -23,11 +23,11 @@ Tasks are ordered. Runtime implementation belongs in the future runtime reposito
 
 ## Phase 1 — Legacy admission
 
-- [ ] T100 Inventory exact source paths for LC-001 through LC-010.
+- [x] T100 Record observed immutable legacy paths and evidence limits for LC-001 through LC-010.
 - [ ] T101 Recover tests and dependency boundaries for deterministic kernel candidates.
-- [ ] T102 Classify campaign, procedural district, challenge, and non-SF content as excluded.
+- [x] T102 Classify campaign, procedural district, challenge, and non-SF content as excluded.
 - [ ] T103 Classify SF assets individually with provenance and runtime relevance.
-- [ ] T104 Record ADMIT, ADAPT, REWRITE, or REJECT for every candidate.
+- [x] T104 Record ADMIT, ADAPT, REWRITE, or REJECT for every candidate.
 - [ ] T105 Stop legacy migration when any copied source lacks an approved record.
 
 ## Phase 2 — Deterministic kernel

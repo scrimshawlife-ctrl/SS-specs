@@ -56,7 +56,7 @@ Purpose: combine surveillance, Guards, auto-attack, and circulation.
 - Central open pressure space with a perimeter loop.
 - At least three exits remain visually distinguishable.
 - Cover islands interrupt sight without creating collision traps.
-- Guard spawn regions cannot enter the current viewport.
+- Standard-enemy spawn sockets cannot enter the current viewport.
 - Player must be able to circle the plaza without reversing through a dead end.
 
 ### Z-04 Pressure Route — Service Seam
@@ -75,7 +75,7 @@ Purpose: convert accumulated Exposure into explicit escalation.
 
 - Boundary closure is communicated before it becomes authoritative.
 - At least two circulation loops remain after barriers engage.
-- Interceptor entry directions are telegraphed.
+- Standard-enemy entry directions are telegraphed.
 - The player is never locked into a space narrower than the minimum combat width.
 - Lockdown does not erase the player's learned map.
 
@@ -131,8 +131,7 @@ Density increases through composition, not uncontrolled entity count.
 
 Each encounter configuration MUST declare:
 
-- maximum active Guard count;
-- maximum active Interceptor count;
+- maximum active standard-enemy count by archetype;
 - maximum active projectiles;
 - maximum simultaneous telegraphs;
 - spawn cadence;

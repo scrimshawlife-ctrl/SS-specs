@@ -1,7 +1,8 @@
 # Surveillance Survivor Constitution
 
-Version: 1.0.0  
-Ratified: 2026-08-23
+Version: 1.1.0  
+Ratified: 2026-08-23  
+Amended: 2026-08-24
 
 ## Article I — One complete level
 
@@ -25,7 +26,7 @@ The player MUST be able to understand why detection, damage, escalation, upgrade
 
 ## Article V — Minimal meaningful content
 
-The first slice is limited to one player, one map, two standard enemy roles, one Response Captain, one base weapon, three upgrades, one Exposure system, one extraction objective, and one result screen. New content MUST replace or materially improve an existing responsibility unless the constitution is amended.
+The first slice is limited to one player, one map, five standard enemy archetypes, one elite/sub-boss, one boss, one base weapon, three upgrades, one Exposure system, one extraction objective, and one result screen. New content MUST replace or materially improve an existing responsibility unless the constitution is amended.
 
 ## Article VI — Legacy code is evidence, not authority
 

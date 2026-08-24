@@ -1,72 +1,52 @@
 # Legacy Component Admission
 
-Status: INVENTORY_PENDING
+Status: EVALUATED_WITH_LIMITS  
+Provenance date: 2026-08-24
 
-## Purpose
+## Immutable source
 
-This artifact prevents accidental architectural inheritance. The legacy runtime is evidence and a source of candidates. It is not the canonical design.
+- Repository: `scrimshawlife-ctrl/Surveillance-Survivor`
+- Source commit: `3b20d88d6a6e1fe8f07f45f581359d371fa65d98`
+- Reference label: `legacy-multicity-2026-08-24` (specification label; annotated repository tag not yet created)
+- Observed core path: `Sources/SurveillanceCore/Simulation.swift`
+- Observed policy path: `Sources/SurveillanceCore/SanFranciscoPolicyPhase.swift`
+- Observed content path: `Sources/SurveillanceCore/Resources/bosses.json`
+- Build environment and complete test result at this SHA: NOT_COMPUTABLE from available evidence
+- Known product defect: legacy scope and systems are too broad and internally coupled for the one-level reboot
 
-## Immutable source requirement
+No legacy file may be copied wholesale. The commit is evidence only.
 
-Before analysis, record:
+## Decisions
 
-- Repository URL
-- Commit SHA or release tag
-- Build environment
-- Test command and result
-- Known runtime defects
-- Provenance date
+| ID | Candidate | Decision | Evidence and boundary | Runtime destination |
+|---|---|---|---|---|
+| LC-001 | Seeded randomness | REWRITE | Legacy injects deterministic RNG, but SS-001 fixes xoshiro256**/SplitMix64 and isolated streams. Algorithm compatibility is not established. | Determinism/RNG |
+| LC-002 | Simulation timing | ADAPT | `Simulation.swift` has validated 1/60 fixed step and prevents wall-clock stepping. Retain behavior, replace surrounding state. | SimulationClock |
+| LC-003 | Player movement | ADAPT | Legacy direct analog throttle and X-then-Y obstacle slide are observed and match `player-controller-001`; replace floating numeric authority. | MovementSystem |
+| LC-004 | Camera LOS | REWRITE | Legacy sensor geometry is useful evidence, but rotating/multiple sensor archetypes conflict with stationary seeded sockets and exact Exposure. | DetectionSystem |
+| LC-005 | Projectile pool/lifecycle | ADAPT | Legacy lifecycle reset and projectile-origin handling are useful patterns; authoritative IDs and storage must follow new contracts. | CombatSystem/ProjectileStore |
+| LC-006 | Combat resolution | ADAPT | Swept-circle earliest-hit and stable-ID tie behavior are observed and fit; rewrite numeric layer, target classes, damage tables, and event emission. | CombatSystem |
+| LC-007 | Enemy behaviors | REWRITE | Legacy generalized guard/boss catalogs do not implement the five exact Level 1 state machines. | EnemySystem |
+| LC-008 | Extraction logic | REWRITE | Legacy boss/Blind Spot flow does not implement the required three mobs → elite → boss → 300-tick Phoenix Steps predicate. | ObjectiveSystem |
+| LC-009 | Visual assets | REJECT | Wholesale admission lacks per-asset provenance and conflicts with the new Civic Seam inventory. An individual asset may return only through the new asset-record process. | VisualCatalog |
+| LC-010 | Audio assets | REJECT | Legacy clips are not proven against the new event IDs, priority, coalescence, license, and accessibility contract. | AudioProjector |
 
-Until these fields are populated, all candidate statuses are `NOT_EVALUATED`.
+## Verified legacy behavior retained as specification evidence
 
-## Admission schema
+- fixed 60 Hz simulation;
+- direct analog movement throttle;
+- X-then-Y solid collision slide;
+- predictive projectile intercept with direct-aim fallback;
+- swept projectile collision with earliest-hit and stable-ID ties;
+- additive simultaneous Camera pressure;
+- four Algorithmic Moderate policy-phase identities and verified ratios.
 
-| Field | Required content |
-|---|---|
-| Candidate ID | Stable identifier |
-| Source | Exact legacy path and commit |
-| Responsibility | One bounded behavior |
-| Dependencies | Imports, globals, assets, runtime assumptions |
-| Evidence | Tests, observed output, or reproducible probe |
-| Determinism risks | Time, randomness, ordering, floating point, scene graph authority |
-| Contract fit | Requirement IDs satisfied or violated |
-| Decision | ADMIT, ADAPT, REWRITE, or REJECT |
-| Destination | New module and ownership |
-| Verification | New tests and acceptance evidence |
-
-## Initial candidate queue
-
-| ID | Candidate | Initial state | Intended evaluation |
-|---|---|---|---|
-| LC-001 | Seeded randomness | NOT_EVALUATED | Sequence stability and injection |
-| LC-002 | Simulation timing | NOT_EVALUATED | Fixed-step fitness |
-| LC-003 | Player movement | NOT_EVALUATED | Input separation and collision |
-| LC-004 | Camera line-of-sight | NOT_EVALUATED | Geometry truth and occlusion |
-| LC-005 | Projectile pool | NOT_EVALUATED | Complete lifecycle reset |
-| LC-006 | Combat resolution | NOT_EVALUATED | Ordering and attribution |
-| LC-007 | Enemy behaviors | NOT_EVALUATED | Scene coupling and determinism |
-| LC-008 | Extraction logic | NOT_EVALUATED | Preconditions and single completion |
-| LC-009 | Visual assets | NOT_EVALUATED | License, performance, and style |
-| LC-010 | Audio assets | NOT_EVALUATED | License, mixing, and event coupling |
+These are design provenance, not permission to copy code.
 
 ## Default exclusions
 
-The following are rejected unless a later specification creates a proven need:
+City selection, ten-city campaign authority, district procedural generation, challenge systems, generalized city profiles, legacy upgrade catalog, multiple characters, inventory/crafting, global state containers, store-launch scope, and non-SF runtime assets are REJECTED for SS-001.
 
-- City selection
-- Multi-level coordinators
-- Campaign progression
-- Procedural map generation
-- Generalized content abstractions
-- Multiple player characters
-- Inventory and crafting
-- Legacy global state containers
+## Copy gate
 
-## Decision meanings
-
-- **ADMIT:** Behavior and architecture fit; port with tests.
-- **ADAPT:** Useful bounded logic exists but must be separated or corrected.
-- **REWRITE:** Requirement remains, implementation is unsuitable.
-- **REJECT:** Neither implementation nor responsibility belongs in SS-001.
-
-No source file may be copied before its row contains an evidence-backed decision.
+A runtime pull request that copies or ports legacy source must cite the candidate ID, exact source lines at the frozen commit, destination contract, and new tests. REWRITE and REJECT decisions prohibit source copying. ADAPT permits bounded reimplementation after review, not file transfer.

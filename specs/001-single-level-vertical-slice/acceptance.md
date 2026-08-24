@@ -50,6 +50,8 @@ Each criterion requires a linked test, replay fixture, measurement, review plate
 - [ ] B-013 EN-001 through EN-010 pass with exact encounter totals and spawn fairness.
 - [ ] B-014 UP-001 through UP-010 pass for protected selection and upgrade isolation.
 - [ ] B-015 BO-001 through BO-010 pass for phases, attacks, cancellation, and terminal precedence.
+- [ ] B-016 `fixtures/kernel-vectors-001.json` and `replay-smoke-001.json` pass unchanged on every supported architecture.
+- [ ] B-017 Every accepted runtime asset has one schema-valid provenance record and SHA-256.
 
 ## Gate C — Stability and performance
 

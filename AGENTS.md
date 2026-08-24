@@ -17,7 +17,7 @@ Do not place implementation details in the product specification unless they are
 
 ## Ubiquitous language
 
-Use the terms defined in `specs/001-single-level-vertical-slice/spec.md`. Do not create synonyms for Exposure, Detection State, Lockdown, Response Captain, or Extraction.
+Use the terms defined in `specs/001-single-level-vertical-slice/spec.md`. Do not create synonyms for Exposure, Detection State, Lockdown, Algorithmic Moderate, or Extraction.
 
 ## Evidence
 

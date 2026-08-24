@@ -42,9 +42,9 @@ Rules:
 `living → hurt`  
 `living → defeat`
 
-Enemy roles MUST have different anticipation silhouettes and cadences. A Guard attack and Interceptor attack must be distinguishable before commit.
+Enemy roles MUST have different anticipation silhouettes and cadences. Fog pulse, Correlator charge, Signal Witch cast, Informant pursuit, and Vendor throw must be distinguishable before commit.
 
-### Response Captain
+### Improper Search Daemon and Algorithmic Moderate
 
 The Captain uses a finite vocabulary:
 
@@ -87,25 +87,25 @@ Missing required metadata fails intake.
 |---|---:|---:|
 | Idle | 4 | 600–1000 ms loop |
 | Standard move | 6 | 400–650 ms loop |
-| Interceptor move | 6 | 280–450 ms loop |
+| Fast enemy move | 6 | 280–450 ms loop |
 | Dodge/Ghost Step | 4 | 180–300 ms |
 | Hurt | 2–3 | 100–220 ms |
 | Standard attack anticipation | 2–4 | ≥ 250 ms |
 | Standard attack commit | 1–2 | event-aligned |
 | Standard defeat | 4–6 | 300–600 ms |
-| Captain basic anticipation | 4–8 | ≥ 450 ms |
-| Captain major anticipation | 6–12 | ≥ 700 ms |
-| Captain phase change | 6–10 | 600–1000 ms |
+| Boss basic anticipation | 4–8 | ≥ 450 ms |
+| Boss major anticipation | 6–12 | ≥ 700 ms |
+| Boss phase change | 6–10 | 600–1000 ms |
 | Extraction | 6–10 | countdown-aligned |
 
 These are production ranges, not simulation rules. Playtest evidence may tune them while preserving required warning windows.
 
 ## 6. Direction and mirroring
 
-- Player, Guard, and Interceptor require four-direction readability.
+- Player and all five standard enemy archetypes require four-direction readability.
 - Eight-direction movement may be projected from four authored directions.
 - Mirroring is allowed only when asymmetrical equipment, text, insignia, lighting, or attack handedness remains correct.
-- Captain attacks that depend on handedness require authored or procedurally correct direction variants.
+- Boss attacks that depend on handedness require authored or procedurally correct direction variants.
 - Anchors must remain stable across mirrored clips.
 
 ## 7. Telegraph contract

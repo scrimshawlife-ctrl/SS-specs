@@ -26,7 +26,7 @@ This contract applies to standard Level 1 Camera entities:
 
 Housing family changes appearance only. All five use the same destruction rules.
 
-The **Captain Camera** is an attack emitter owned by the Response Captain. It is not a standard Camera entity and is not independently destructible in SS-001.
+The **Captain Camera** is an attack emitter owned by the Algorithmic Moderate. It is not a standard Camera entity and is not independently destructible in SS-001.
 
 ## 3. Canonical constants
 
@@ -87,7 +87,7 @@ Every valid impact removes exactly one Integrity point. Player damage statistics
 The following cannot damage Cameras:
 
 - contact with the Player;
-- Guard, Interceptor, or Captain attacks;
+- standard-enemy, elite, or boss attacks;
 - Camera fields;
 - Ghost Step;
 - Signal Jammer;

@@ -30,7 +30,7 @@ When the frame becomes dense, salience MUST resolve in this order:
 | 2 | Lethal telegraph and projectile | Shape, motion, outline, and high local contrast |
 | 3 | Extraction and critical objective | Stable icon plus directional cue |
 | 4 | Camera field and current detection | Procedural geometry plus boundary pattern |
-| 5 | Response Captain | Scale, silhouette, persistent boss marker |
+| 5 | Algorithmic Moderate | Scale, silhouette, persistent boss marker |
 | 6 | Standard enemies | Role-readable silhouettes |
 | 7 | Drops and upgrade affordances | Compact pulse and icon |
 | 8 | Environment interactables | Contextual rim or icon |
@@ -64,8 +64,8 @@ Color MUST NOT be the only state carrier. Critical adjacent UI contrast MUST tar
 - Authoring grid: 64 logical world units.
 - One traversal cell: 64 × 64 units.
 - Canonical actor footprint: 28–36 units in diameter.
-- Canonical visual sprite box: 64 × 64 pixels for Player, Guard, and Interceptor.
-- Response Captain visual box: 96 × 96 pixels.
+- Canonical visual sprite box: 64 × 64 pixels for Player and standard enemies.
+- Improper Search Daemon visual box: 80 × 80 pixels. Algorithmic Moderate visual box: 96 × 96 pixels.
 - Camera pole box: 64 × 96 pixels.
 - Large environment modules: multiples of 64 pixels.
 - Texture filtering: nearest-neighbor for pixel assets.
@@ -90,13 +90,17 @@ Sprites may exceed their collision footprint for hats, coats, weapons, or antenn
 
 ### Enemies
 
-Each standard enemy requires idle, move, attack/commit, hurt, and defeat presentation. Guard and Interceptor MUST have different silhouettes at thumbnail scale.
+Each standard enemy requires idle, move, attack/commit, hurt, and defeat presentation. All five canonical archetypes MUST have different silhouettes at thumbnail scale.
 
 | Role | Visual identity |
 |---|---|
-| Guard | broad torso, shield/flashlight block, deliberate stride |
-| Interceptor | forward lean, narrow body, high-frequency leg silhouette |
-| Response Captain | at least 1.5× visual mass, official insignia shape, unique head/shoulder profile |
+| Fog Analytics Cloud | suspended clustered mass, soft perimeter, obvious pulse aperture |
+| Cable-Car Correlator | long forward chassis, rail/route motif, committed charge axis |
+| Sutro Signal Witch | tall narrow mast silhouette, cast antenna, ranged posture |
+| Autonomous Informant | forward lean, narrow body, high-frequency leg silhouette |
+| Victorian Vendor | broad loaded torso, receipt/projector appendage, deliberate stride |
+| Improper Search Daemon | 1.25× mass, query apertures, dash-axis silhouette |
+| Algorithmic Moderate | at least 1.5× mass, official geometric insignia, unique head/shoulder profile |
 
 ### Surveillance and objectives
 
@@ -105,7 +109,7 @@ Each standard enemy requires idle, move, attack/commit, hurt, and defeat present
 - Camera acquisition reticle
 - Exposure state glyphs
 - Extraction locked, armed, active, interrupted, and complete states
-- Captain health frame and phase markers
+- Boss health frame and phase markers
 - Directional objective arrow
 - Upgrade icons: Signal Jammer, Ricochet Pulse, Ghost Step
 
@@ -217,7 +221,7 @@ Naming:
 
 Example:
 
-`actor_guard_move_ne_03@1x.png`
+`actor_autonomous_informant_move_ne_03@1x.png`
 
 Each source asset record MUST include:
 

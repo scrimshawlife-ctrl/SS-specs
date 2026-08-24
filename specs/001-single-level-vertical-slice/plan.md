@@ -122,6 +122,9 @@ The following artifacts are normative:
 - `events-receipts-replays.md`: event ordering, receipt persistence, replay validation, and results
 - `contracts/event-001.schema.json` and `event-catalog-001.json`: authoritative event envelope and payload catalog
 - `contracts/run-receipt-001.schema.json`: terminal receipt envelope
+- `contracts/asset-record-001.schema.json`: fail-closed provenance and runtime asset intake record
+- `fixtures/kernel-vectors-001.json` and `fixtures/replay-smoke-001.json`: initial implementation fixtures
+- `completeness-audit.md`: runtime creation gate and evidence boundary
 - `contracts/presentation-assets-001.json`: required runtime-facing HUD, telegraph, objective, and audio IDs
 - `visual-production.md`: blockout-first workflow, provenance, intake, review plates, and budgets
 

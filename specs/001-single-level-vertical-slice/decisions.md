@@ -64,7 +64,7 @@
 
 | ID | Question | Status |
 |---|---|---|
-| D-013 | What exact legacy `main` commit and annotated tag define the immutable migration source? | DECISION_PENDING |
+| D-013 | Freeze legacy evidence at `3b20d88d6a6e1fe8f07f45f581359d371fa65d98` under reference label `legacy-multicity-2026-08-24`. | ACCEPTED | Establishes immutable migration provenance; creating an annotated legacy-repository tag remains an operational task. |
 | D-020 | Which available physical devices will serve as approved equivalents for the four device classes? | DECISION_PENDING |
 | D-021 | What exact profiled enemy, projectile, particle, atlas-memory, and resident-memory ceilings pass on iPhone 12? | DECISION_PENDING |
 

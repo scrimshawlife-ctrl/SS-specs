@@ -2,12 +2,12 @@
 
 Status: BASELINE  
 Feature ID: SS-001  
-Ruleset version: `ruleset-001`  
-Level version: `sf-001`
+Ruleset version: `ss-rules-001`  
+Arena version: `civic-seam-arena-001`
 
 ## 1. Product intent
 
-Create a small, complete survival action game whose distinctive pressure comes from being observed. The player crosses **The Civic Seam**, a compressed fictional San Francisco district organized around a diagonal transit spine where civic, residential, and service grids collide, develops one of three tactical strengths, survives a Lockdown, defeats the Response Captain, and reaches extraction.
+Create a small, complete survival action game whose distinctive pressure comes from being observed. The player crosses **The Civic Seam**, a compressed fictional San Francisco district organized around a diagonal transit spine where civic, residential, and service grids collide, develops one of three tactical strengths, survives a Lockdown, defeats the Algorithmic Moderate, and reaches extraction.
 
 ## 2. Non-goals
 
@@ -30,9 +30,9 @@ This feature does not include:
 | Exposure | Bounded authoritative value representing accumulated surveillance pressure. |
 | Detection State | `hidden`, `observed`, `tracked`, `hunted`, or `lockdown`. |
 | Camera | Static destructible infrastructure observer with visible line-of-sight geometry. |
-| Guard | Standard pursuer that responds to current authoritative state. |
-| Interceptor | Faster pressure enemy introduced after escalation. |
-| Response Captain | The single boss whose defeat unlocks final extraction. |
+| Standard enemy | One of the five canonical archetypes in `enemies-and-encounters.md`. |
+| Improper Search Daemon | Required elite/sub-boss after the three mob encounters. |
+| Algorithmic Moderate | The single boss whose defeat completes Combat Authority. |
 | Lockdown | Maximum escalation phase triggered by the specified Exposure threshold or encounter progression. |
 | Extraction | Final objective that completes a successful run after its prerequisites and survival countdown. |
 | Upgrade | One of exactly three run-local choices that visibly alters play. |
@@ -43,10 +43,10 @@ This feature does not include:
 
 1. **Spawn Alley / Residential Wedge** teaches movement without damage pressure.
 2. **Camera Corridor / Transit Cut** introduces visible detection geometry and breaking line of sight.
-3. **Civic Plaza** combines cameras and Guards.
+3. **Civic Plaza** combines Cameras with the first standard-enemy roles.
 4. **Pressure Route / Service Seam** permits a stealth-favored or combat-favored approach without branching the ending.
-5. **Lockdown / Grid Junction** raises pressure and introduces Interceptors.
-6. **Captain Encounter / Deco Authority Court** tests movement, Exposure control, and combat.
+5. **Lockdown / Grid Junction** forces Lockdown and tests the full standard-enemy roster.
+6. **Algorithmic Moderate / Deco Authority Court** tests movement, Exposure control, and combat.
 7. **Extraction Platform / Phoenix Steps** requires a final survival countdown and ends the run.
 
 ## 5. Functional requirements
@@ -77,8 +77,8 @@ This feature does not include:
 
 - **FR-020:** The player MUST have one automatic base attack whose target-selection rule is deterministic.
 - **FR-021:** Damage MUST identify its visible source or communicated hazard.
-- **FR-022:** Guards MUST not spawn inside blocking geometry or within the protected spawn area.
-- **FR-023:** Interceptors MUST appear only after their documented escalation condition.
+- **FR-022:** Standard enemies MUST spawn only from valid authored sockets outside blocking geometry and the protected spawn area.
+- **FR-023:** Every standard enemy, elite, and boss behavior MUST conform to the exact activation and state-machine contracts.
 - **FR-024:** Projectiles MUST be safely reusable without retaining state from a prior lifecycle.
 - **FR-025:** Enemy removal, player damage, and death MUST occur at deterministic simulation boundaries.
 - **FR-026:** The Algorithmic Moderate MUST use a readable, finite attack vocabulary and MUST be defeatable with every valid upgrade path.
