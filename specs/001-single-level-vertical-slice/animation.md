@@ -2,7 +2,7 @@
 
 Status: BASELINE  
 Feature: SS-001  
-Animation version: `animation-sf-001`
+Animation version: `animation-civic-seam-001`
 
 ## 1. Principle
 
