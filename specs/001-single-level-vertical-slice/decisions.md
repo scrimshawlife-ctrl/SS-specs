@@ -37,6 +37,14 @@
 | D-035 | Destroying all eight completes optional objective Network Blackout; it is never required for Extraction. | ACCEPTED | Separates surveillance mastery from mandatory combat progression. |
 | D-036 | Extraction requires three mob encounters, The Improper Search Daemon, and The Algorithmic Moderate. | ACCEPTED | Preserves canonical San Francisco enemy lore and makes combat authority the primary gate. |
 | D-037 | Preserve the Algorithmic Moderate phases: Public Safety, Civil Liberties, Temporary Safeguard, Independent Review. | ACCEPTED | Carries forward verified canonical boss identity without importing the ten-city campaign. |
+| D-038 | Use integer Exposure 0–1000 with thresholds 200/450/700/1000, additive Camera contact capped at +5/tick, a 60-tick grace, and −2/tick recovery. | ACCEPTED | Makes the defining system directly implementable and golden-testable. |
+| D-039 | Latch Lockdown at 1000 for the remainder of the run. | ACCEPTED | Preserves maximum escalation as a one-way run state. |
+| D-040 | Use direct analog Player speed of 240 world units/second and deterministic axis-separated collision sliding. | ACCEPTED | Retains responsive proven legacy behavior with exact numeric rules. |
+| D-041 | Include a baseline 12-tick dodge at 480 world units/second on a 120-tick cooldown, without default immunity. | ACCEPTED | Gives touch movement one explicit escape action while preserving Ghost Step's upgrade role. |
+| D-042 | Start with Civic Pulse: 10 enemy damage, 30-tick cadence, 512 range, and a 720-unit/second swept projectile. | ACCEPTED | Locks the minimum viable combat loop before enemy tuning. |
+| D-043 | Allocate monotonic UInt64 entity IDs, never reuse them, and use them for deterministic ties. | ACCEPTED | Removes collection and RNG dependence from ordering. |
+| D-044 | Use xoshiro256** seeded through SplitMix64, canonical JSON, and SHA-256 for deterministic replay identity. | ACCEPTED | Defines portable RNG and digest behavior before runtime code. |
+| D-045 | Treat the global 18-phase simulation order and four-part version identity as normative. | ACCEPTED | Prevents subsystem-local timing assumptions and incompatible replay execution. |
 
 ## Pending evidence decisions
 
