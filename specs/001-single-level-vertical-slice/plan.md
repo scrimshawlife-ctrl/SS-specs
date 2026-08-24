@@ -117,6 +117,12 @@ The following artifacts are normative:
 - `bosses.md`: Improper Search Daemon and Algorithmic Moderate phases, attacks, timing, defeat, and vectors
 - `upgrades.md`: protected one-of-three selection and exact Signal Jammer, Ricochet Pulse, and Ghost Step effects
 - `contracts/combat-content-001.json`: machine-readable combat tuning source
+- `hud-tutorial.md`: reference layout, handedness, tutorial state machine, copy, and accessibility
+- `audio-haptics.md`: event projection, priorities, coalescence, music states, and captions
+- `events-receipts-replays.md`: event ordering, receipt persistence, replay validation, and results
+- `contracts/event-001.schema.json` and `event-catalog-001.json`: authoritative event envelope and payload catalog
+- `contracts/run-receipt-001.schema.json`: terminal receipt envelope
+- `contracts/presentation-assets-001.json`: required runtime-facing HUD, telegraph, objective, and audio IDs
 - `visual-production.md`: blockout-first workflow, provenance, intake, review plates, and budgets
 
 Final art begins only after grayscale blockout, collision truth, Camera truth, and dense-frame readability pass.

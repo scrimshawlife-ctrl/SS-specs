@@ -130,6 +130,9 @@ Run three consecutive complete runs on a physical iPhone 12 or approved no-bette
 - [ ] F-012 Every upgrade defeats the Captain without undocumented exploits.
 - [ ] F-013 First Camera encounter communicates `3 HITS` and `DESTRUCTION ADDS EXPOSURE` visually, through captions, and through VoiceOver.
 - [ ] F-014 Integrity notches and `+100 TAMPER` remain readable on the SE-class screen.
+- [ ] F-015 UI-001 through UI-008 pass on every device class and handedness mode.
+- [ ] F-016 AH-001 through AH-006 pass with audio/haptics both enabled and disabled.
+- [ ] F-017 ER-001 through ER-008 pass, including canonical JSON and UInt64 ID round-trip.
 
 ## Gate G — Playtest signal
 

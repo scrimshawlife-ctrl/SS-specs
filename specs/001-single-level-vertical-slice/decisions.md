@@ -54,6 +54,11 @@
 | D-052 | Use exactly 14 permanent solids, five encounter gates, and the versioned spawn/trigger sockets in the arena manifest. | ACCEPTED | Replaces design stubs with executable geometry. |
 | D-053 | Require 300 consecutive ticks inside Phoenix Steps for Extraction and reset immediately on exit. | ACCEPTED | Defines the final survival test without ambiguous timing. |
 | D-054 | Use three fixed, cyclic Captain Camera emitter anchors independent of the 18 standard Camera sockets. | ACCEPTED | Keeps boss attack geometry deterministic and outside Network Blackout. |
+| D-055 | Author HUD against an 844 × 390 safe reference canvas with uniform scaling and mirrored movement/Dodge controls. | ACCEPTED | Makes iPhone layout adaptation explicit without coupling UI points to simulation. |
+| D-056 | Use the five-state tutorial sequence and exact safety copy in `hud-tutorial.md`. | ACCEPTED | Makes onboarding deterministic, bounded, and accessible. |
+| D-057 | Cap simultaneous effects voices at eight and resolve contention by event priority then age. | ACCEPTED | Prevents audio overload and unbounded presentation work. |
+| D-058 | Use append-only event ordinals under event schema version 001 and decimal-string UInt64 entity IDs in JSON. | ACCEPTED | Preserves stable ordering and lossless cross-environment serialization. |
+| D-059 | Store canonical local receipts atomically, retain the newest 50, and perform no cloud sync or analytics upload. | ACCEPTED | Provides reproducible evidence with a bounded privacy-preserving footprint. |
 
 ## Pending evidence decisions
 

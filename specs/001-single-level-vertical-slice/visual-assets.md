@@ -340,3 +340,8 @@ Housing damage art MUST NOT imply reduced detection before destruction. Destroye
 
 
 All eight standard Cameras use stationary housings. No Camera animation may imply panning, tracking rotation, patrol, relocation, or changing field geometry. Housing families distinguish institutional provenance, not mechanics.
+
+
+## Runtime presentation identity
+
+The required HUD, control, telegraph, objective, and audio IDs are enumerated by `contracts/presentation-assets-001.json`. Shipped asset records must resolve every required ID exactly once. Missing, duplicate, unreachable, or undeclared runtime-facing IDs fail asset validation before release.
