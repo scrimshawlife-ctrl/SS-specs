@@ -2,7 +2,7 @@
 
 Status: BASELINE  
 Feature: SS-001  
-Visual version: `visual-sf-001`
+Visual version: `visual-civic-seam-001`
 
 ## 1. Visual thesis
 
