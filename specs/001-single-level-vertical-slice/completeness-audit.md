@@ -42,9 +42,9 @@ These do not block creating the runtime repository or implementing the grayscale
 |---|---|---|
 | D-020 exact available physical-device equivalents | EVIDENCE_PENDING | before physical-device acceptance |
 | D-021 measured entity/memory/atlas ceilings | EVIDENCE_PENDING | after playable grayscale profiling on iPhone 12 |
-| Annotated tag in legacy repository | OPERATION_PENDING | before any ADAPT-source review |
+| Annotated tag in legacy repository | DONE 2026-09-01 (`legacy-multicity-2026-08-24` → `3b20d88`) | — |
 | Final asset file provenance records | PRODUCTION_PENDING | asset intake, before bundle admission |
-| Golden SHA-256 final digests | RUNTIME_PENDING | after first conforming kernel implementation |
+| Golden SHA-256 final digests | RECORDED — `fixtures/complete-run-vectors-001.json`, `fixtures/replay-matrix-001.json` (adopted by D-061) | — |
 | Playtest Gates G-001–G-007 | PLAYTEST_PENDING | after complete instrumented build |
 
 Invented values are prohibited for these items.

@@ -40,7 +40,7 @@ At most eight effects voices play simultaneously. A higher-priority event steals
 | Dodge start | `player_dodge` | light |
 | Camera hit | `camera_hit_01/02` alternating by Camera hit count | light |
 | Camera critical | `camera_critical` | warning |
-| Camera destroyed | `camera_destroy` then `camera_network_tamper` | rigid |
+| Camera destroyed | `camera_destroy` then `camera_field_off` then `camera_network_tamper` (same tick; D-060) | rigid |
 | Detection escalated | `exposure_state_up` | warning |
 | Lockdown entered | `lockdown_enter` | heavy |
 | Upgrade selected | `upgrade_selected_<id>` | success |

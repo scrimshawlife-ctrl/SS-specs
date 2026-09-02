@@ -21,6 +21,7 @@ Surveillance Survivor is a deterministic, top-down survival action game in which
 11. [Visual production plan](specs/001-single-level-vertical-slice/visual-production.md)
 12. [Camera destruction contract](specs/001-single-level-vertical-slice/camera-destruction.md)
 13. [Camera placement contract](specs/001-single-level-vertical-slice/camera-placement.md)
+13a. [Camera socket manifest schema](contracts/camera-placement-001.schema.json)
 14. [Exposure contract](specs/001-single-level-vertical-slice/exposure.md)
 15. [Player controller contract](specs/001-single-level-vertical-slice/player-controller.md)
 16. [Base combat contract](specs/001-single-level-vertical-slice/combat.md)
@@ -35,6 +36,11 @@ Surveillance Survivor is a deterministic, top-down survival action game in which
 25. [Run receipt schema](contracts/run-receipt-001.schema.json)
 26. [Asset record schema](contracts/asset-record-001.schema.json)
 27. [Presentation asset manifest](contracts/presentation-assets-001.json)
+27a. [Clip metadata](contracts/clip-metadata-001.json)
+27b. [Procedural VFX](contracts/procedural-vfx-001.json)
+27c. [Ambient motion](contracts/ambient-motion-001.json)
+27d. [Visual language](contracts/visual-language-001.json)
+27e. [Asset catalog (intake records)](contracts/asset-catalog-001.json)
 28. [Combat content manifest](contracts/combat-content-001.json)
 29. [Global simulation order](specs/001-single-level-vertical-slice/simulation-order.md)
 30. [Encounter objectives and Extraction gate](specs/001-single-level-vertical-slice/encounter-objectives.md)
@@ -42,6 +48,8 @@ Surveillance Survivor is a deterministic, top-down survival action game in which
 32. [Contract version registry](contracts/versions.json)
 33. [Kernel vectors](fixtures/kernel-vectors-001.json)
 34. [Smoke replay](fixtures/replay-smoke-001.json)
+34a. [Complete-run golden vectors](fixtures/complete-run-vectors-001.json)
+34b. [Replay matrix](fixtures/replay-matrix-001.json)
 35. [Completeness audit](specs/001-single-level-vertical-slice/completeness-audit.md)
 36. [Implementation tasks](specs/001-single-level-vertical-slice/tasks.md)
 37. [Legacy admission inventory](specs/001-single-level-vertical-slice/legacy-admission.md)
@@ -65,7 +73,7 @@ presentation_target: 60fps
 networking: none
 accounts: none
 target_run: 8-12 minutes
-runtime_repository: scrimshawlife-ctrl/SS
+runtime_repository: scrimshawlife-ctrl/SS-runtime
 additional_cities: deferred
 ```
 
