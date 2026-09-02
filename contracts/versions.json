@@ -27,8 +27,15 @@
     "completenessAudit": "completeness-audit-001",
     "assetRecord": "asset-record-001",
     "kernelVectors": "kernel-vectors-001",
+    "completeRunVectors": "complete-run-vectors-001",
     "smokeReplay": "runtime-kernel-001",
     "animation": "animation-civic-seam-001",
-    "visualAssets": "visual-civic-seam-001"
+    "clipMetadata": "clip-metadata-001",
+    "proceduralVfx": "procedural-vfx-001",
+    "ambientMotion": "ambient-motion-001",
+    "visualAssets": "visual-civic-seam-001",
+    "assetCatalog": "asset-catalog-001",
+    "visualLanguage": "visual-language-001",
+    "replayMatrix": "replay-matrix-001"
   }
 }

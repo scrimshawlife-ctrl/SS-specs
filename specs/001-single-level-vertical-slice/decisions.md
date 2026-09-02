@@ -15,7 +15,7 @@
 | D-010 | Support iPhone only, landscape left/right, minimum iOS 18.0, touch input. | ACCEPTED | Reduces platform variance and matches the proven legacy baseline. |
 | D-011 | Use SE 3rd generation, iPhone 12, current standard iPhone, and current Pro as physical device classes. | ACCEPTED | Covers small screen, performance floor, current standard, and ProMotion. |
 | D-012 | Run authoritative simulation at 60 Hz and target stable 60 fps presentation. | ACCEPTED | Keeps timing deterministic and matches existing evidence. |
-| D-014 | Use `scrimshawlife-ctrl/SS` for the new runtime repository after specification completion. | ACCEPTED | Short canonical runtime identity. |
+| D-014 | Use `scrimshawlife-ctrl/SS-runtime` as the runtime repository. | AMENDED | Amended 2026-09-01: the repository was created as `SS-runtime`, not `SS`; the specification records the identity that exists rather than the one that was reserved. |
 | D-015 | Require VoiceOver-ready menus, non-color state carriers, Reduced Motion/Flash, scalable HUD, handedness, captions, and 44-point targets. | ACCEPTED | Establishes accessibility before art and UI harden. |
 | D-016 | Use authored 2.5D top-down pixel art with a readability-first salience hierarchy. | ACCEPTED | Preserves atmosphere while protecting combat truth. |
 | D-017 | Use one authored interconnected arena, not procedural generation. | ACCEPTED | Supports mastery, tuning, and controlled onboarding. |
@@ -59,12 +59,14 @@
 | D-057 | Cap simultaneous effects voices at eight and resolve contention by event priority then age. | ACCEPTED | Prevents audio overload and unbounded presentation work. |
 | D-058 | Use append-only event ordinals under event schema version 001 and decimal-string UInt64 entity IDs in JSON. | ACCEPTED | Preserves stable ordering and lossless cross-environment serialization. |
 | D-059 | Store canonical local receipts atomically, retain the newest 50, and perform no cloud sync or analytics upload. | ACCEPTED | Provides reproducible evidence with a bounded privacy-preserving footprint. |
+| D-060 | Amend `presentation-assets-001` in place to add the `camera_field_off` audio event (T610), and add it to the audio event map. | ACCEPTED | The runtime shipped field-off audio (SS-runtime #20) against a contract that did not list it; both repositories carried `presentation-assets-001` with different content under one version ID. Pre-acceptance amendment recorded once here; any further change to this contract bumps to `-002`. |
+| D-061 | Adopt the runtime-authored presentation contracts `clip-metadata-001`, `procedural-vfx-001`, `ambient-motion-001`, `visual-language-001`, and `asset-catalog-001`, plus golden fixtures `complete-run-vectors-001` and `replay-matrix-001`, as specification-owned under their existing IDs. | ACCEPTED | Article VII requires contract before implementation. These were introduced in SS-runtime (#16, #17, #22, T500, T801, T705, T901) without a specification commit and were unregistered in `contracts/versions.json`. Adopting them restores the specification as authority; from this commit the runtime bundle must byte-match `contracts/` and `fixtures/`. |
 
 ## Pending evidence decisions
 
 | ID | Question | Status |
 |---|---|---|
-| D-013 | Freeze legacy evidence at `3b20d88d6a6e1fe8f07f45f581359d371fa65d98` under reference label `legacy-multicity-2026-08-24`. | ACCEPTED | Establishes immutable migration provenance; creating an annotated legacy-repository tag remains an operational task. |
+| D-013 | Freeze legacy evidence at `3b20d88d6a6e1fe8f07f45f581359d371fa65d98` under reference label `legacy-multicity-2026-08-24`. | ACCEPTED | Establishes immutable migration provenance. Annotated tag `legacy-multicity-2026-08-24` created 2026-09-01 (`e085ea8` → `3b20d88`). |
 | D-020 | Which available physical devices will serve as approved equivalents for the four device classes? | DECISION_PENDING |
 | D-021 | What exact profiled enemy, projectile, particle, atlas-memory, and resident-memory ceilings pass on iPhone 12? | DECISION_PENDING |
 

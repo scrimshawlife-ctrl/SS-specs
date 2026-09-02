@@ -7,7 +7,7 @@ Provenance date: 2026-08-24
 
 - Repository: `scrimshawlife-ctrl/Surveillance-Survivor`
 - Source commit: `3b20d88d6a6e1fe8f07f45f581359d371fa65d98`
-- Reference label: `legacy-multicity-2026-08-24` (specification label; annotated repository tag not yet created)
+- Reference label: `legacy-multicity-2026-08-24` (annotated repository tag created 2026-09-01, tag object `e085ea8`)
 - Observed core path: `Sources/SurveillanceCore/Simulation.swift`
 - Observed policy path: `Sources/SurveillanceCore/SanFranciscoPolicyPhase.swift`
 - Observed content path: `Sources/SurveillanceCore/Resources/bosses.json`
