@@ -165,6 +165,8 @@ As a developer, I can replay the same authoritative inputs under the same Replay
 
 Locked 2026-08-31 by Danny. This section names existing Grok Bot skills, the owner specialist, and GitHub Actions already in use. Do not invent skills, bots, or Actions.
 
+Non-trivial changes start with `intent.md` → then this Workflows binding → plan/tasks → implement. Do not skip intent for feature- or RFC-sized work. Copy `intent/_TEMPLATE.md`. The Civic Seam baseline is already specified; do not invent product intents to fill `intent/`.
+
 ### Product-work defaults
 
 Use these existing Grok Bot skills on specification and product work:

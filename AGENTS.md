@@ -7,11 +7,14 @@ Read `README.md` and `specs/000-constitution.md` before changing any artifact.
 Use Spec-Driven Development in this order:
 
 1. Constitution: governing constraints.
-2. Specification: observable what and why.
-3. Plan: technical how.
-4. Tasks: ordered implementation work.
-5. Runtime implementation in the separate runtime repository.
-6. Verification evidence against acceptance gates.
+2. Intent: `intent.md` for why the change is worth specifying. Required before specify for non-trivial, feature, or RFC-sized work. Copy `intent/_TEMPLATE.md`. Do not skip.
+3. Specification: observable what and why, including the `spec.md` Workflows binding.
+4. Plan: technical how.
+5. Tasks: ordered implementation work.
+6. Runtime implementation in the separate runtime repository.
+7. Verification evidence against acceptance gates.
+
+Sequence for non-trivial changes: `intent.md` → `spec.md` Workflows → plan/tasks → implement.
 
 Do not place implementation details in the product specification unless they are externally observable constraints.
 
