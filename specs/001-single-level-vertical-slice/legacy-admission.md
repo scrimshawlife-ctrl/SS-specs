@@ -1,7 +1,8 @@
 # Legacy Component Admission
 
 Status: EVALUATED_WITH_LIMITS  
-Provenance date: 2026-08-24
+Provenance date: 2026-08-24  
+Amended: 2026-09-04 (LC-009, LC-010 bounded ADAPT; see §Bounded visual and audio admission)
 
 ## Immutable source
 
@@ -28,8 +29,8 @@ No legacy file may be copied wholesale. The commit is evidence only.
 | LC-006 | Combat resolution | ADAPT | Swept-circle earliest-hit and stable-ID tie behavior are observed and fit; rewrite numeric layer, target classes, damage tables, and event emission. | CombatSystem |
 | LC-007 | Enemy behaviors | REWRITE | Legacy generalized guard/boss catalogs do not implement the five exact Level 1 state machines. | EnemySystem |
 | LC-008 | Extraction logic | REWRITE | Legacy boss/Blind Spot flow does not implement the required three mobs → elite → boss → 300-tick Phoenix Steps predicate. | ObjectiveSystem |
-| LC-009 | Visual assets | REJECT | Wholesale admission lacks per-asset provenance and conflicts with the new Civic Seam inventory. An individual asset may return only through the new asset-record process. | VisualCatalog |
-| LC-010 | Audio assets | REJECT | Legacy clips are not proven against the new event IDs, priority, coalescence, license, and accessibility contract. | AudioProjector |
+| LC-009 | Visual assets | ADAPT (bounded) | Wholesale admission is still rejected. An individual asset returns only through the asset-record process, only where its runtime role is unchanged, and only under §Bounded visual and audio admission. The legacy enemy and boss cast, non-San-Francisco packs, and literal landmark shorthand remain REJECTED. | VisualCatalog |
+| LC-010 | Audio assets | ADAPT (bounded) | Wholesale admission is still rejected. A clip returns only where it carries the same gameplay meaning as a named `audio-haptics-001` event, and admission supplies a file, not an exemption from priority, coalescence, caption, or license obligations. | AudioProjector |
 
 ## Verified legacy behavior retained as specification evidence
 
@@ -46,6 +47,78 @@ These are design provenance, not permission to copy code.
 ## Default exclusions
 
 City selection, ten-city campaign authority, district procedural generation, challenge systems, generalized city profiles, legacy upgrade catalog, multiple characters, inventory/crafting, global state containers, store-launch scope, and non-SF runtime assets are REJECTED for SS-001.
+
+## Bounded visual and audio admission
+
+Added 2026-09-04. This section is the only route by which a legacy file may
+enter the runtime bundle.
+
+### Source of truth
+
+`scrimshawlife-ctrl/Surveillance-Survivor@3b20d88d6a6e1fe8f07f45f581359d371fa65d98`
+is the sole admission source and remains immutable evidence.
+
+`Zero-State-LLC/Surveillance-Survivor` holds the same art and is where a reader
+is likely to look for it, but it is a **separate history**: the frozen commit
+does not exist there, and six San Francisco files have been re-authored since
+the freeze. It is not an admission source. Moving the pin is a separate change.
+
+### Admission test
+
+A legacy asset may be admitted only when every line holds:
+
+1. **Role identity.** Its runtime role in SS-001 is the same role it had in the
+   legacy build. A player frame may back a player clip; a surveillance-camera
+   frame may back a Camera clip. A guard frame may not back a Civic Seam enemy,
+   because LC-007 already records that the legacy enemies are not this cast.
+2. **Per-asset record.** An `asset-record-001` entry exists whose `sha256` is
+   the digest of the file at the frozen commit, with real `dimensions`,
+   `colorSpace`, and `alpha`, and a `source` naming the frozen commit.
+3. **Authored geometry.** The delivered frame is resampled to the
+   `visual-language-001` sprite box for its role. Legacy pixel dimensions carry
+   no authority.
+4. **No inference.** Collision, targeting, Camera fields, and anchors come from
+   the authored contracts, never from the admitted image.
+5. **Audio obligations survive.** An admitted clip still owes its
+   `audio-haptics-001` priority, coalescence, caption, and license duties.
+
+### Admitted set
+
+| Legacy family | Backs | Note |
+|---|---|---|
+| `player_walk_{up,right,down,left}` | `player_move` | exact, 24 frames |
+| `player_idle_{up,right,down,left}` | `player_idle` | partial, 8 of 16 |
+| `player_damage` | `player_hurt` | 12 frames |
+| `player_defeat` | `player_defeat` | 20 frames |
+| `player_extract` | `player_extraction` | 32 frames |
+| `lpr_scan_loop`, `lpr_damaged`, `lpr_destroyed`, `lpr_destroy_sequence`, `fx_camera_disabled`, `fx_camera_destroyed` | every `camera_*` clip | complete, 16 frames |
+| `projectile_kinetic` | Civic Pulse projectile presentation | — |
+| `suspicion_tier_0…5` | Detection state icons | non-colour carrier only |
+| San Francisco `terrain`, `decal`, `overlay`, `prop`, `skyline`, `landmark_cable_track`, `landmark_victorian_midground`, `landmark_comms_tower` | Civic Seam environment | `landmark_bridge_distant` stays REJECTED under T807 |
+| `sfx_weapon_fire`, `sfx_countermeasure_hit`, `sfx_player_damaged`, `sfx_player_defeated`, `sfx_lpr_destroyed`, `sfx_suspicion_tier_up`, `sfx_extraction_opened`, `sfx_extraction_completed`, `sfx_upgrade_selected`, `sfx_camera_scan_sweep`, `sfx_blind_spot_field_loop` | 13 of the 24 `audio-haptics-001` event IDs | one clip may back several IDs |
+| `music_san_francisco_run_loop`, `music_san_francisco_boss_loop`, `amb_san_francisco_city_identity_loop` | music and ambience buses | 3 of 6 music states |
+
+### Still REJECTED
+
+- The legacy enemy cast (seven generic guards) and the legacy boss (Shift
+  Manager). LC-007 REWRITE stands: these are not the Civic Seam five, the
+  Improper Search Daemon, or the Algorithmic Moderate.
+- Every non-San-Francisco city pack (T102).
+- `san_francisco_landmark_bridge_distant_01` and any literal landmark, seal, or
+  logo shorthand (T807).
+- `sfx_san_francisco_hidden_sensor_fog`, which corresponds to no named event.
+
+### Partial coverage is a defined state
+
+The admitted set backs 112 of the 408 `clip-metadata-001` frame IDs and 13 of
+the 24 audio event IDs. Partial coverage is legal. For any frame ID with no
+accepted asset the runtime MUST fall back to the authored grayscale silhouette
+or shape for that role, and MUST NOT substitute a frame from another role,
+another direction, or another clip. A missing audio ID plays nothing and its
+caption still appears.
+
+Coverage is therefore observable: what is backed is drawn from the atlas, what
+is not is drawn as blockout, and neither state is silent about itself.
 
 ## Copy gate
 
