@@ -37,3 +37,7 @@ The canonical product has one level. Reject or defer additional cities, campaign
 ## Change discipline
 
 Every behavior change must update all affected artifacts. A specification change is incomplete if its plan, tasks, acceptance criteria, or decision record conflicts with it. Preserve deterministic replay identity and version every ruleset-affecting change.
+
+## Escalation
+
+Broken CI or failing tests are a labeled `defect`. File or update that issue. Do not skip, weaken, or rewrite tests to manufacture a green run.
