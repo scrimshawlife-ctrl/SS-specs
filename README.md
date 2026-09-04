@@ -8,6 +8,8 @@ Surveillance Survivor is a deterministic, top-down survival action game in which
 
 ## Canonical sequence
 
+Non-trivial or feature-sized work starts with [`intent/`](intent/README.md) before specify. Contributor Workflows (skills, owner, CI) live in [`AGENTS.md`](AGENTS.md), not in the product specification. The Civic Seam baseline below is already specified.
+
 1. [Constitution](specs/000-constitution.md)
 2. [Product specification](specs/001-single-level-vertical-slice/spec.md)
 3. [Technical plan](specs/001-single-level-vertical-slice/plan.md)
