@@ -85,6 +85,21 @@ Each state names one music asset, and ambience is a separate bus. These are asse
 
 `presentation-assets-001` registers them as `musicAssetIds` so the runtime bundle filter can reach them; without that registration a delivered music file is unreachable and cannot ship. A state whose asset is not accepted plays no music, and the run continues on the remaining beds.
 
+### Boss phase beds
+
+The `boss` state is one state, and the Algorithmic Moderate passes through four canonical phases inside it. The state machine does not change: the run is in `boss` throughout. What changes is which bed that state plays.
+
+| Boss phase | Asset ID |
+|---|---|
+| Public Safety | `music_boss_publicSafety` |
+| Civil Liberties | `music_boss_civilLiberties` |
+| Temporary Safeguard | `music_boss_temporarySafeguard` |
+| Independent Review | `music_boss_independentReview` |
+
+Phase is authoritative run state, so selecting the bed from it introduces no new authority. A phase change crossfades over the same 1.0 seconds as any other music transition, and phase cannot move backward, so the beds only ever escalate.
+
+A phase whose bed is not accepted falls back to `music_boss`. That keeps the encounter scored when the set is incomplete, which is the same partial-coverage rule the visual clips follow.
+
 ## Accessibility
 
 Every safety-critical audio event has a visual caption/event equivalent. Haptics are never the only carrier. Captions identify source direction in eight sectors when the source is offscreen. Caption history retains the last eight messages and is cleared on restart.

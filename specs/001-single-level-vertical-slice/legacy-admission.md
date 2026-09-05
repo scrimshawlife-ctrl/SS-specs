@@ -119,7 +119,38 @@ So an **individual** non-San-Francisco cue may be admitted when all hold:
    read, and its admitted asset ID carries no city name;
 4. it satisfies the § Admission test above in full.
 
-Music, ambience, and city packs stay excluded. This admits sounds, not cities.
+Music, ambience, and city packs stay excluded by default. The one exception is
+named below.
+
+### Boss phase beds
+
+Amended 2026-09-05, and this one is a real trade rather than a clean case.
+
+The Algorithmic Moderate has four canonical phases. The frozen commit holds four
+Atlanta final-boss phase loops written for exactly that structure, escalating in
+the same direction: institutional certainty, unification, relentless
+optimisation, then collapse. No other source in the library has per-phase boss
+music, and the alternative is one loop repeating across the whole encounter.
+
+These four beds are admitted:
+
+| Boss phase | Source |
+|---|---|
+| Public Safety | `music_atlanta_boss_phase_1_loop` |
+| Civil Liberties | `music_atlanta_boss_phase_2_loop` |
+| Temporary Safeguard | `music_atlanta_boss_phase_3_loop` |
+| Independent Review | `music_atlanta_boss_phase_4_loop` |
+
+**What this trades.** A music bed colours a whole state, so it carries more
+identity than a one-shot cue does, and phase two's authoring intent explicitly
+interlocks motifs from ten cities. A listener cannot name a city from an
+instrumental loop, and no city name reaches an asset ID, a caption, or the
+screen — but this is admitted on judgement, not on the clean "a one-shot names
+nothing" argument that governs the cues above. It is recorded that way on
+purpose.
+
+No other city music is admitted. Run loops, city ambience, and city identity
+beds stay excluded.
 
 | Event | Source | Why the meaning matches |
 |---|---|---|
