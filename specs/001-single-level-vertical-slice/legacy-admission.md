@@ -152,6 +152,33 @@ purpose.
 No other city music is admitted. Run loops, city ambience, and city identity
 beds stay excluded.
 
+### Approximate substitution
+
+Amended 2026-09-05. Two events have no legacy sound that carries their meaning,
+because the legacy build never had them: it had no Dodge, and no countdown
+metronome. Silence is a worse default than an imperfect sound for both — a
+Dodge with no feedback reads as a dropped input, and a countdown the player
+cannot hear cannot be timed.
+
+So a cue may take the **nearest applicable** legacy sound when all hold:
+
+1. no asset carries the event's meaning, and the search is recorded;
+2. the record says plainly that the substitution is approximate, so the catalog
+   never claims a precision it does not have;
+3. the substitution introduces no confusion — it does not reuse a sound already
+   carrying a different event the player can hear in the same run;
+4. it is marked for replacement. These are the first two cues an original-audio
+   pass should replace.
+
+| Event | Source | Why it is the nearest, and what is imperfect |
+|---|---|---|
+| `player_dodge` | `sfx_san_francisco_hidden_sensor_fog` | "moist air shifts … sensor itself remains acoustically obscured" is the only moving-air sound in the library, and becoming unseen is what a Dodge does. Imperfect: it is authored as a sensor activating, and at 0.9–2s it is long for a 12-tick Dodge |
+| `extraction_tick` | `sfx_interactable_activate` | "transformer pad clunk … brief electrical stress pop" is the shortest unused discrete mechanical step, and nothing else is unused and dry enough to repeat once a second. Imperfect: it is authored as an environmental activation, not a metronome |
+
+Both are San Francisco or non-city assets, so neither widens the city boundary.
+No further approximate substitution is authorised: every other event either has
+an exact match or stays a project original.
+
 | Event | Source | Why the meaning matches |
 |---|---|---|
 | `daemon_dash` | `sfx_louisville_map_redaction` | "black paper strip slides across glass … camera relay disappears behind an opaque mechanical shutter" — the elite's attack is a Redaction Dash |
@@ -168,7 +195,6 @@ beds stay excluded.
   under the conditions above.
 - `san_francisco_landmark_bridge_distant_01` and any literal landmark, seal, or
   logo shorthand (T807).
-- `sfx_san_francisco_hidden_sensor_fog`, which corresponds to no named event.
 
 ### Partial coverage is a defined state
 
