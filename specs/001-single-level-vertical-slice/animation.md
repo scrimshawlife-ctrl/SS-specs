@@ -44,7 +44,30 @@ Rules:
 
 Enemy roles MUST have different anticipation silhouettes and cadences. Fog pulse, Correlator charge, Signal Witch cast, Informant pursuit, and Vendor throw must be distinguishable before commit.
 
-### Improper Search Daemon and Algorithmic Moderate
+### Improper Search Daemon
+
+The elite's clips map one-to-one onto the authoritative state sequence in
+`bosses.md`, and each clip's duration MUST equal the duration of the state it
+presents. The elite invents no state of its own:
+
+| Authoritative state | Clip | Duration |
+|---|---|---:|
+| `PURSUIT` | pursuit locomotion | loop |
+| `QUERY_TELEGRAPH` | query anticipation | 45 ticks |
+| `QUERY_RESOLVE` | query commit | event-aligned |
+| `REDACTION_DASH_TELEGRAPH` | dash anticipation | 36 ticks |
+| `REDACTION_DASH` | dash | 30 ticks |
+| `RECOVER` | recovery | 60 ticks |
+
+It also requires hurt and defeat, as every living actor does.
+
+Its two telegraphs MUST be distinguishable from each other before commit, and
+from every standard-enemy anticipation. Per the shape language below, the query
+reads as three circles — local area impact — and the dash reads as one narrow
+lane — a sweep along an axis. Both are the elite's only warning, so neither may
+be shortened below the authoritative telegraph window.
+
+### Algorithmic Moderate
 
 The Captain uses a finite vocabulary:
 
