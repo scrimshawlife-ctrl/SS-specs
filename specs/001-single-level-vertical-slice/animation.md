@@ -69,15 +69,29 @@ be shortened below the authoritative telegraph window.
 
 ### Algorithmic Moderate
 
-The Captain uses a finite vocabulary:
+The Captain's attack clips are named for the attacks they present, so a clip is
+selected from the authoritative `attackId` and nothing has to carry a mapping
+table:
 
-- command pulse;
-- sweep;
-- targeted strike;
-- reinforcement call;
-- phase transition;
+| Attack (`bosses.md`) | Clip | Telegraph |
+|---|---|---:|
+| Safety Rationale | `safetyRationale` | 45 ticks |
+| Narrow Tailoring | `narrowTailoring` | 30 ticks |
+| Temporary Order | `temporaryOrder` | 48 ticks |
+| Independent Review | `independentReview` | 60 ticks |
+
+Each attack clip runs the wind-up and lands `bossAttackStarted` on the resolve
+frame, so its duration MUST equal that attack's telegraph window. The Captain
+also has:
+
+- phase transition, equal to the 45-tick transition recovery;
 - stagger;
 - defeat.
+
+An earlier revision named these clips `commandPulse`, `sweep`, `targetedStrike`,
+and `reinforcementCall`. Those names corresponded to no attack in `bosses.md`
+and no artefact recorded which was which, so a renderer could not choose a clip
+for an attack. Attack-named clips remove the question rather than answer it.
 
 Each damaging action requires a telegraph record containing shape, minimum readable duration, authoritative commit tick, cancellation rule, and reduced-motion equivalent.
 
