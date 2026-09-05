@@ -71,6 +71,20 @@ At most eight effects voices play simultaneously. A higher-priority event steals
 
 Music crossfades over 1.0 seconds except terminal, which begins within 100 ms. Music state reads the authoritative run state; crossfade time is presentation-only. Reduced sensory settings may disable music layers without changing cues/captions.
 
+Each state names one music asset, and ambience is a separate bus. These are asset identities, not event IDs — they are continuous beds, so they carry no priority, coalescence, or voice cost, and they never consume an effects voice.
+
+| Music state | Asset ID |
+|---|---|
+| explore | `music_explore` |
+| observed | `music_observed` |
+| lockdown | `music_lockdown` |
+| boss | `music_boss` |
+| extraction | `music_extraction` |
+| terminal | `music_terminal` |
+| (ambience bed) | `ambience_civic_seam` |
+
+`presentation-assets-001` registers them as `musicAssetIds` so the runtime bundle filter can reach them; without that registration a delivered music file is unreachable and cannot ship. A state whose asset is not accepted plays no music, and the run continues on the remaining beds.
+
 ## Accessibility
 
 Every safety-critical audio event has a visual caption/event equivalent. Haptics are never the only carrier. Captions identify source direction in eight sectors when the source is offscreen. Caption history retains the last eight messages and is cleared on restart.
