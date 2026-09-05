@@ -98,12 +98,43 @@ A legacy asset may be admitted only when every line holds:
 | `sfx_weapon_fire`, `sfx_countermeasure_hit`, `sfx_player_damaged`, `sfx_player_defeated`, `sfx_lpr_destroyed`, `sfx_suspicion_tier_up`, `sfx_extraction_opened`, `sfx_extraction_completed`, `sfx_upgrade_selected`, `sfx_camera_scan_sweep`, `sfx_blind_spot_field_loop` | 13 of the 24 `audio-haptics-001` event IDs | one clip may back several IDs |
 | `music_san_francisco_run_loop`, `music_san_francisco_boss_loop`, `amb_san_francisco_city_identity_loop` | music and ambience buses | 3 of 6 music states |
 
+### Individually admissible non-San-Francisco cues
+
+Amended 2026-09-05. T102 excludes non-San-Francisco content because SS-001 is
+one San Francisco level, not a ten-city campaign. That purpose is served by
+excluding **city identity** — packs, profiles, districts, campaign authority,
+and any asset that would make another city legible on screen.
+
+A single sound effect carries no city identity. It is heard once, names nothing,
+and shows nothing. Excluding one whose gameplay meaning exactly matches a named
+`audio-haptics-001` event costs the player a warning and buys no protection.
+
+So an **individual** non-San-Francisco cue may be admitted when all hold:
+
+1. it is a single `sfx_` or `stinger_` asset, never a pack, profile, or set;
+2. its recorded authoring intent in the frozen `AUDIO_ASSET_MANIFEST.json` is
+   the same gameplay meaning as a named `audio-haptics-001` event, and the
+   record quotes that intent;
+3. it names no city, landmark, or district in anything the player can hear or
+   read, and its admitted asset ID carries no city name;
+4. it satisfies the § Admission test above in full.
+
+Music, ambience, and city packs stay excluded. This admits sounds, not cities.
+
+| Event | Source | Why the meaning matches |
+|---|---|---|
+| `daemon_dash` | `sfx_louisville_map_redaction` | "black paper strip slides across glass … camera relay disappears behind an opaque mechanical shutter" — the elite's attack is a Redaction Dash |
+| `boss_defeated` | `stinger_atlanta_final_blind_spot` | "network links snap and fall silent from the edges inward … server cathedral powers down" — the final authority collapsing |
+| `extraction_reset` | `sfx_los_angeles_private_network_persist` | "municipal relay powers off, then nodes wake independently and reconnect" — a system reasserting itself after it looked beaten |
+
 ### Still REJECTED
 
 - The legacy enemy cast (seven generic guards) and the legacy boss (Shift
   Manager). LC-007 REWRITE stands: these are not the Civic Seam five, the
   Improper Search Daemon, or the Algorithmic Moderate.
-- Every non-San-Francisco city pack (T102).
+- Every non-San-Francisco city **pack** — music, ambience, environment, and
+  profile — under T102. Only the individual cues named above return, and only
+  under the conditions above.
 - `san_francisco_landmark_bridge_distant_01` and any literal landmark, seal, or
   logo shorthand (T807).
 - `sfx_san_francisco_hidden_sensor_fog`, which corresponds to no named event.
