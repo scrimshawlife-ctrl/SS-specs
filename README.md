@@ -57,6 +57,7 @@ Non-trivial or feature-sized work starts with [`intent/`](intent/README.md) befo
 37. [Legacy admission inventory](specs/001-single-level-vertical-slice/legacy-admission.md)
 38. [Acceptance and playtest gates](specs/001-single-level-vertical-slice/acceptance.md)
 39. [Decision register](specs/001-single-level-vertical-slice/decisions.md)
+40. [Run-shell terminal surface](specs/001-single-level-vertical-slice/run-shell.md)
 
 Implementation belongs in a separate runtime repository. This repository defines product intent, contracts, decisions, and acceptance evidence.
 
