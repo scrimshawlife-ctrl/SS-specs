@@ -2,7 +2,7 @@
 
 Author: prabu
 Date: 2026-09-04
-Status: draft
+Status: accepted
 Product: Surveillance Survivor (`scrimshawlife-ctrl/SS-specs`)
 
 ## Problem / why now
