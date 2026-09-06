@@ -134,9 +134,17 @@ rails, and at play scale the rails read as a repeating grid rather than as track
 The rails belong to the **infrastructure kit** in section 5, which is placed,
 not to the ground kit, which is tiled.
 
-So: `env_ground_railbed` should carry setts and ballast alone, and rails should
-be placed along the transit spine as infrastructure. Until that is produced, the
-tile stands as delivered — it is a legibility weakness, not a defect.
+So `env_ground_railbed` carries setts and ballast alone, and the rails are
+`env_prop_rail_strip`: a 512-unit section placed end to end, whose rails meet
+both short edges at the same height so a run reads as continuous track.
+
+The run is laid **axis-aligned**, not on the diagonal this document describes as
+the transit spine. A 45-degree run through the Transit Cut fouls the transit
+kiosk and the civic massing and leaves the arena at its southwest end — the
+authored arena is axis-aligned, and the diagonal spine is a compositional
+intent that `civic-seam-arena-001` does not yet implement. Rails that cut
+through a building would suggest a route where none exists, which matters more
+than the angle. Aligning the spine is arena work, not art work.
 
 Two rendering measures reduce tile repetition generally, and neither is a
 substitute for the rule above:
