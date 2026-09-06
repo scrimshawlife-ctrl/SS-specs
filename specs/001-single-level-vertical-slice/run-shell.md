@@ -1,4 +1,4 @@
-# Run Shell — Terminal Surface
+# Run Shell — Title and Terminal Surfaces
 
 Status: PROPOSED
 Feature: SS-001
@@ -24,11 +24,10 @@ won, and restarts by reaching for a screenshot cannot produce clean evidence.
 
 ## 2. Scope
 
-This document covers the **terminal surface only** — what the game presents once
-a run is over. The launch and title half of the run shell is **OPEN** and is not
-specified here. See section 7.
+This document covers both shell surfaces: the **title surface** the app presents
+on launch, and the **terminal surface** it presents once a run is over.
 
-The terminal surface is not a HUD element. `hud-tutorial-001` owns the layout
+Neither shell surface is a HUD element. `hud-tutorial-001` owns the layout
 table for HUD present *during play*; a surface shown after the run has ended
 does not belong in it, on the same footing as the upgrade selection overlay.
 
@@ -74,6 +73,8 @@ state digest is unaffected, and no authoritative field is introduced.
 | `failure` | `PLAYER DOWN` |
 | `invalid` | `RUN INVALID` |
 | restart control | `RESTART` **(OPEN — see 7.1)** |
+| title, start control | `START` **(OPEN — see 7.1)** |
+| title, settings control | `SETTINGS` **(OPEN — see 7.1)** |
 
 `RUN COMPLETE` and `PLAYER DOWN` are the words `audio-haptics-001` already uses
 for these events in its accessibility captions ("Run complete", "Player down"),
@@ -98,11 +99,12 @@ gate `B003`.
 
 Nothing in this section may be implemented from this document.
 
-### 7.1 Restart control copy
+### 7.1 Shell control copy
 
-`RESTART` borrows `FR-004`'s own noun, but no contract authorises it. It is the
-only string on this surface that is not already specified elsewhere, and it
-needs a row in an owning contract or a replacement.
+`RESTART`, `START`, and `SETTINGS` are the only strings on either shell surface
+that no contract authorises. `RESTART` borrows `FR-004`'s own noun; the other two
+are the plainest available words for what they do. All three need rows in an
+owning contract, or replacements.
 
 ### 7.2 What else, if anything, the surface reports
 
@@ -112,19 +114,21 @@ currently reports none of it. Whether any is player-facing — as opposed to
 evidence-only — is undecided. Testers need the seed for `T903`/`T904` evidence;
 a player arguably does not.
 
-### 7.3 Whether a launch or title surface exists at all
+### 7.3 RESOLVED — a title surface exists
 
-The app presents a running simulation on launch. Whether it should instead
-present a title surface, and what that surface offers, is undecided and is the
-substantive open question in `intent/run-shell-surfaces.md`. The terminal half
-was specified first because `FR-004` already required restart; the launch half
-has no such anchor.
+Decided 2026-09-06. See section 8.
 
-### 7.4 Whether Settings is reachable outside a run
+The deciding argument was not presentation. `SettingsView` was reachable only
+from Pause, during a run, so a player could not set handedness before playing.
+A left-handed `T903`/`T904` participant would have had to begin a run, pause,
+change handedness and restart — contaminating the onboarding-comprehension data
+those playtests exist to collect. A launch surface is the natural place to fix
+that, and section 7.4 is resolved with it.
 
-`SettingsView` is currently reached only from Pause, during a run. If a launch
-surface exists it is the natural second entry point; if it does not, settings
-remain unreachable before the first run begins.
+### 7.4 RESOLVED — Settings is reachable from the title surface
+
+Decided 2026-09-06. See section 8. Pause remains the in-run entry point; the
+title surface is the second, and the only one available before a first run.
 
 ### 7.5 The lethal-warning copy row
 
@@ -135,7 +139,42 @@ that preempt the tutorial card, and `audio-haptics-001` and
 HUD copy and the `## Exact copy` table has no row for it. The Lockdown and
 Extraction preemptors are implemented; this one cannot be until it has a string.
 
-## 8. Acceptance vectors
+## 8. Title surface
+
+The app presents the title surface on launch. No simulation tick occurs while it
+is presented, on the same principle as `PC-008` for pause.
+
+It offers exactly two actions:
+
+| Control | Effect |
+|---|---|
+| Start | begins a run |
+| Settings | presents the existing settings surface |
+
+Nothing else. No run history, no statistics, no continue, no difficulty choice,
+no meta-progression of any kind — those are the expansion this level defers.
+
+- The wordmark identifies the product.
+- Controls are at least 44 x 44 points, consistent with every interactive
+  rectangle, and horizontally centred so neither handedness is favoured.
+- The surface is presentation only: it introduces no authoritative state and
+  cannot affect the state digest or a run receipt.
+- Settings reached from the title surface governs the run that follows it,
+  through the same `PresentationSettings` path Pause already uses. `ER-007`
+  continues to hold — a settings change moves nothing but the declared
+  presentation metadata.
+
+### 8.1 Returning to the title
+
+A run reaching a terminal outcome presents the terminal surface (section 4),
+**not** the title surface. Restart from there begins a new run directly, as
+specified in section 6.
+
+Whether the terminal surface should additionally offer a route back to the title
+is **OPEN**. It is not required by anything, and adding a second control to that
+panel trades against the deliberate narrowness of section 6.
+
+## 9. Acceptance vectors
 
 Proposed, pending acceptance of this document.
 
@@ -148,3 +187,8 @@ Proposed, pending acceptance of this document.
 | RS-005 | upgrade selection open | no terminal panel; the touch selects a card |
 | RS-006 | terminal screen at the smallest supported safe rectangle | panel and control fully on screen; control at least 44 × 44 |
 | RS-007 | tutorial card active when the run ends | card is not presented |
+| RS-008 | cold launch | title surface presented; no simulation tick occurs |
+| RS-009 | Start | a run begins from the authored initial state |
+| RS-010 | Settings from the title, handedness changed, then Start | the run honours the changed handedness |
+| RS-011 | Settings from the title | digest and receipt unchanged but for declared presentation metadata (`ER-007`) |
+| RS-012 | run reaches a terminal outcome | terminal surface presented, not the title surface |
