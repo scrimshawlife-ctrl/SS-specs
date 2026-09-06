@@ -164,14 +164,27 @@ Two placement rules are load-bearing:
 - **Authority Court stays sparse.** It is the boss arena and the busiest screen
   in the game; architecture and dressing must recede there.
 
-Motif assets are landmarks rather than tiling material, so they are placed once
-each and scaled down: the phoenix relief on Phoenix Steps, the counter-signal
-wall in the Residential Wedge, the repair vocabulary in the Service Seam.
+Motif assets are landmarks rather than tiling material, so a placed one is
+placed once and scaled down.
 
-**The broadcast glyph is deliberately unplaced.** It is specified as a *distant*
-skyline element, and a top-down arena has no skyline — placing it on the ground
-plane would contradict what it is. It belongs on the title surface, which
-already carries it.
+**Only a motif drawn in the arena's own projection may be placed.** The delivered
+motifs are frontal elevations — drawn as though hung on a wall and viewed
+head-on — and on a ground plane a frontal elevation reads as a picture pasted
+flat on the floor rather than as part of the city. Verified on device: the
+phoenix relief floats.
+
+So the ground plane carries the phoenix alone, and only once it is redrawn as a
+**floor inlay seen from directly above** — a civic medallion set flush into
+paving, not a sculpture.
+
+`env_motif_counter_signal` and `env_motif_repair` are **unplaced**. They are wall
+pieces: good art in the wrong place rather than bad art, and they are retained as
+reference for façade work, where a frontal elevation is exactly right.
+
+**The broadcast glyph is unplaced for a different reason.** It is specified as a
+*distant* skyline element, and a top-down arena has no skyline — placing it on
+the ground plane would contradict what it is. It belongs on the title surface,
+which already carries it.
 
 ## 6. Surveillance families
 
