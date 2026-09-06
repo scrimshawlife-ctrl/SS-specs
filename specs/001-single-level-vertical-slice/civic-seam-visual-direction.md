@@ -121,6 +121,58 @@ Grade is visually modest:
 
 Elevation presentation MUST NOT change authoritative movement speed or projectile physics unless separately specified.
 
+## 5b. Ground tiles carry no linear infrastructure
+
+A ground tile repeats across a whole zone, so it may carry **surface** — paving,
+wear, joints, stains — and must not carry a **linear feature**. Rails, kerbs,
+lane markings and conduit runs are directional and continuous: tiling them
+produces a visible lattice, because the eye follows the line and finds it
+restarting on a fixed interval.
+
+This was learned the direct way. The first Transit Cut tile embedded diagonal
+rails, and at play scale the rails read as a repeating grid rather than as track.
+The rails belong to the **infrastructure kit** in section 5, which is placed,
+not to the ground kit, which is tiled.
+
+So: `env_ground_railbed` should carry setts and ballast alone, and rails should
+be placed along the transit spine as infrastructure. Until that is produced, the
+tile stands as delivered — it is a legibility weakness, not a defect.
+
+Two rendering measures reduce tile repetition generally, and neither is a
+substitute for the rule above:
+
+- **Per-cell variation.** Tiles are drawn with a small deterministic brightness
+  offset derived from cell coordinates, so identical tiles do not read as an
+  identical lattice. It shifts no pixels, so a continuous feature stays
+  continuous. Presentation only, derived from position rather than any RNG
+  stream, and therefore invisible to the digest.
+- **A kerb at zone boundaries.** Where two surfaces meet, an edge is drawn. Real
+  paving changes at a kerb, so the boundary reads as a civic detail rather than
+  as an artifact of rectangular zones.
+
+## 5a. Decoration placement
+
+Props and motifs are **non-collidable** and are placed by `decorations` in
+`civic-seam-arena-001`: an asset ID, a centre in units, and an optional
+`scalePermille`. They are presentation only and introduce no authoritative
+state — a decoration cannot block, damage, or conceal anything.
+
+Two placement rules are load-bearing:
+
+- **A decoration may not overlap a permanent solid.** It would read as clutter
+  inside a wall, and worse, it would suggest cover where none exists.
+- **Authority Court stays sparse.** It is the boss arena and the busiest screen
+  in the game; architecture and dressing must recede there.
+
+Motif assets are landmarks rather than tiling material, so they are placed once
+each and scaled down: the phoenix relief on Phoenix Steps, the counter-signal
+wall in the Residential Wedge, the repair vocabulary in the Service Seam.
+
+**The broadcast glyph is deliberately unplaced.** It is specified as a *distant*
+skyline element, and a top-down arena has no skyline — placing it on the ground
+plane would contradict what it is. It belongs on the title surface, which
+already carries it.
+
 ## 6. Surveillance families
 
 Ordinary devices are more important than futuristic spectacle.
