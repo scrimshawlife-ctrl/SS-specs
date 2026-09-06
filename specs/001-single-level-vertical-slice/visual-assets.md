@@ -58,6 +58,36 @@ The palette is role-based, not merely aesthetic.
 
 Color MUST NOT be the only state carrier. Critical adjacent UI contrast MUST target at least 3:1; normal text MUST target at least 4.5:1.
 
+## 3a. Environment asset reachability
+
+`presentation-assets-001` carries `environmentAssetIds` alongside
+`requiredAssetIds`, `audioEventIds`, and `musicAssetIds`. Environment art is
+runtime-reachable on the same footing as interface art, and the runtime bundle
+filter admits it by the same rule.
+
+Without that array environment art is unreachable **by construction**: the filter
+only bundles assets an ID names, so admitted environment work would be excluded
+however correctly it was produced. This is the same gap `musicAssetIds` closed
+for music, found the same way — art existed and nothing could load it.
+
+The array names 41 IDs:
+
+| Group | Count | Derivation |
+|---|---:|---|
+| Ground tiles | 6 | one per authored surface |
+| Solids | 14 | **one per `permanentSolids` entry in `civic-seam-arena-001`**, named for it |
+| Camera housings | 5 | one per family in the `camera-placement-001` enum |
+| Street props | 12 | the P0 infrastructure kit in `civic-seam-001` §5 |
+| Motif sheets | 4 | phoenix, repair, counter-signal, broadcast glyph |
+
+The solid IDs are derived from the arena manifest rather than authored
+separately, so a solid cannot exist without art or art without a solid. If the
+arena gains or loses a solid, this list moves with it.
+
+Environment art is **not** required for a run to start. An unbacked solid keeps
+its authored blockout, on the same all-or-nothing principle as clip coverage:
+partial art is a legibility hazard, not a partial improvement.
+
 ## 4. Perspective and world scale
 
 - Projection: top-down 2.5D, approximately 3/4 presentation, with collision defined separately.
