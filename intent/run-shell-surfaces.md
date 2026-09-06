@@ -31,6 +31,26 @@ Nothing in `specs/` describes a title screen, main menu, launch screen, splash,
 or terminal surface. This is a genuine specification gap, not an implementation
 oversight.
 
+## Update — 2026-09-05, after merge
+
+The **terminal half has since shipped** in the runtime (SS-runtime #65), at the
+user's direction and ahead of this intent's acceptance. That changes this
+document's Problem section in one respect: a finished run now states its outcome
+and restarts only from a named control, so the "no way out" half is addressed in
+code even though it was never specified.
+
+`specs/001-single-level-vertical-slice/run-shell.md` records that shipped
+behaviour as `PROPOSED`, so the specification stops trailing the implementation.
+It deliberately specifies nothing about launch or title surfaces, which remain
+the substantive open question below.
+
+Building it also surfaced a defect this intent did not anticipate: because
+completing M-A sets `outcome = .upgradeSelectionPending`, the touch handler's
+"not playing means finished" test made the first tap at the upgrade gate restart
+the whole run. Every hand-played run would have ended at M-A. That is now fixed,
+and the terminal/non-terminal distinction is recorded in the proposed spec
+because it is a contract consumers must not get wrong.
+
 ## Proposed outcome
 
 - Launching the app presents a surface that does not simulate, from which the
