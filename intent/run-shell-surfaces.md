@@ -2,7 +2,7 @@
 
 **Author:** prabu-openclaw
 **Date:** 2026-09-05
-**Status:** draft
+**Status:** accepted
 **Next stage:** `spec.md`
 
 ## Problem
