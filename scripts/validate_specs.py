@@ -149,6 +149,38 @@ for path in sorted(artifacts):
     if path not in linked:
         err(f"README index does not list {path.relative_to(ROOT)}")
 
+# 6. tasks.md reconciliation integrity.
+# The "Open task reconciliation (honest gap)" table states, for every unchecked
+# task, the status, blocker, required owner/input, and the evidence that would
+# close it. Keep that table in lockstep with the checklist: every open task must
+# be reconciled exactly once, no reconciled task may be already checked, and no
+# ID may be reconciled twice. This is documentation integrity only — it fails
+# closed on drift, it does not assert that any task's evidence exists.
+tasks_path = ROOT / "specs" / "001-single-level-vertical-slice" / "tasks.md"
+if not tasks_path.exists():
+    err("tasks.md is missing; cannot check open-task reconciliation integrity")
+else:
+    tasks_text = tasks_path.read_text(encoding="utf-8")
+    open_ids = {m.group(1) for m in re.finditer(r"^- \[ \] (T[0-9A-Z]+)", tasks_text, flags=re.M)}
+    closed_ids = {m.group(1) for m in re.finditer(r"^- \[x\] (T[0-9A-Z]+)", tasks_text, flags=re.M)}
+    head = "## Open task reconciliation"
+    tail = "## Traceability rule"
+    if head not in tasks_text or tail not in tasks_text:
+        err("tasks.md is missing the open-task reconciliation section or the traceability rule")
+    else:
+        section = tasks_text.split(head, 1)[1].split(tail, 1)[0]
+        reconciled = [m.group(1) for m in re.finditer(r"^\| (T[0-9A-Z]+) \|", section, flags=re.M)]
+        if len(reconciled) != len(set(reconciled)):
+            dupes = sorted({t for t in reconciled if reconciled.count(t) > 1})
+            err(f"tasks.md reconciliation reconciles these task IDs more than once: {', '.join(dupes)}")
+        reconciled_set = set(reconciled)
+        for task_id in sorted(open_ids - reconciled_set):
+            err(f"tasks.md task {task_id} is open but has no reconciliation row (status/blocker/owner/evidence)")
+        for task_id in sorted(reconciled_set & closed_ids):
+            err(f"tasks.md task {task_id} is checked but still carries a reconciliation row; reconcile it or drop the row")
+        for task_id in sorted(reconciled_set - open_ids - closed_ids):
+            err(f"tasks.md reconciliation references {task_id}, which is not present in the task checklist")
+
 if errors:
     print(f"validate_specs: {len(errors)} problem(s)")
     for line in errors:

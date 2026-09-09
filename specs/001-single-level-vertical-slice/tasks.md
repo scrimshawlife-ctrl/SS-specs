@@ -200,6 +200,55 @@ Checked tasks link to the runtime pull request or commit that carries their veri
 
 Implemented in the runtime but **not cited** by any pull request, left unchecked pending citation: T301, T408A, T700. Range citation `T303-T404` (`92fff69`) is not accepted for T305/T306, which have no pacing or freeze artifact.
 
+## Open task reconciliation (honest gap)
+
+The 31 unchecked tasks above are **not agent-closable**. Each is a *run*, *record*, *measure*, *decide*, or *produce* item whose closure needs an input this specification does not own, and none of them may be closed on the strength of a harness. They group into six kinds, each with its required owner or input:
+
+- **Device (iPhone 12 performance floor / supported matrix)** — T406, T606, T901, T905.
+- **Human judgment / decision** — T306, T506, T802, T804, T806, T907, T908 (the expansion gate and any D-register decision require the owner specialist, Danny).
+- **Artist / production** — T503, T504, T505, T507, T508, T509, T601, T602, T603, T800.
+- **Runtime-implemented, awaiting a citing PR** — T301, T408A, T700.
+- **Legacy archaeology** — T101, T105.
+- **Developer (defect closure)** — T906.
+
+A harness is a collector of evidence, not evidence. SS-runtime #34–#41 ship the peak-density profiler, replay matrix, playtest loader, gate registry, defect registry, release-evidence store, and expansion-gate report; each stays a collector until it has captured a real device run, a named participant, or a recorded decision. The pending decisions **D-020** (which physical devices are approved equivalents for the four device classes) and **D-021** (the exact measured ceilings) remain `DECISION_PENDING` and MUST NOT be replaced with invented answers; they block the device-class tasks until the owner records them.
+
+**What counts as evidence:** a linked device capture or profile, a recorded playtest naming its participants, a recorded decision, a delivered asset carrying `asset-record-001` provenance, or a runtime PR that cites the task ID and links its verification. Until one of these exists and is linked, the task stays open.
+
+| Task | Status | Blocker | Required owner / input | Evidence required |
+|---|---|---|---|---|
+| T101 | NOT_RUN | Legacy test suite and build environment at the frozen SHA `3b20d88` are NOT_COMPUTABLE; deterministic-kernel tests are unrecovered | Developer with legacy-repo access performs the recovery; owner specialist approves | A recovered, runnable deterministic-kernel test suite with recorded results at the frozen SHA |
+| T105 | STANDING_GATE | Legacy migration is not complete; the gate is active until every copied source is approved | Every copied source carries an approved record before migration closes (owner specialist Danny) | An approved record per copied source (asset-record / admission decision) plus a migration-close note |
+| T301 | PENDING_CITATION | The arena is implemented in SS-runtime but no PR cites T301 | Runtime team opens a PR citing T301 | A PR citing T301 that links the arena-geometry verification |
+| T305 | NOT_RUN | No first-run or competent-run pacing probe has been run; the `T303-T404` range citation is not accepted | Designer / player runs the probes on a device (owner specialist Danny) | Recorded pacing probes compared against the `E-011` 8–12-minute target |
+| T306 | NOT_DECIDED | The blockout freeze is a human judgment, pending pacing (T305) and density ceilings (T406) | Designer accepts the freeze (owner specialist Danny) | A recorded freeze decision referencing the pacing and density evidence |
+| T406 | NOT_RUN | Peak-density profiling on an iPhone 12 (performance floor, D-011) is not run; D-021 ceilings are DECISION_PENDING | iPhone 12 device plus a human owner who settles D-021 | A device profile (resident memory, atlas memory, frame time) and a D-021 decision record |
+| T408A | PENDING_CITATION | Camera Integrity is implemented in SS-runtime but no PR cites T408A | Runtime team opens a PR citing T408A | A PR citing T408A that links the Integrity / damage-eligibility verification |
+| T503 | NOT_PRODUCED | The silhouette sheets are not produced | Artist delivers the sheets; intake records `asset-record-001` provenance | Delivered Player, Guard, Interceptor, Captain, Camera, objective, and upgrade silhouette sheets with provenance |
+| T504 | NOT_PRODUCED | The review plates are not produced | Artist produces the plates | Delivered grayscale, color-vision, dense-combat, and reduced-presentation review plates with provenance |
+| T505 | NOT_MEASURED | Bounded atlases and preload measurements are not recorded | Runtime builds the atlases and measures preload on a device | Bounded atlases plus a recorded preload measurement |
+| T506 | NOT_DECIDED | Approving the minimum asset inventory is a human judgment | Designer / owner approves the inventory (owner specialist Danny) | A recorded approval decision for the minimum asset inventory |
+| T507 | NOT_PRODUCED | The six Civic Seam Camera housing families are not produced | Artist delivers the families | Delivered housing families with provenance |
+| T508 | NOT_PRODUCED | The architectural module sheets and recombination tests are not produced | Artist produces the sheets; runtime adds the recombination tests | Delivered module sheets plus passing recombination tests |
+| T509 | NOT_PRODUCED | The motif sheets are not produced | Artist delivers the sheets | Delivered phoenix, repair, human-counter-signal, and broadcast-glyph motif sheets with provenance |
+| T601 | NOT_PRODUCED | The minimum Player clips are not produced | Artist / animation production delivers the clips | Delivered minimum Player clips with provenance |
+| T602 | NOT_PRODUCED | The Guard and Interceptor clip families are not produced | Artist delivers the families | Delivered Guard and Interceptor clip families with provenance |
+| T603 | NOT_PRODUCED | The finite Captain animation and telegraph vocabulary are not produced | Artist delivers the set | Delivered Captain animation and telegraph vocabulary with provenance |
+| T606 | NOT_MEASURED | Animation, VFX, draw, and transient-node budgets are not measured on an iPhone 12 | iPhone 12 device | Recorded budget measurements on an iPhone 12 |
+| T700 | PENDING_CITATION | Protected upgrade selection is implemented in SS-runtime but no PR cites T700 | Runtime team opens a PR citing T700 | A PR citing T700 that links the selection verification |
+| T800 | NOT_PRODUCED | The approved Civic Seam P0 modular environment families are not produced | Artist delivers the families; owner approves | Delivered P0 families with an approval decision and provenance |
+| T802 | NOT_PERFORMED | The P1 identity pass is not performed and must not weaken affordances | Artist performs the pass; human confirms affordances hold | A completed P1 pass plus a human judgment record |
+| T804 | NOT_PASSED | Asset provenance and device acceptance have not passed | Device plus a human acceptance decision | Recorded device-acceptance results plus a provenance check |
+| T806 | BLOCKED | P2 polish is allowed only after P0/P1 device acceptance (T804) | P0/P1 device acceptance lands first, then artist adds P2 | P0/P1 device-acceptance evidence before any P2 polish |
+| T901 | NOT_PASSED | Deterministic replay has not passed across the supported device matrix; the harness is not evidence | The supported device matrix | Linked device replay results across the matrix (B-002) |
+| T902 | NOT_PASSED | Functional, visual, arena, animation, accessibility, and edge-case gates have not passed; `GateRegistry` maps gates to evidence but the evidence is not linked | Human plus device, per gate | Linked evidence for each acceptance gate (A–G) |
+| T903 | NOT_RUN | The onboarding comprehension playtest is not run | Named participants plus a designer who records comprehension | A recorded playtest with a comprehension outcome |
+| T904 | NOT_RUN | The voluntary-replay playtest with at least five external participants is not run | At least five named external participants | A recorded playtest from at least five external participants |
+| T905 | NOT_RUN | Three consecutive physical-device complete runs on the performance floor (iPhone 12) are not run | iPhone 12 device | Three recorded consecutive complete runs on the performance floor |
+| T906 | STANDING_GATE | Severity-one and -two defects are not fixed; the defect list must be found through device / playtest evidence first | Developer fixes; evidence discovers the defects | A defect registry with no open severity-one or -two defects |
+| T907 | NOT_RECORDED | Release-candidate evidence is not recorded; `ReleaseEvidenceStore` is a harness, not evidence | The release owner records the evidence | A recorded release-candidate evidence bundle |
+| T908 | NOT_DECIDED | The expansion-gate decision is a human judgment, gated on D-020, D-021, and Gates A–G | The owner specialist (Danny) decides | A recorded expansion-gate decision referencing D-020/D-021 and the gate evidence |
+
 ## Traceability rule
 
 Every runtime pull request MUST cite task IDs and affected requirement or gate IDs. A task closes only when its verification evidence is linked.
