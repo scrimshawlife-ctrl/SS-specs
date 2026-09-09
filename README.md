@@ -24,6 +24,7 @@ Non-trivial or feature-sized work starts with [`intent/`](intent/README.md) befo
 12. [Camera destruction contract](specs/001-single-level-vertical-slice/camera-destruction.md)
 13. [Camera placement contract](specs/001-single-level-vertical-slice/camera-placement.md)
 13a. [Camera socket manifest schema](contracts/camera-placement-001.schema.json)
+13b. [Camera socket manifest](contracts/camera-placement-001.json)
 14. [Exposure contract](specs/001-single-level-vertical-slice/exposure.md)
 15. [Player controller contract](specs/001-single-level-vertical-slice/player-controller.md)
 16. [Base combat contract](specs/001-single-level-vertical-slice/combat.md)

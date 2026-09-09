@@ -60,6 +60,33 @@ def validate_instance(instance_rel: str, schema_rel: str, label: str | None = No
 # 3. Machine artifacts conform to the schema that governs them.
 validate_instance("contracts/civic-seam-arena-001.json", "contracts/civic-seam-arena-001.schema.json")
 validate_instance("fixtures/replay-smoke-001.json", "contracts/runtime-kernel-001.json")
+validate_instance("contracts/camera-placement-001.json", "contracts/camera-placement-001.schema.json")
+
+# 3a. The placement instance is the arena's authored socket inventory wrapped
+# in the placement identity fields (D-066). The schema proves each socket is
+# well-formed; this proves the inventory did not drift from the arena
+# manifest the runtime loads, and that the authored pool still meets the
+# minimum enabled sizes camera-placement.md requires per zone.
+placement = documents.get(ROOT / "contracts/camera-placement-001.json")
+manifest = documents.get(ROOT / "contracts/civic-seam-arena-001.json")
+if isinstance(placement, dict) and isinstance(manifest, dict):
+    sockets = placement.get("sockets")
+    if not isinstance(sockets, list):
+        err("camera-placement-001 sockets is not an array")
+    else:
+        if sockets != manifest.get("cameraSockets"):
+            err("camera-placement-001 sockets drifted from the arena manifest cameraSockets")
+        enabled_by_zone: dict[str, int] = {}
+        for socket in sockets:
+            if not isinstance(socket, dict) or not socket.get("enabled"):
+                continue
+            zone = socket.get("zoneId")
+            if isinstance(zone, str):
+                enabled_by_zone[zone] = enabled_by_zone.get(zone, 0) + 1
+        for zone, need in (("Z-02", 4), ("Z-03", 3), ("Z-04", 4), ("Z-05", 4), ("Z-06", 3)):
+            have = enabled_by_zone.get(zone, 0)
+            if have < need:
+                err(f"camera-placement-001 {zone} has {have} enabled sockets; camera-placement.md requires at least {need}")
 
 catalog_path = ROOT / "contracts/asset-catalog-001.json"
 record_schema_path = ROOT / "contracts/asset-record-001.schema.json"
