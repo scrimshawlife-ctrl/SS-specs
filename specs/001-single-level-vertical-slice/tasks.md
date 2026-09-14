@@ -64,7 +64,7 @@ Tasks are ordered. Runtime implementation belongs in the future runtime reposito
 - [x] T407 Validate spawn fairness and visual escape corridors.
 - [x] T408 Author at least 18 Camera sockets; deterministically select exactly eight by seed/quota and assert selected transforms/fields remain immutable.
 - [x] T408B Exhaustively validate every legal Camera selection and implement CP-001 through CP-010.
-- [ ] T408A Implement Camera Integrity 3→2→1→0 and exact damage eligibility.
+- [x] T408A Implement Camera Integrity 3→2→1→0 and exact damage eligibility.
 - [x] T409 Implement Camera-aware automatic-target priority and stable tie-breaking.
 - [x] T410 Implement destruction contact removal, +100 Tamper, and Lockdown transition order.
 - [x] T411 Implement permanent per-run Camera destruction with complete restart restoration.
@@ -167,6 +167,7 @@ Checked tasks link to the runtime pull request or commit that carries their veri
 | T407 | SS-runtime #8, #11 |
 | T408 | SS-runtime #7 (`CameraPlacementTests`) |
 | T408B | SS-runtime #7 |
+| T408A | SS-runtime #2 (`CameraDestructionOrderTests`, `KernelVectorTests`, `GrayscaleSystemsTests`) |
 | T409 | SS-runtime #9 |
 | T410 | SS-runtime #10 |
 | T411 | SS-runtime #12 |
@@ -198,16 +199,16 @@ Checked tasks link to the runtime pull request or commit that carries their veri
 | T807 | SS-runtime #32 |
 | T900 | SS-runtime #34 |
 
-Implemented in the runtime but **not cited** by any pull request, left unchecked pending citation: T301, T408A, T700. Range citation `T303-T404` (`92fff69`) is not accepted for T305/T306, which have no pacing or freeze artifact.
+Implemented in the runtime but **not cited** by any pull request, left unchecked pending citation: T301, T700. Range citation `T303-T404` (`92fff69`) is not accepted for T305/T306, which have no pacing or freeze artifact.
 
 ## Open task reconciliation (honest gap)
 
-The 31 unchecked tasks above are **not agent-closable**. Each is a *run*, *record*, *measure*, *decide*, or *produce* item whose closure needs an input this specification does not own, and none of them may be closed on the strength of a harness. They group into six kinds, each with its required owner or input:
+The 30 unchecked tasks above are **not agent-closable**. Each is a *run*, *record*, *measure*, *decide*, or *produce* item whose closure needs an input this specification does not own, and none of them may be closed on the strength of a harness. They group into six kinds, each with its required owner or input:
 
 - **Device (iPhone 12 performance floor / supported matrix)** — T406, T606, T901, T905.
 - **Human judgment / decision** — T306, T506, T802, T804, T806, T907, T908 (the expansion gate and any D-register decision require the owner specialist, Danny).
 - **Artist / production** — T503, T504, T505, T507, T508, T509, T601, T602, T603, T800.
-- **Runtime-implemented, awaiting a citing PR** — T301, T408A, T700.
+- **Runtime-implemented, awaiting a citing PR** — T301, T700.
 - **Legacy archaeology** — T101, T105.
 - **Developer (defect closure)** — T906.
 
@@ -223,7 +224,6 @@ A harness is a collector of evidence, not evidence. SS-runtime #34–#41 ship th
 | T305 | NOT_RUN | No first-run or competent-run pacing probe has been run; the `T303-T404` range citation is not accepted | Designer / player runs the probes on a device (owner specialist Danny) | Recorded pacing probes compared against the `E-011` 8–12-minute target |
 | T306 | NOT_DECIDED | The blockout freeze is a human judgment, pending pacing (T305) and density ceilings (T406) | Designer accepts the freeze (owner specialist Danny) | A recorded freeze decision referencing the pacing and density evidence |
 | T406 | NOT_RUN | Peak-density profiling on an iPhone 12 (performance floor, D-011) is not run; D-021 ceilings are DECISION_PENDING | iPhone 12 device plus a human owner who settles D-021 | A device profile (resident memory, atlas memory, frame time) and a D-021 decision record |
-| T408A | PENDING_CITATION | Camera Integrity is implemented in SS-runtime but no PR cites T408A | Runtime team opens a PR citing T408A | A PR citing T408A that links the Integrity / damage-eligibility verification |
 | T503 | NOT_PRODUCED | The silhouette sheets are not produced | Artist delivers the sheets; intake records `asset-record-001` provenance | Delivered Player, Guard, Interceptor, Captain, Camera, objective, and upgrade silhouette sheets with provenance |
 | T504 | NOT_PRODUCED | The review plates are not produced | Artist produces the plates | Delivered grayscale, color-vision, dense-combat, and reduced-presentation review plates with provenance |
 | T505 | NOT_MEASURED | Bounded atlases and preload measurements are not recorded | Runtime builds the atlases and measures preload on a device | Bounded atlases plus a recorded preload measurement |
