@@ -160,3 +160,7 @@ As a developer, I can replay the same authoritative inputs under the same Replay
 - A full run is stable and meets the target performance budget.
 - Identical Replay Identities produce identical authoritative results.
 - Playtest evidence shows voluntary replay rather than completion alone.
+
+## 10. Workflows pointer
+
+Contributor Workflows — named Grok Bot skills, the owner specialist, and CI reuse — are bound from [`AGENTS.md`](../../AGENTS.md) at specify time (D-062, D-064). They are contributor policy, not product behavior, and are not restated here.
