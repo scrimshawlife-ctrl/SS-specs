@@ -5,6 +5,8 @@
 **Status:** draft | accepted | superseded  
 **Next stage:** `spec.md`
 
+`draft` until the owner accepts. `accepted` authorizes specify. `superseded` replaces this intent. Do not list Grok Bot skills or CI policy here; bind those from `AGENTS.md` in `spec.md` by pointer only.
+
 ## Problem
 
 What is wrong or missing, and why it matters now.

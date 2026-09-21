@@ -1,7 +1,7 @@
 # Technical Plan: San Francisco Vertical Slice
 
 Status: BASELINE  
-Depends on: `spec.md`, constitution 1.0.0
+Depends on: `spec.md`, constitution 1.1.0
 
 ## 1. Platform baseline
 
@@ -19,7 +19,7 @@ accounts: none
 persistence: settings-and-local-run-receipts
 ```
 
-The runtime repository will be `scrimshawlife-ctrl/SS` after the specifications pass their completeness review.
+The runtime repository is `scrimshawlife-ctrl/SS-runtime`.
 
 ## 2. Runtime boundary
 
@@ -205,7 +205,7 @@ Equivalent devices require a recorded equivalence rationale. Routine CI uses SE-
 
 ## 11. Legacy migration procedure
 
-1. Resolve and tag the exact legacy `main` head as `legacy-multicity-2026-08-23`.
+1. Resolve and tag the exact legacy `main` head as `legacy-multicity-2026-08-24`.
 2. Stop active legacy development.
 3. Inventory each bounded candidate.
 4. Identify dependencies and global state.

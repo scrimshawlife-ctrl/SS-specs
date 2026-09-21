@@ -6,6 +6,25 @@ Canonical specifications for the one-level reboot of **Surveillance Survivor**.
 
 Surveillance Survivor is a deterministic, top-down survival action game in which surveillance is an active systemic threat. The first release contains one polished San Francisco level. The player must manage Exposure, survive escalating enforcement, defeat the Algorithmic Moderate, and reach Extraction.
 
+## Spec Kit phase map
+
+This repository follows GitHub [Spec Kit](https://github.com/github/spec-kit) phases as Markdown artifacts. It does **not** install the Specify CLI or a `.specify/` tree. This repo also requires [`intent/`](intent/README.md) before specify for non-trivial work (D-063). Contributor Workflows (skills, owner, CI) live in [`AGENTS.md`](AGENTS.md) and are bound from `spec.md` by pointer only (D-064).
+
+| Phase | Required? | Artifact |
+|---|---|---|
+| constitution | once per project | [Constitution](specs/000-constitution.md) |
+| intent | this-repo gate | [`intent/`](intent/README.md) |
+| specify | before plan | [Product specification](specs/001-single-level-vertical-slice/spec.md) |
+| clarify | optional | Folded into [decisions](specs/001-single-level-vertical-slice/decisions.md) and intent Open questions |
+| plan | how | [Technical plan](specs/001-single-level-vertical-slice/plan.md) |
+| checklist | optional | [Completeness audit](specs/001-single-level-vertical-slice/completeness-audit.md) + [checklist stub](docs/spec-kit/checklist.md) |
+| tasks | ordered work | [Implementation tasks](specs/001-single-level-vertical-slice/tasks.md) |
+| analyze | optional | [Analyze stub](docs/spec-kit/analyze.md) |
+| implement | runtime repo | `scrimshawlife-ctrl/SS-runtime` |
+| converge | after implement | [Acceptance gates](specs/001-single-level-vertical-slice/acceptance.md) + [converge stub](docs/spec-kit/converge.md) |
+
+Process audits (not product contracts): [Spec Kit alignment](docs/SPEC-KIT-ALIGNMENT-2026-09-21.md), [extension-points audit](docs/EXTENSION-POINTS-AUDIT-2026-09-21.md). Do not invent HANDOFF.md.
+
 ## Canonical sequence
 
 Non-trivial or feature-sized work starts with [`intent/`](intent/README.md) before specify. Contributor Workflows (skills, owner, CI) live in [`AGENTS.md`](AGENTS.md), not in the product specification. The Civic Seam baseline below is already specified.
@@ -59,6 +78,11 @@ Non-trivial or feature-sized work starts with [`intent/`](intent/README.md) befo
 38. [Acceptance and playtest gates](specs/001-single-level-vertical-slice/acceptance.md)
 39. [Decision register](specs/001-single-level-vertical-slice/decisions.md)
 40. [Run-shell terminal surface](specs/001-single-level-vertical-slice/run-shell.md)
+41. [Extension-points audit](docs/EXTENSION-POINTS-AUDIT-2026-09-21.md)
+42. [Spec Kit alignment](docs/SPEC-KIT-ALIGNMENT-2026-09-21.md)
+43. [Spec Kit checklist stub](docs/spec-kit/checklist.md)
+44. [Spec Kit analyze stub](docs/spec-kit/analyze.md)
+45. [Spec Kit converge stub](docs/spec-kit/converge.md)
 
 Implementation belongs in a separate runtime repository. This repository defines product intent, contracts, decisions, and acceptance evidence.
 

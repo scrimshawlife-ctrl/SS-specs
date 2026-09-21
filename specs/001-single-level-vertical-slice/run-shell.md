@@ -6,10 +6,10 @@ Contract version: `run-shell-001` (proposed)
 
 > **This document is not canonical.** It records behaviour already shipped in
 > the runtime so the specification stops trailing the implementation, and it
-> isolates the decisions still owed. `intent/run-shell-surfaces.md` is merged but
-> still `Status: draft`; a human accepts that intent, then this document, before
-> either binds. Sections marked **OPEN** are unanswered and MUST NOT be
-> implemented from this file.
+> isolates the decisions still owed. `intent/run-shell-surfaces.md` is `accepted`
+> and authorizes specify; this document remains `PROPOSED` until a human accepts
+> it. Sections marked **OPEN** are unanswered and MUST NOT be implemented from
+> this file.
 
 ## 1. Why this exists
 

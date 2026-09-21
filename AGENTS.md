@@ -4,17 +4,20 @@ Read `README.md` and `specs/000-constitution.md` before changing any artifact.
 
 ## Method
 
-Use Spec-Driven Development in this order:
+Use Spec-Driven Development in this order. Phases match GitHub Spec Kit, with this repo’s `intent/` gate required before specify. The phase map lives in `README.md` and `docs/SPEC-KIT-ALIGNMENT-2026-09-21.md`.
 
 1. Constitution: governing constraints.
 2. Intent: `intent.md` for why the change is worth specifying. Required before specify for non-trivial, feature, or RFC-sized work. Copy `intent/_TEMPLATE.md`. Do not skip.
-3. Specification: observable what and why in `spec.md`. Bind Workflows from this file at specify time. Do not put skills, owner, or CI policy in the product specification.
-4. Plan: technical how.
-5. Tasks: ordered implementation work.
-6. Runtime implementation in the separate runtime repository.
-7. Verification evidence against acceptance gates.
+3. Specification: observable what and why in `spec.md`. Bind Workflows from this file at specify time with a short pointer. Do not put skills, owner, or CI policy in the product specification.
+4. Clarify (optional): resolve underspecified areas into `spec.md` or `decisions.md` before plan. Do not invent a questionnaire.
+5. Plan: technical how.
+6. Checklist (optional): requirements-quality review. Fold `completeness-audit.md`; do not invent gameplay.
+7. Tasks: ordered implementation work.
+8. Analyze (optional): cross-artifact coverage before implement.
+9. Runtime implementation in the separate runtime repository.
+10. Converge / verification: compare runtime evidence to `acceptance.md` and the open-task table. Do not invent HANDOFF.md.
 
-Sequence for non-trivial changes: `intent.md` → `spec.md` → plan/tasks → implement. Bind Workflows (below) when specifying. Do not skip intent for feature- or RFC-sized work.
+Sequence for non-trivial changes: `intent.md` → `spec.md` → plan/tasks → implement. Optional Spec Kit gates: clarify, checklist, analyze, converge. Bind Workflows (below) when specifying. Do not skip intent for feature- or RFC-sized work.
 
 Do not place implementation details in the product specification unless they are externally observable constraints.
 
