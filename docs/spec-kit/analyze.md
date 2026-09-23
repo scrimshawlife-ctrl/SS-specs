@@ -30,7 +30,7 @@ These were identity drift, not new design:
 | Finding | Label | Owner |
 |---|---|---|
 | `completeness-audit.md` date is 2026-08-24; D-060–D-066, run-shell, and the extension-points audit are later | **OBSERVED** | Do not invent a new audit verdict in this file |
-| `acceptance.md` A-006 names “Guards and Interceptors”; the canonical five archetypes live in `enemies-and-encounters.md` | **OBSERVED** naming leftover | Fold on a spec pass; do not add enemies |
+| `acceptance.md` A-006 names “Guards and Interceptors”; the canonical five archetypes live in `enemies-and-encounters.md` | **OBSERVED** naming leftover | Fold on a spec pass; do not add enemies Resolved 2026-09-23 by D-070. |
 | `tasks.md` T002 still says reserve `scrimshawlife-ctrl/SS` | **OBSERVED** historical checked task | Leave the checked row; the live name is `SS-runtime` |
 | `run-shell.md` is `PROPOSED`; title/terminal copy remains OPEN | **OBSERVED** | Existing stub; no HANDOFF |
 | `intent/2026-09-07-fog-layers.md` is still `draft` | **OBSERVED** | Specify only after acceptance |

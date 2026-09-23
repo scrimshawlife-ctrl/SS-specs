@@ -59,7 +59,7 @@ Tasks are ordered. Runtime implementation belongs in the future runtime reposito
 - [x] T402 Render Camera fields from authoritative data.
 - [x] T403 Implement deterministic target selection, base attack, damage, and death.
 - [x] T404 Implement projectile pooling with complete lifecycle reset.
-- [x] T405 Implement Guard and Interceptor blockouts with distinct silhouettes.
+- [x] T405 Implement standard-enemy blockouts with distinct silhouettes.
 - [ ] T406 Profile peak density on iPhone 12 and decide D-021 ceilings.
 - [x] T407 Validate spawn fairness and visual escape corridors.
 - [x] T408 Author at least 18 Camera sockets; deterministically select exactly eight by seed/quota and assert selected transforms/fields remain immutable.
@@ -77,7 +77,7 @@ Tasks are ordered. Runtime implementation belongs in the future runtime reposito
 - [x] T500 Establish role palette, shape language, contact points, and salience hierarchy.
 - [x] T501 Implement asset manifest and provenance validation.
 - [x] T502 Implement deterministic naming, dimensions, alpha, sRGB, content, duplicate, and atlas checks.
-- [ ] T503 Produce Player, Guard, Interceptor, Captain, Camera, objective, and upgrade silhouette sheets.
+- [ ] T503 Produce Player, standard-enemy, Improper Search Daemon, Algorithmic Moderate, Camera, objective, and upgrade silhouette sheets.
 - [ ] T504 Produce grayscale, color-vision, dense-combat, and reduced-presentation review plates.
 - [ ] T505 Establish bounded atlases and preload measurements.
 - [ ] T506 Approve the minimum asset inventory before polish assets.
@@ -89,7 +89,7 @@ Tasks are ordered. Runtime implementation belongs in the future runtime reposito
 
 - [x] T600 Implement clip metadata and authoritative event markers.
 - [x] T601 Produce minimum Player clips.
-- [ ] T602 Produce Guard and Interceptor clip families.
+- [ ] T602 Produce the five standard-enemy clip families.
 - [x] T603 Produce the finite Captain animation and telegraph vocabulary.
 - [x] T604 Implement bounded procedural VFX and reduced variants.
 - [x] T608 Produce Camera operational, damaged, critical, destroyed, dormant, hit, and field-off presentation.
@@ -208,7 +208,7 @@ T301 and T700 were implemented but uncited until SS-runtime #83 (merged 2026-09-
 
 ## Open task reconciliation (honest gap)
 
-**Art reconciliation (2026-09-23).** T509, T601, and T603 were recorded `NOT_PRODUCED` on 2026-09-09 (#27) without a cross-check against `asset-catalog-001`, which already held their delivered, admitted, hashed assets. Closed above on that catalog evidence. Three observations are recorded, not resolved: (1) `animation.md` §3 lists a generic Captain vocabulary (command pulse, sweep, targeted strike, reinforcement call) while `bosses.md` and D-050 name four specific attacks — the delivered clips follow `bosses.md`; (2) every Moderate clip's `reducedMotionClip` references itself, so no distinct reduced-motion variant exists — a D-008 review item, not a production gap; (3) T503 and T602 still name the retired Guard and Interceptor roles rather than the five canonical standard enemies.
+**Art reconciliation (2026-09-23).** T509, T601, and T603 were recorded `NOT_PRODUCED` on 2026-09-09 (#27) without a cross-check against `asset-catalog-001`, which already held their delivered, admitted, hashed assets. Closed above on that catalog evidence. Its three open observations are resolved: the Captain vocabulary by D-068 (the generic names had already been retired from `animation.md` in #6 on 2026-09-04 — that observation was mistaken), self-referencing reduced-motion clips by D-069, and the retired Guard and Interceptor roles by D-070.
 
 The 25 unchecked tasks above are **not agent-closable**. Each is a *run*, *record*, *measure*, *decide*, or *produce* item whose closure needs an input this specification does not own, and none of them may be closed on the strength of a harness. They group into six kinds, each with its required owner or input:
 
@@ -229,13 +229,13 @@ A harness is a collector of evidence, not evidence. SS-runtime #34–#41 ship th
 | T305 | NOT_RUN | No first-run or competent-run pacing probe has been run; the `T303-T404` range citation is not accepted | Designer / player runs the probes on a device (owner specialist Danny) | Recorded pacing probes compared against the `E-011` 8–12-minute target |
 | T306 | NOT_DECIDED | The blockout freeze is a human judgment, pending pacing (T305) and density ceilings (T406) | Designer accepts the freeze (owner specialist Danny) | A recorded freeze decision referencing the pacing and density evidence |
 | T406 | NOT_RUN | Peak-density profiling on an iPhone 12 (performance floor, D-011) is not run; D-021 ceilings are DECISION_PENDING | iPhone 12 device plus a human owner who settles D-021 | A device profile (resident memory, atlas memory, frame time) and a D-021 decision record |
-| T503 | NOT_PRODUCED | The silhouette sheets are not produced | Artist delivers the sheets; intake records `asset-record-001` provenance | Delivered Player, Guard, Interceptor, Captain, Camera, objective, and upgrade silhouette sheets with provenance |
+| T503 | NOT_PRODUCED | The silhouette sheets are not produced | Artist delivers the sheets; intake records `asset-record-001` provenance | Delivered Player, standard-enemy, Improper Search Daemon, Algorithmic Moderate, Camera, objective, and upgrade silhouette sheets with provenance |
 | T504 | NOT_PRODUCED | The review plates are not produced | Artist produces the plates | Delivered grayscale, color-vision, dense-combat, and reduced-presentation review plates with provenance |
 | T505 | NOT_MEASURED | Bounded atlases and preload measurements are not recorded | Runtime builds the atlases and measures preload on a device | Bounded atlases plus a recorded preload measurement |
 | T506 | NOT_DECIDED | Approving the minimum asset inventory is a human judgment | Designer / owner approves the inventory (owner specialist Danny) | A recorded approval decision for the minimum asset inventory |
 | T507 | PARTIAL | Five standard families are delivered and admitted (`env_camera_municipal_dome`, `_ornamental_civic`, `_storefront`, `_temporary_mast`, `_traffic_reader`; `originalAccepted`, SHA-256). The sixth, the Captain Camera presentation, has no catalog record | Artist delivers the Captain Camera presentation | Delivered Captain Camera presentation with provenance |
 | T508 | NOT_PRODUCED | The architectural module sheets and recombination tests are not produced | Artist produces the sheets; runtime adds the recombination tests | Delivered module sheets plus passing recombination tests |
-| T602 | NOT_PRODUCED | The Guard and Interceptor clip families are not produced | Artist delivers the families | Delivered Guard and Interceptor clip families with provenance |
+| T602 | PARTIAL | Each standard enemy has only its accepted attack clips (Fog Analytics Cloud `pulse`/`pulseCommit`, Cable-Car Correlator `charge`/`chargeCommit`, Sutro Signal Witch `cast`/`castCommit`, Autonomous Informant `pursuit`/`pursuitCommit`, Victorian Vendor `throw`/`throwCommit`; 20 frames each). The `idle`, `acquire`, `move`, `recover`, `hurt`, and `defeat` clips that `animation.md` §3 requires are not produced | Artist delivers the missing clips; intake records `asset-record-001` provenance | Delivered idle, acquire, move, recover, hurt, and defeat clips for all five standard enemies, four directions each, with provenance and `clip-metadata-001` entries |
 | T606 | NOT_MEASURED | Animation, VFX, draw, and transient-node budgets are not measured on an iPhone 12 | iPhone 12 device | Recorded budget measurements on an iPhone 12 |
 | T800 | DELIVERED_AWAITING_APPROVAL | 33 P0 environment assets are delivered and admitted (14 `env_solid_*`, 13 `env_prop_*`, 6 `env_ground_*`; `originalAccepted`, SHA-256); no approval decision is recorded | Owner approves or rejects the delivered families (Danny) | A recorded owner approval decision on the delivered P0 families |
 | T802 | NOT_PERFORMED | The P1 identity pass is not performed and must not weaken affordances | Artist performs the pass; human confirms affordances hold | A completed P1 pass plus a human judgment record |
