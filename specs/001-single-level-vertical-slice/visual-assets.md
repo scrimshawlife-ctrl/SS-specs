@@ -122,6 +122,17 @@ Sprites may exceed their collision footprint for hats, coats, weapons, or antenn
 
 Each standard enemy requires idle, move, attack/commit, hurt, and defeat presentation. All five canonical archetypes MUST have different silhouettes at thumbnail scale.
 
+| Asset group (each standard enemy) | Minimum |
+|---|---:|
+| Idle | 4 frames × 4 directions |
+| Move | 6 frames × 4 directions |
+| Attack anticipate / commit | delivered (`clip-metadata-001`) |
+| Hurt | 3 frames × 4 directions |
+| Defeat | 6 frames × 4 directions |
+| Recover (Cable-Car Correlator only) | 3 frames × 4 directions, 45 ticks |
+
+Frames are 64 × 64 in the `playerAndStandardEnemy` box, anchored at (32, 56). The exact frame IDs are the `plannedOriginal` records in `asset-catalog-001` (D-071).
+
 | Role | Visual identity |
 |---|---|
 | Fog Analytics Cloud | suspended clustered mass, soft perimeter, obvious pulse aperture |

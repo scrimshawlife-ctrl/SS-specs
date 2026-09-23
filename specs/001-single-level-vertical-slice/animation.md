@@ -38,9 +38,11 @@ Rules:
 
 ### Standard enemy
 
-`idle → acquire → move → anticipate → commit → recover → move`  
+`idle ↔ move → anticipate → commit → move`  
 `living → hurt`  
 `living → defeat`
+
+Clips present the authoritative states in `enemies-and-encounters.md`: `idle` is zero velocity, `move` is every locomotion state (approach, orbit, pursue, keep range, cooldown), and anticipate/commit are the attack. The Cable-Car Correlator alone has a stationary `RECOVER` and therefore a `recover` clip of exactly 45 ticks. No standard enemy has an acquire state, so none has an acquire clip (D-071).
 
 Enemy roles MUST have different anticipation silhouettes and cadences. Fog pulse, Correlator charge, Signal Witch cast, Informant pursuit, and Vendor throw must be distinguishable before commit.
 
