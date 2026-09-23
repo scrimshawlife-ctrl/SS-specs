@@ -125,7 +125,7 @@ Each standard enemy requires idle, move, attack/commit, hurt, and defeat present
 | Asset group (each standard enemy) | Minimum |
 |---|---:|
 | Idle | 4 frames × 4 directions |
-| Move | 6 frames × 4 directions |
+| Move (not the Autonomous Informant, whose pursuit clip is its locomotion) | 6 frames × 4 directions |
 | Attack anticipate / commit | delivered (`clip-metadata-001`) |
 | Hurt | 3 frames × 4 directions |
 | Defeat | 6 frames × 4 directions |
