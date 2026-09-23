@@ -43,7 +43,7 @@ Tasks are ordered. Runtime implementation belongs in the future runtime reposito
 ## Phase 3 — Grayscale arena blockout
 
 - [x] T300 Define arena, zone, collision, Camera, navigation, and spawn schemas.
-- [ ] T301 Build the 36 × 24-cell baseline arena with seven canonical zones.
+- [x] T301 Build the 36 × 24-cell baseline arena with seven canonical zones.
 - [x] T302 Validate reachability, minimum widths, viewport margins, and Spawn Alley protection.
 - [x] T303 Implement collision, Camera, spawn, safe-area, and density debug overlays.
 - [x] T304 Build SE-class and standard-iPhone HUD blockouts for both handedness modes.
@@ -101,7 +101,7 @@ Tasks are ordered. Runtime implementation belongs in the future runtime reposito
 
 ## Phase 7 — Upgrades, Captain, and Extraction
 
-- [ ] T700 Implement protected upgrade selection.
+- [x] T700 Implement protected upgrade selection.
 - [x] T701 Implement Signal Jammer, Ricochet Pulse, and Ghost Step.
 - [x] T702 Implement Captain phases and defeat.
 - [x] T703 Implement the three-mob → Improper Search Daemon → Algorithmic Moderate → Extraction objective graph.
@@ -153,6 +153,7 @@ Checked tasks link to the runtime pull request or commit that carries their veri
 | T205 | SS-runtime `913b62a` |
 | T206 | SS-runtime `913b62a` |
 | T300 | SS-runtime `913b62a` |
+| T301 | SS-runtime #83 (`ad4a52a`) — `CanonicalArenaZonesTests`: grid, 64-unit cell, and each zone's id, order, and trigger rectangle against `arena-layout.md` |
 | T302 | SS-runtime `11d69ff` |
 | T303 | SS-runtime `92fff69` |
 | T304 | SS-runtime `92fff69` |
@@ -184,6 +185,7 @@ Checked tasks link to the runtime pull request or commit that carries their veri
 | T608 | SS-runtime #18 |
 | T609 | SS-runtime #19 |
 | T610 | SS-runtime #20 |
+| T700 | SS-runtime #83 (`ad4a52a`) — `ProtectedUpgradeSelectionTests`: selection opens from genuine M-A completion through `step()`; neutral-movement, Dodge, and missing-index refusal; frozen clock; one-tick acceptance. Mutation-verified |
 | T701 | SS-runtime #23 |
 | T702 | SS-runtime #24 |
 | T703 | SS-runtime #25 |
@@ -199,16 +201,15 @@ Checked tasks link to the runtime pull request or commit that carries their veri
 | T807 | SS-runtime #32 |
 | T900 | SS-runtime #34 |
 
-Implemented in the runtime but **not cited** by any pull request, left unchecked pending citation: T301, T700. Range citation `T303-T404` (`92fff69`) is not accepted for T305/T306, which have no pacing or freeze artifact.
+T301 and T700 were implemented but uncited until SS-runtime #83 (merged 2026-09-23) added verification that exercises what each task claims; with that PR's tests absent, deleting the selection's neutral-movement and Dodge guards left all 420 prior tests passing. Range citation `T303-T404` (`92fff69`) is not accepted for T305/T306, which have no pacing or freeze artifact.
 
 ## Open task reconciliation (honest gap)
 
-The 30 unchecked tasks above are **not agent-closable**. Each is a *run*, *record*, *measure*, *decide*, or *produce* item whose closure needs an input this specification does not own, and none of them may be closed on the strength of a harness. They group into six kinds, each with its required owner or input:
+The 28 unchecked tasks above are **not agent-closable**. Each is a *run*, *record*, *measure*, *decide*, or *produce* item whose closure needs an input this specification does not own, and none of them may be closed on the strength of a harness. They group into six kinds, each with its required owner or input:
 
 - **Device (iPhone 12 performance floor / supported matrix)** — T406, T606, T901, T905.
 - **Human judgment / decision** — T306, T506, T802, T804, T806, T907, T908 (the expansion gate and any D-register decision require the owner specialist, Danny).
 - **Artist / production** — T503, T504, T505, T507, T508, T509, T601, T602, T603, T800.
-- **Runtime-implemented, awaiting a citing PR** — T301, T700.
 - **Legacy archaeology** — T101, T105.
 - **Developer (defect closure)** — T906.
 
@@ -220,7 +221,6 @@ A harness is a collector of evidence, not evidence. SS-runtime #34–#41 ship th
 |---|---|---|---|---|
 | T101 | NOT_RUN | Legacy test suite and build environment at the frozen SHA `3b20d88` are NOT_COMPUTABLE; deterministic-kernel tests are unrecovered | Developer with legacy-repo access performs the recovery; owner specialist approves | A recovered, runnable deterministic-kernel test suite with recorded results at the frozen SHA |
 | T105 | STANDING_GATE | Legacy migration is not complete; the gate is active until every copied source is approved | Every copied source carries an approved record before migration closes (owner specialist Danny) | An approved record per copied source (asset-record / admission decision) plus a migration-close note |
-| T301 | PENDING_CITATION | The arena is implemented in SS-runtime but no PR cites T301 | Runtime team opens a PR citing T301 | A PR citing T301 that links the arena-geometry verification |
 | T305 | NOT_RUN | No first-run or competent-run pacing probe has been run; the `T303-T404` range citation is not accepted | Designer / player runs the probes on a device (owner specialist Danny) | Recorded pacing probes compared against the `E-011` 8–12-minute target |
 | T306 | NOT_DECIDED | The blockout freeze is a human judgment, pending pacing (T305) and density ceilings (T406) | Designer accepts the freeze (owner specialist Danny) | A recorded freeze decision referencing the pacing and density evidence |
 | T406 | NOT_RUN | Peak-density profiling on an iPhone 12 (performance floor, D-011) is not run; D-021 ceilings are DECISION_PENDING | iPhone 12 device plus a human owner who settles D-021 | A device profile (resident memory, atlas memory, frame time) and a D-021 decision record |
@@ -235,7 +235,6 @@ A harness is a collector of evidence, not evidence. SS-runtime #34–#41 ship th
 | T602 | NOT_PRODUCED | The Guard and Interceptor clip families are not produced | Artist delivers the families | Delivered Guard and Interceptor clip families with provenance |
 | T603 | NOT_PRODUCED | The finite Captain animation and telegraph vocabulary are not produced | Artist delivers the set | Delivered Captain animation and telegraph vocabulary with provenance |
 | T606 | NOT_MEASURED | Animation, VFX, draw, and transient-node budgets are not measured on an iPhone 12 | iPhone 12 device | Recorded budget measurements on an iPhone 12 |
-| T700 | PENDING_CITATION | Protected upgrade selection is implemented in SS-runtime but no PR cites T700 | Runtime team opens a PR citing T700 | A PR citing T700 that links the selection verification |
 | T800 | NOT_PRODUCED | The approved Civic Seam P0 modular environment families are not produced | Artist delivers the families; owner approves | Delivered P0 families with an approval decision and provenance |
 | T802 | NOT_PERFORMED | The P1 identity pass is not performed and must not weaken affordances | Artist performs the pass; human confirms affordances hold | A completed P1 pass plus a human judgment record |
 | T804 | NOT_PASSED | Asset provenance and device acceptance have not passed | Device plus a human acceptance decision | Recorded device-acceptance results plus a provenance check |
