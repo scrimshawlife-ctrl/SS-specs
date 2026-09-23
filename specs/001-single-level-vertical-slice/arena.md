@@ -51,7 +51,7 @@ Purpose: line of sight, occlusion, Exposure accumulation, and recovery.
 
 ### Z-03 Civic Plaza
 
-Purpose: combine surveillance, Guards, auto-attack, and circulation.
+Purpose: combine surveillance, standard enemies, auto-attack, and circulation.
 
 - Central open pressure space with a perimeter loop.
 - At least three exits remain visually distinguishable.

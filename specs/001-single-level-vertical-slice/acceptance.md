@@ -14,7 +14,7 @@ Each criterion requires a linked test, replay fixture, measurement, review plate
 - [ ] A-003 Camera regions match authoritative detection.
 - [ ] A-004 Blocking geometry reliably interrupts Camera detection.
 - [ ] A-005 Exposure and every Detection State transition are communicated.
-- [ ] A-006 Guards and Interceptors never spawn inside blocking geometry or protected Spawn Alley.
+- [ ] A-006 Standard enemies never spawn inside blocking geometry or protected Spawn Alley.
 - [ ] A-007 Damage always has a visible or communicated source.
 - [ ] A-008 All three upgrades materially change play and complete the level.
 - [ ] A-009 Captain defeat reliably unlocks Extraction.
@@ -73,7 +73,7 @@ Run three consecutive complete runs on a physical iPhone 12 or approved no-bette
 
 - [ ] D-001 Player remains identifiable at peak density and 50% gameplay scale.
 - [ ] D-002 Lethal telegraphs and projectiles outrank decoration in every capture.
-- [ ] D-003 Guard, Interceptor, and Captain silhouettes are distinguishable without color.
+- [ ] D-003 The five standard-enemy, Improper Search Daemon, and Algorithmic Moderate silhouettes are distinguishable without color.
 - [ ] D-004 Sprite contact points remain stable across clips.
 - [ ] D-005 Camera fields and attack cones remain distinguishable.
 - [ ] D-006 Every damaging animation provides its required anticipation.
@@ -146,7 +146,7 @@ Test with at least five people who did not implement the feature.
 - [ ] G-004 At least three of five voluntarily begin another run.
 - [ ] G-005 Median competent successful run duration is 8–12 minutes after onboarding.
 - [ ] G-006 Feedback identifies surveillance pressure—not generic combat—as a defining feature.
-- [ ] G-007 At least four of five can distinguish Guard, Interceptor, Camera field, enemy projectile, and objective without a legend after one run.
+- [ ] G-007 At least four of five can distinguish each standard-enemy role, Camera field, enemy projectile, and objective without a legend after one run.
 
 ## Expansion decision
 

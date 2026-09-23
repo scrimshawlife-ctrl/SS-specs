@@ -202,6 +202,8 @@ When system Reduce Motion is enabled:
 
 Reduced presentation MUST remain mechanically equivalent and must not make a hazard harder to read.
 
+A clip MAY name itself as its `reduced_motion_clip` when its frames contain none of the motions above and no full-screen luminance change; the procedural layer applies the reduction. A distinct reduced clip is required only when a clip bakes one of those motions into its frames (D-069).
+
 ## 11. Animation performance
 
 - Animation changes textures; it does not recreate nodes each frame.
