@@ -13,7 +13,7 @@ Implement lives in `scrimshawlife-ctrl/SS-runtime`. Spec Kit converge is append-
 |---|---|
 | What must be true for the player? | `spec.md` FR/US rows; ubiquitous language |
 | How is it built? | `plan.md` |
-| What work remains? | `tasks.md` open-task reconciliation (28 unchecked rows) |
+| What work remains? | `tasks.md` open-task reconciliation (25 unchecked rows) |
 | What evidence closes a gate? | `acceptance.md` Gates A–G |
 | What is still a dated design-complete snapshot? | `completeness-audit.md` verdict `RUNTIME_CONTRACT_COMPLETE_EVIDENCE_PENDING` |
 
@@ -23,7 +23,7 @@ Not converged. `tasks.md` already records the gap without a second list:
 
 - Device / matrix evidence: T406, T606, T901, T905.
 - Owner decisions: T306, T506, T802, T804, T806, T907, T908; D-020, D-021.
-- Art / production: T503–T509, T601–T603, T800.
+- Art / production: T503–T505, T507 (Captain Camera only), T508, T602, T800 (awaiting approval).
 - Legacy archaeology: T101, T105.
 - Defect closure after evidence: T906.
 

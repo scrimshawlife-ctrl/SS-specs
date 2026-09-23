@@ -83,14 +83,14 @@ Tasks are ordered. Runtime implementation belongs in the future runtime reposito
 - [ ] T506 Approve the minimum asset inventory before polish assets.
 - [ ] T507 Produce the six Civic Seam Camera housing families.
 - [ ] T508 Produce architectural module sheets and recombination tests.
-- [ ] T509 Produce the original phoenix, repair, human-counter-signal, and broadcast-glyph motif sheets.
+- [x] T509 Produce the original phoenix, repair, human-counter-signal, and broadcast-glyph motif sheets.
 
 ## Phase 6 — Animation and VFX
 
 - [x] T600 Implement clip metadata and authoritative event markers.
-- [ ] T601 Produce minimum Player clips.
+- [x] T601 Produce minimum Player clips.
 - [ ] T602 Produce Guard and Interceptor clip families.
-- [ ] T603 Produce the finite Captain animation and telegraph vocabulary.
+- [x] T603 Produce the finite Captain animation and telegraph vocabulary.
 - [x] T604 Implement bounded procedural VFX and reduced variants.
 - [x] T608 Produce Camera operational, damaged, critical, destroyed, dormant, hit, and field-off presentation.
 - [x] T609 Implement first-encounter Camera tutorial, Integrity notches, and +100 TAMPER feedback.
@@ -178,7 +178,10 @@ Checked tasks link to the runtime pull request or commit that carries their veri
 | T500 | SS-runtime `11d69ff` |
 | T501 | SS-runtime `b8d3467`, `11d69ff` |
 | T502 | SS-runtime `11d69ff` |
+| T509 | `asset-catalog-001`: `env_motif_phoenix`, `env_motif_repair`, `env_motif_counter_signal`, `env_motif_broadcast_glyph` — `originalAccepted`, `projectOriginal`, SHA-256 on all four. Delivered as runtime motif assets, not multi-variant sheets |
 | T600 | SS-runtime #16 |
+| T601 | `asset-catalog-001`: 144 `actor_player_*` frames — idle, move, dodge, recover, hurt, defeat, extraction, complete (the `animation.md` §3 Player machine), each in four directions (D-018). 48 `originalAccepted` + 96 `adaptedAdmitted` (bounded ADAPT, D-065); SHA-256 on all |
+| T603 | `asset-catalog-001`: 172 `actor_algorithmicModerate_*` frames — the four `bosses.md` attacks (Safety Rationale, Narrow Tailoring, Temporary Order, Independent Review), phase transition, stagger, defeat, four directions each — plus `telegraph_*` for all four attacks; all `originalAccepted`, SHA-256 on all. `clip-metadata-001` binds all seven clips to authoritative event markers |
 | T604 | SS-runtime #17 |
 | T605 | SS-runtime #21 |
 | T607 | SS-runtime #22 |
@@ -205,11 +208,13 @@ T301 and T700 were implemented but uncited until SS-runtime #83 (merged 2026-09-
 
 ## Open task reconciliation (honest gap)
 
-The 28 unchecked tasks above are **not agent-closable**. Each is a *run*, *record*, *measure*, *decide*, or *produce* item whose closure needs an input this specification does not own, and none of them may be closed on the strength of a harness. They group into six kinds, each with its required owner or input:
+**Art reconciliation (2026-09-23).** T509, T601, and T603 were recorded `NOT_PRODUCED` on 2026-09-09 (#27) without a cross-check against `asset-catalog-001`, which already held their delivered, admitted, hashed assets. Closed above on that catalog evidence. Three observations are recorded, not resolved: (1) `animation.md` §3 lists a generic Captain vocabulary (command pulse, sweep, targeted strike, reinforcement call) while `bosses.md` and D-050 name four specific attacks — the delivered clips follow `bosses.md`; (2) every Moderate clip's `reducedMotionClip` references itself, so no distinct reduced-motion variant exists — a D-008 review item, not a production gap; (3) T503 and T602 still name the retired Guard and Interceptor roles rather than the five canonical standard enemies.
+
+The 25 unchecked tasks above are **not agent-closable**. Each is a *run*, *record*, *measure*, *decide*, or *produce* item whose closure needs an input this specification does not own, and none of them may be closed on the strength of a harness. They group into six kinds, each with its required owner or input:
 
 - **Device (iPhone 12 performance floor / supported matrix)** — T406, T606, T901, T905.
 - **Human judgment / decision** — T306, T506, T802, T804, T806, T907, T908 (the expansion gate and any D-register decision require the owner specialist, Danny).
-- **Artist / production** — T503, T504, T505, T507, T508, T509, T601, T602, T603, T800.
+- **Artist / production** — T503, T504, T505, T507, T508, T602, T800.
 - **Legacy archaeology** — T101, T105.
 - **Developer (defect closure)** — T906.
 
@@ -228,14 +233,11 @@ A harness is a collector of evidence, not evidence. SS-runtime #34–#41 ship th
 | T504 | NOT_PRODUCED | The review plates are not produced | Artist produces the plates | Delivered grayscale, color-vision, dense-combat, and reduced-presentation review plates with provenance |
 | T505 | NOT_MEASURED | Bounded atlases and preload measurements are not recorded | Runtime builds the atlases and measures preload on a device | Bounded atlases plus a recorded preload measurement |
 | T506 | NOT_DECIDED | Approving the minimum asset inventory is a human judgment | Designer / owner approves the inventory (owner specialist Danny) | A recorded approval decision for the minimum asset inventory |
-| T507 | NOT_PRODUCED | The six Civic Seam Camera housing families are not produced | Artist delivers the families | Delivered housing families with provenance |
+| T507 | PARTIAL | Five standard families are delivered and admitted (`env_camera_municipal_dome`, `_ornamental_civic`, `_storefront`, `_temporary_mast`, `_traffic_reader`; `originalAccepted`, SHA-256). The sixth, the Captain Camera presentation, has no catalog record | Artist delivers the Captain Camera presentation | Delivered Captain Camera presentation with provenance |
 | T508 | NOT_PRODUCED | The architectural module sheets and recombination tests are not produced | Artist produces the sheets; runtime adds the recombination tests | Delivered module sheets plus passing recombination tests |
-| T509 | NOT_PRODUCED | The motif sheets are not produced | Artist delivers the sheets | Delivered phoenix, repair, human-counter-signal, and broadcast-glyph motif sheets with provenance |
-| T601 | NOT_PRODUCED | The minimum Player clips are not produced | Artist / animation production delivers the clips | Delivered minimum Player clips with provenance |
 | T602 | NOT_PRODUCED | The Guard and Interceptor clip families are not produced | Artist delivers the families | Delivered Guard and Interceptor clip families with provenance |
-| T603 | NOT_PRODUCED | The finite Captain animation and telegraph vocabulary are not produced | Artist delivers the set | Delivered Captain animation and telegraph vocabulary with provenance |
 | T606 | NOT_MEASURED | Animation, VFX, draw, and transient-node budgets are not measured on an iPhone 12 | iPhone 12 device | Recorded budget measurements on an iPhone 12 |
-| T800 | NOT_PRODUCED | The approved Civic Seam P0 modular environment families are not produced | Artist delivers the families; owner approves | Delivered P0 families with an approval decision and provenance |
+| T800 | DELIVERED_AWAITING_APPROVAL | 33 P0 environment assets are delivered and admitted (14 `env_solid_*`, 13 `env_prop_*`, 6 `env_ground_*`; `originalAccepted`, SHA-256); no approval decision is recorded | Owner approves or rejects the delivered families (Danny) | A recorded owner approval decision on the delivered P0 families |
 | T802 | NOT_PERFORMED | The P1 identity pass is not performed and must not weaken affordances | Artist performs the pass; human confirms affordances hold | A completed P1 pass plus a human judgment record |
 | T804 | NOT_PASSED | Asset provenance and device acceptance have not passed | Device plus a human acceptance decision | Recorded device-acceptance results plus a provenance check |
 | T806 | BLOCKED | P2 polish is allowed only after P0/P1 device acceptance (T804) | P0/P1 device acceptance lands first, then artist adds P2 | P0/P1 device-acceptance evidence before any P2 polish |
