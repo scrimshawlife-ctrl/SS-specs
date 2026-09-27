@@ -44,6 +44,8 @@ Rules:
 
 Clips present the authoritative states in `enemies-and-encounters.md`: `idle` is zero velocity, `move` is every locomotion state (approach, orbit, pursue, keep range, cooldown), and anticipate/commit are the attack. The Cable-Car Correlator alone has a stationary `RECOVER` and therefore a `recover` clip of exactly 45 ticks. The Autonomous Informant's only state is `PURSUE`, which its pursuit anticipation clip already presents, so it has no `move` clip. No standard enemy has an acquire state, so none has an acquire clip (D-071).
 
+A standard enemy's commit clip presents the tick its attack resolves (D-072). The Fog Analytics Cloud, Sutro Signal Witch, and Victorian Vendor resolve on the tick they leave telegraph for cooldown, and their commit plays for its duration from that tick. The Cable-Car Correlator's commit presents its charge. The Autonomous Informant, which has no attack, presents its commit on its own contact hit (`playerDamaged` from that Informant). No standard enemy emits an event when its attack resolves, so the presentation layer reads the resolution tick from consecutive authoritative states.
+
 Enemy roles MUST have different anticipation silhouettes and cadences. Fog pulse, Correlator charge, Signal Witch cast, Informant pursuit, and Vendor throw must be distinguishable before commit.
 
 ### Improper Search Daemon
