@@ -2,7 +2,7 @@
 
 **Author:** prabu  
 **Date:** 2026-09-27  
-**Status:** draft  
+**Status:** accepted  
 **Next stage:** `spec.md`
 
 `draft` until the owner accepts. `accepted` authorizes specify. `superseded` replaces this intent. Do not list Grok Bot skills or CI policy here; bind those from `AGENTS.md` in `spec.md` by pointer only.
@@ -39,6 +39,8 @@ The trigger. Three candidates, for the owner to choose:
 3. **Authoritative event.** Either rule above, emitted by the simulation as a new `lethalWarning` event. Only needed if receipts or replays must record the warning. It changes every golden event stream, so it carries a version decision.
 
 **Recommendation (assumed, owner decides):** option 2, derived in presentation, with option 1's threshold as a floor if playtests show players want a standing cue.
+
+**Owner decision (2026-09-27):** accepted, option 2. A lethal threat triggers the lethal warning.
 
 Also open: the HUD copy (one exact string, like the other safety messages), the audio ID and haptic for the priority-1 slot, and whether the warning outranks the Lockdown and Extraction safety messages when they coincide (the audio priority says yes).
 
