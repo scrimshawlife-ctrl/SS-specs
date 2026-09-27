@@ -32376,6 +32376,46 @@
         "ownerContract": "presentation-assets-001",
         "notes": "Original environment art. Solid sizes are verified against civic-seam-arena-001 rather than resampled: art that does not match its collision box is refused, because stretching a building to fit is how a player is blocked by something that looks passable."
       }
+    },
+    {
+      "admissionDecision": "plannedOriginal",
+      "record": {
+        "schemaVersion": "asset-record-001",
+        "assetId": "env_fog_low",
+        "kind": "sprite",
+        "productionStatus": "planned",
+        "runtimeRequired": true,
+        "provenance": "projectOriginal",
+        "license": null,
+        "source": null,
+        "runtimePath": null,
+        "sha256": null,
+        "dimensions": null,
+        "colorSpace": null,
+        "alpha": null,
+        "ownerContract": "presentation-assets-001",
+        "notes": "D-073 planned original. The low fog layer declared in presentation-assets-001 environmentAssetIds; no file admitted. SS-runtime keeps fog off until it lands."
+      }
+    },
+    {
+      "admissionDecision": "plannedOriginal",
+      "record": {
+        "schemaVersion": "asset-record-001",
+        "assetId": "env_fog_high",
+        "kind": "sprite",
+        "productionStatus": "planned",
+        "runtimeRequired": true,
+        "provenance": "projectOriginal",
+        "license": null,
+        "source": null,
+        "runtimePath": null,
+        "sha256": null,
+        "dimensions": null,
+        "colorSpace": null,
+        "alpha": null,
+        "ownerContract": "presentation-assets-001",
+        "notes": "D-073 planned original. The high fog layer declared in presentation-assets-001 environmentAssetIds; no file admitted. SS-runtime keeps fog off until it lands."
+      }
     }
   ]
 }
