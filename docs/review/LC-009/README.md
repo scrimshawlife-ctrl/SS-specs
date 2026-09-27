@@ -12,7 +12,7 @@
 
 | Candidate | Proposed | Why |
 |---|---|---|
-| `overlay_fog_band_01` | **ADMIT (candidate) → `env_fog_low`** | Same role: a fog overlay in legacy, a fog layer in SS-001. Soft band, 32% coverage, mean alpha 81/255. Fills one of the two P0 fog layers T800 records as missing. Condition: drawn under the fog readability floor — never concealing collision, lethal telegraphs, or Camera boundaries (fog-layers intent, `visual-assets.md` §7). Intake still needs the frozen-commit digest and resample. `env_fog_high` stays an original. |
+| `overlay_fog_band_01` | **REJECT — cannot fill the role as delivered** | Same role in principle (a fog overlay), but SS-runtime draws each fog layer as a **seamless 512 × 512 tile** repeated across the arena, and this band is 256 × 256 with ragged edges, so it would seam on every tile. Kept as a tone reference for the fog originals. |
 | `prop_av_shell_01` | **DEFER to P1** | Fits P1 "fictional autonomous vehicle". Magenta chroma-key fringe under the body must be removed first. |
 | `decal_damp_asphalt_01` | **DEFER to P2** | Fits P2 "rain-darkened material state". Magenta fringe at the edge. |
 | `landmark_comms_tower_01` | **REJECT — no role** | A gothic spire building, not the P1 "distant three-pronged tower glyph". No landmark slot in SS-001. |
@@ -28,6 +28,6 @@
 
 ## Totals
 
-1 admit-candidate · 1 defer to P1 · 1 defer to P2 · 9 reject for no SS-001 role · 1 already rejected.
+1 defer to P1 · 1 defer to P2 · 9 reject for no SS-001 role · 1 reject as not tileable · 1 already rejected.
 
 Three candidates carry magenta chroma-key fringe (the autonomous vehicle, damp asphalt, and the cable groove), so none could have been admitted as delivered.
