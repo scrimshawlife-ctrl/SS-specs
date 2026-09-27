@@ -83,7 +83,7 @@ Each state names one music asset, and ambience is a separate bus. These are asse
 | terminal | `music_terminal` |
 | (ambience bed) | `ambience_civic_seam` |
 
-`presentation-assets-001` registers them as `musicAssetIds` so the runtime bundle filter can reach them; without that registration a delivered music file is unreachable and cannot ship. A state whose asset is not accepted plays no music, and the run continues on the remaining beds.
+`presentation-assets-002` registers them as `musicAssetIds` so the runtime bundle filter can reach them; without that registration a delivered music file is unreachable and cannot ship. A state whose asset is not accepted plays no music, and the run continues on the remaining beds.
 
 ### Boss phase beds
 

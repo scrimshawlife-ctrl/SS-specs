@@ -185,6 +185,26 @@ an exact match or stays a project original.
 | `boss_defeated` | `stinger_atlanta_final_blind_spot` | "network links snap and fall silent from the edges inward … server cathedral powers down" — the final authority collapsing |
 | `extraction_reset` | `sfx_los_angeles_private_network_persist` | "municipal relay powers off, then nodes wake independently and reconnect" — a system reasserting itself after it looked beaten |
 
+### Boss cues
+
+Amended 2026-09-27 (D-075). The boss emits `boss_phase_<id>` and
+`boss_telegraph_<attack>` (audio-haptics.md), and until now none was registered,
+so the whole encounter's warnings were silent. Two legacy sounds carry these
+events' meaning exactly. Each is already admitted for another event, and sharing
+a file is permitted for an exact match; it is the approximate path that forbids
+reuse.
+
+| Event | Source | Why the meaning matches |
+|---|---|---|
+| `boss_phase_publicSafety` | `sfx_boss_activated` | "Boss activation stinger … absurd institutional authority, strong transition into combat". Public Safety is entered by the phase change emitted on the activation tick. |
+| `boss_phase_civilLiberties`, `boss_phase_temporarySafeguard`, `boss_phase_independentReview` | `sfx_boss_activated` | The same `bossPhaseChanged` event as Public Safety: the authority re-asserting itself under new rules. One event type keeps one sound. |
+| `boss_telegraph_temporaryOrder` | `sfx_camera_scan_sweep` | "Directional license-plate camera scan sweep: precise servo pan, optical focus". Temporary Order telegraphs at an authored Captain Camera emitter that opens a fixed directional field. |
+
+`boss_telegraph_safetyRationale`, `boss_telegraph_narrowTailoring`, and
+`boss_telegraph_independentReview` have no match in the library. The search is
+recorded on each catalog record, and they stay project originals. Approximate
+substitution remains closed, so none of them takes a nearest sound.
+
 ### Still REJECTED
 
 - The legacy enemy cast (seven generic guards) and the legacy boss (Shift
