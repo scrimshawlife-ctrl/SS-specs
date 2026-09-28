@@ -2,7 +2,7 @@
 
 **Author:** prabu-openclaw  
 **Date:** 2026-09-28  
-**Status:** draft (constitution change; accepted only on explicit owner approval)  
+**Status:** accepted (owner, 2026-09-28; SS-specs #46)  
 **Next stage:** `spec.md`
 
 `draft` until the owner accepts. `accepted` authorizes specify. `superseded` replaces this intent. Do not list Grok Bot skills or CI policy here; bind those from `AGENTS.md` in `spec.md` by pointer only.
