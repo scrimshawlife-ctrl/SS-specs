@@ -33,3 +33,21 @@ Each tile is scaled to fit its cell, so the sheet shows inventory and form, not 
 
 - Motifs are 512–1024 px square, far above the 64-unit authoring grid. They scale down in play, but they count against atlas and preload budgets (T505).
 - This sheet covers inventory, form, and provenance. The spec's full P0 review also asks for dense-combat and collision review; those belong to gates D and E and are not claimed here.
+
+## Closing the P0 gaps (D-078)
+
+The three gaps above are closed:
+
+| gap | resolution |
+|---|---|
+| Captain Camera (T507) | `env_camera_captain_idle` / `_active` delivered and accepted: Art Deco stone and bronze, deliberately unlike the five standard housings, with only the lens lit (#F28C59) on the live emitter |
+| Trolley wires | a wire overlay composited onto `env_prop_rail_strip`, re-admitted under the same ID and box; the rails do not move |
+| Basic rooftop kit | carried by the delivered solid art (`rooftop-detail-in-solid-art.jpg`) |
+
+![Captain Camera idle and active beside three standard housings; the rail strip with wires](captain-camera-and-wires.jpg)
+
+Checked by the pack's `process_all.py`:
+- the images are 64x96 and 512x128;
+- transparent background, no magenta, no gold;
+- idle and active share a silhouette, and the active image differs only at the lens;
+- the wires stay out of the railbed rows.

@@ -81,7 +81,7 @@ Tasks are ordered. Runtime implementation belongs in the future runtime reposito
 - [ ] T504 Produce grayscale, color-vision, dense-combat, and reduced-presentation review plates.
 - [ ] T505 Establish bounded atlases and preload measurements.
 - [ ] T506 Approve the minimum asset inventory before polish assets.
-- [ ] T507 Produce the six Civic Seam Camera housing families.
+- [x] T507 Produce the six Civic Seam Camera housing families.
 - [ ] T508 Produce architectural module sheets and recombination tests.
 - [x] T509 Produce the original phoenix, repair, human-counter-signal, and broadcast-glyph motif sheets.
 
@@ -114,7 +114,7 @@ Tasks are ordered. Runtime implementation belongs in the future runtime reposito
 
 ## Phase 8 — Final San Francisco production
 
-- [ ] T800 Produce approved Civic Seam P0 modular environment families.
+- [x] T800 Produce approved Civic Seam P0 modular environment families.
 - [x] T801 Integrate only runtime-reachable SS-001 assets.
 - [ ] T802 Perform Civic Seam P1 identity pass without weakening affordances.
 - [ ] T806 Add P2 polish only after P0/P1 device acceptance.
@@ -233,10 +233,8 @@ A harness is a collector of evidence, not evidence. SS-runtime #34–#41 ship th
 | T504 | NOT_PRODUCED | The review plates are not produced | Artist produces the plates | Delivered grayscale, color-vision, dense-combat, and reduced-presentation review plates with provenance |
 | T505 | NOT_MEASURED | Bounded atlases and preload measurements are not recorded | Runtime builds the atlases and measures preload on a device | Bounded atlases plus a recorded preload measurement |
 | T506 | NOT_DECIDED | Approving the minimum asset inventory is a human judgment | Designer / owner approves the inventory (owner specialist Danny) | A recorded approval decision for the minimum asset inventory |
-| T507 | PARTIAL | Five standard families are delivered and admitted (`env_camera_municipal_dome`, `_ornamental_civic`, `_storefront`, `_temporary_mast`, `_traffic_reader`; `originalAccepted`, SHA-256). The sixth, the Captain Camera presentation, has no catalog record | Artist delivers the Captain Camera presentation | Delivered Captain Camera presentation with provenance |
 | T508 | NOT_PRODUCED | The architectural module sheets and recombination tests are not produced | Artist produces the sheets; runtime adds the recombination tests | Delivered module sheets plus passing recombination tests |
 | T606 | NOT_MEASURED | Animation, VFX, draw, and transient-node budgets are not measured on an iPhone 12 | iPhone 12 device | Recorded budget measurements on an iPhone 12 |
-| T800 | PARTIAL | 42 delivered P0 environment assets are approved (D-073). The two fog layers are delivered and accepted (D-076). Not produced: the trolley wires beyond their pole, the basic rooftop kit, and the Captain Camera housing (T507) | Artist delivers the remaining P0 families | Remaining P0 families delivered with provenance |
 | T802 | NOT_PERFORMED | The P1 identity pass is not performed and must not weaken affordances | Artist performs the pass; human confirms affordances hold | A completed P1 pass plus a human judgment record |
 | T804 | NOT_PASSED | Asset provenance and device acceptance have not passed | Device plus a human acceptance decision | Recorded device-acceptance results plus a provenance check |
 | T806 | BLOCKED | P2 polish is allowed only after P0/P1 device acceptance (T804) | P0/P1 device acceptance lands first, then artist adds P2 | P0/P1 device-acceptance evidence before any P2 polish |

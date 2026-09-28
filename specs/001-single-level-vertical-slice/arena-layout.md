@@ -86,6 +86,12 @@ All socket fields are fixed authored geometry. `camera-placement.md` selects eig
 
 Z-06 contains three fixed emitter anchors. Temporary Order chooses them cyclically by phase-local attack ordinal. Emitters are boss attack geometry, not standard Camera sockets. Their field is 70 degrees, range 320 units, and active only during Temporary Order.
 
+**Presentation (D-078).** A Captain Camera housing is drawn at every emitter at all times, not only while it fires:
+- `env_camera_captain_idle` normally;
+- `env_camera_captain_active` at the one emitter whose Temporary Order field is live, so the player can see which emitter owns the field.
+
+It is never drawn with a standard Camera housing or a standard Camera integrity clip. It cannot be targeted or destroyed, so it has no damage states, and a standard housing's damage states would invite the player to shoot it. It is its own all-or-nothing group, separate from the five standard housings, so an undelivered Captain Camera never hides a standard housing. Until both images are delivered, the emitters show no housing and the field is drawn as before.
+
 ## Extraction
 
 Phoenix Steps Extraction is the rectangle centered at (2048,192) with half-size (96,64).

@@ -125,7 +125,7 @@ The following artifacts are normative:
 - `contracts/asset-record-001.schema.json`: fail-closed provenance and runtime asset intake record
 - `fixtures/kernel-vectors-001.json` and `fixtures/replay-smoke-001.json`: initial implementation fixtures
 - `completeness-audit.md`: runtime creation gate and evidence boundary
-- `contracts/presentation-assets-002.json`: required runtime-facing HUD, telegraph, objective, and audio IDs
+- `contracts/presentation-assets-003.json`: required runtime-facing HUD, telegraph, objective, and audio IDs
 - `visual-production.md`: blockout-first workflow, provenance, intake, review plates, and budgets
 
 Final art begins only after grayscale blockout, collision truth, Camera truth, and dense-frame readability pass.
