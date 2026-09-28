@@ -201,9 +201,33 @@ reuse.
 | `boss_telegraph_temporaryOrder` | `sfx_camera_scan_sweep` | "Directional license-plate camera scan sweep: precise servo pan, optical focus". Temporary Order telegraphs at an authored Captain Camera emitter that opens a fixed directional field. |
 
 `boss_telegraph_safetyRationale`, `boss_telegraph_narrowTailoring`, and
-`boss_telegraph_independentReview` have no match in the library. The search is
-recorded on each catalog record, and they stay project originals. Approximate
-substitution remains closed, so none of them takes a nearest sound.
+`boss_telegraph_independentReview` have no match in the frozen library.
+Approximate substitution stays closed, so they are filled from a sibling
+product instead (§ Sibling-product cues).
+
+### Sibling-product cues
+
+Amended 2026-09-28 (D-077). The three boss telegraphs left as planned
+originals by § Boss cues have no match in the frozen library, which never
+had enemy attacks. Hexwire, another Zero State title, has boss attack and
+warning sounds. They are Zero State's own work, generated with the same
+ElevenLabs Sound Effects licence as the legacy cues. They are admitted as
+**project originals**, not legacy ADAPT, when all of the following hold:
+
+1. the sound's role in its own game is the same gameplay meaning as the
+   SS-001 event, shown by where that game plays it;
+2. it is a single sound-effects asset (never music, which carries the Eleven
+   Music platform condition) and names no other title in anything the player
+   hears or reads;
+3. the record pins the source file by commit and SHA-256 and states the
+   licence basis and its evidence status;
+4. it reuses no sound already carrying a different SS-001 event.
+
+| Event | Source (Hexwire) | Role there → meaning here |
+|---|---|---|
+| `boss_telegraph_safetyRationale` | `trace_warning` | being-traced alarm → a sightline cone to get out of |
+| `boss_telegraph_narrowTailoring` | `mech_autocannon` | boss mech's attack burst → the boss's aimed three-shot volley |
+| `boss_telegraph_independentReview` | `agi_attack_burst` | AGI boss's attack burst → the boss's radial volley |
 
 ### Still REJECTED
 
