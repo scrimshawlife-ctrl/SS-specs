@@ -89,7 +89,7 @@ Tasks are ordered. Runtime implementation belongs in the future runtime reposito
 
 - [x] T600 Implement clip metadata and authoritative event markers.
 - [x] T601 Produce minimum Player clips.
-- [ ] T602 Produce the five standard-enemy clip families.
+- [x] T602 Produce the five standard-enemy clip families.
 - [x] T603 Produce the finite Captain animation and telegraph vocabulary.
 - [x] T604 Implement bounded procedural VFX and reduced variants.
 - [x] T608 Produce Camera operational, damaged, critical, destroyed, dormant, hit, and field-off presentation.
@@ -235,9 +235,8 @@ A harness is a collector of evidence, not evidence. SS-runtime #34–#41 ship th
 | T506 | NOT_DECIDED | Approving the minimum asset inventory is a human judgment | Designer / owner approves the inventory (owner specialist Danny) | A recorded approval decision for the minimum asset inventory |
 | T507 | PARTIAL | Five standard families are delivered and admitted (`env_camera_municipal_dome`, `_ornamental_civic`, `_storefront`, `_temporary_mast`, `_traffic_reader`; `originalAccepted`, SHA-256). The sixth, the Captain Camera presentation, has no catalog record | Artist delivers the Captain Camera presentation | Delivered Captain Camera presentation with provenance |
 | T508 | NOT_PRODUCED | The architectural module sheets and recombination tests are not produced | Artist produces the sheets; runtime adds the recombination tests | Delivered module sheets plus passing recombination tests |
-| T602 | PARTIAL | The attack clips are delivered. The production order is specified (D-071): 20 clips in `clip-metadata-001` — `idle`, `move`, `hurt`, `defeat` for each standard enemy (no `move` for the Autonomous Informant) plus Cable-Car Correlator `recover` — and their 368 frames are `plannedOriginal` records in `asset-catalog-001`. None is produced | Artist delivers the frames; intake advances each record from `plannedOriginal` to `originalAccepted` with provenance and SHA-256 | All 368 D-071 frames `originalAccepted`, so every standard-enemy clip direction is backed |
 | T606 | NOT_MEASURED | Animation, VFX, draw, and transient-node budgets are not measured on an iPhone 12 | iPhone 12 device | Recorded budget measurements on an iPhone 12 |
-| T800 | PARTIAL | 42 delivered P0 environment assets are approved (D-073). Not produced: the two fog layers (`env_fog_low`, `env_fog_high`, `plannedOriginal`), the trolley wires beyond their pole, the basic rooftop kit, and the Captain Camera housing (T507) | Artist delivers the remaining P0 families | Remaining P0 families delivered with provenance; fog records advanced to `originalAccepted` |
+| T800 | PARTIAL | 42 delivered P0 environment assets are approved (D-073). The two fog layers are delivered and accepted (D-076). Not produced: the trolley wires beyond their pole, the basic rooftop kit, and the Captain Camera housing (T507) | Artist delivers the remaining P0 families | Remaining P0 families delivered with provenance |
 | T802 | NOT_PERFORMED | The P1 identity pass is not performed and must not weaken affordances | Artist performs the pass; human confirms affordances hold | A completed P1 pass plus a human judgment record |
 | T804 | NOT_PASSED | Asset provenance and device acceptance have not passed | Device plus a human acceptance decision | Recorded device-acceptance results plus a provenance check |
 | T806 | BLOCKED | P2 polish is allowed only after P0/P1 device acceptance (T804) | P0/P1 device acceptance lands first, then artist adds P2 | P0/P1 device-acceptance evidence before any P2 polish |
