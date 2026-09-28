@@ -1,12 +1,12 @@
 # Surveillance Survivor Constitution
 
-Version: 1.1.0  
+Version: 1.2.0  
 Ratified: 2026-08-23  
-Amended: 2026-08-24
+Amended: 2026-09-28 (D-079)
 
 ## Article I — One complete level
 
-The product MUST deliver one polished San Francisco level before work begins on another level. The target complete run MUST last approximately 8–12 minutes for a competent player. Breadth MUST NOT substitute for completion, clarity, stability, or replay value.
+The product MUST deliver one polished San Francisco level before work begins on another level. The target complete run MUST last approximately 5–8 minutes for a competent player. Breadth MUST NOT substitute for completion, clarity, stability, or replay value.
 
 ## Article II — Surveillance is systemic
 
