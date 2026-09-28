@@ -9,7 +9,7 @@
 
 ## Problem
 
-The T800 review named three P0 gaps with no asset ID: the trolley wires, the basic rooftop kit, and the Captain Camera housing. Art cannot be produced for an ID that does not exist, and the runtime has nowhere to draw it. Meanwhile a firing Captain Camera emitter is drawn as a standard Camera in its critical state, which tells the player it is a damaged Camera they can finish off. It cannot be damaged.
+The T800 review named three P0 gaps with no asset ID: the trolley wires, the basic rooftop kit, and the Captain Camera housing. Art cannot be produced for an ID that does not exist, and the runtime has nowhere to draw it. Meanwhile nothing is drawn at the three Captain Camera emitters: the Temporary Order field appears from bare pavement.
 
 ## Proposed outcome
 
@@ -19,9 +19,9 @@ The T800 review named three P0 gaps with no asset ID: the trolley wires, the bas
 
 ## Affected users/systems
 
-- **Player:** sees which emitter owns the field, and is no longer invited to shoot something indestructible.
+- **Player:** sees the three emitters, and which one owns the live field.
 - **Specification:** `presentation-assets-003`, `asset-catalog-001`, `arena-layout.md`, D-078, and the T507/T800 rows.
-- **Runtime:** adopt `-003`, draw the Captain Camera housings, and drop the standard critical sprite at the emitter.
+- **Runtime:** adopt `-003` and draw the Captain Camera housings as their own all-or-nothing group.
 
 ## Constraints/non-goals
 
@@ -34,7 +34,7 @@ The T800 review named three P0 gaps with no asset ID: the trolley wires, the bas
 
 ## Verified claims
 
-- `PresentationSnapshot` builds the firing emitter as a `CameraSprite` in `.critical` with the standard critical clip.
+- `WorldRenderer` draws only the field cone for the Captain Camera, with no housing (`snap.captainField`). Standard housings are one all-or-nothing group keyed by the `env_camera_` prefix, so the Captain IDs need their own group.
 - The rail strip's railbed occupies rows 32–95 of 512x128, so the rows above it are free for wires.
 - The delivered solids' roofs show HVAC units, a water tank, chimneys, and vents.
 

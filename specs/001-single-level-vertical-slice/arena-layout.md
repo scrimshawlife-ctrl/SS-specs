@@ -90,7 +90,7 @@ Z-06 contains three fixed emitter anchors. Temporary Order chooses them cyclical
 - `env_camera_captain_idle` normally;
 - `env_camera_captain_active` at the one emitter whose Temporary Order field is live, so the player can see which emitter owns the field.
 
-It is never drawn with a standard Camera housing or a standard Camera integrity clip. It cannot be targeted or destroyed, so it has no damage states, and showing a standard housing's critical state would invite the player to shoot it. Until its art is delivered, it falls back to the authored blockout.
+It is never drawn with a standard Camera housing or a standard Camera integrity clip. It cannot be targeted or destroyed, so it has no damage states, and a standard housing's damage states would invite the player to shoot it. It is its own all-or-nothing group, separate from the five standard housings, so an undelivered Captain Camera never hides a standard housing. Until both images are delivered, the emitters show no housing and the field is drawn as before.
 
 ## Extraction
 
