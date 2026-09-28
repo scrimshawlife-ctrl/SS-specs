@@ -100,7 +100,7 @@ simulation: deterministic-fixed-step-60Hz
 presentation_target: 60fps
 networking: none
 accounts: none
-target_run: 8-12 minutes
+target_run: 5-8 minutes
 runtime_repository: scrimshawlife-ctrl/SS-runtime
 additional_cities: deferred
 ```

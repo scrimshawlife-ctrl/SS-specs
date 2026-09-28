@@ -36,7 +36,7 @@ Each criterion requires a linked test, replay fixture, measurement, review plate
 ## Gate B — Determinism
 
 - [ ] B-001 Three executions of every golden replay produce identical critical events and state digests.
-- [ ] B-002 Golden replays pass on every supported architecture and target device.
+- [ ] B-002 Golden replays pass on every supported architecture and target device. A supported architecture is arm64 on a D-020 device class; macOS hosts and iOS Simulator are development evidence, not substitutes (D-080).
 - [ ] B-003 Restart restores the same initial state for the same Replay Identity.
 - [ ] B-004 Suspend/resume does not advance authoritative state from wall-clock time.
 - [ ] B-005 Unknown replay versions fail with a typed incompatibility result.
@@ -50,7 +50,7 @@ Each criterion requires a linked test, replay fixture, measurement, review plate
 - [ ] B-013 EN-001 through EN-010 pass with exact encounter totals and spawn fairness.
 - [ ] B-014 UP-001 through UP-010 pass for protected selection and upgrade isolation.
 - [ ] B-015 BO-001 through BO-010 pass for phases, attacks, cancellation, and terminal precedence.
-- [ ] B-016 `fixtures/kernel-vectors-001.json` and `replay-smoke-001.json` pass unchanged on every supported architecture.
+- [ ] B-016 `fixtures/kernel-vectors-001.json` and `replay-smoke-001.json` pass unchanged on every supported architecture (as defined in B-002).
 - [ ] B-017 Every accepted runtime asset has one schema-valid provenance record and SHA-256.
 
 ## Gate C — Stability and performance
@@ -144,7 +144,7 @@ Test with at least five people who did not implement the feature.
 - [ ] G-002 At least four of five correctly describe Exposure after one run.
 - [ ] G-003 No repeated confusion pattern remains unresolved.
 - [ ] G-004 At least three of five voluntarily begin another run.
-- [ ] G-005 Median competent successful run duration is 8–12 minutes after onboarding.
+- [ ] G-005 Median competent successful run duration is 5–8 minutes after onboarding.
 - [ ] G-006 Feedback identifies surveillance pressure—not generic combat—as a defining feature.
 - [ ] G-007 At least four of five can distinguish each standard-enemy role, Camera field, enemy projectile, and objective without a legend after one run.
 
