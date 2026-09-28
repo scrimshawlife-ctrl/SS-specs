@@ -60,7 +60,7 @@ Color MUST NOT be the only state carrier. Critical adjacent UI contrast MUST tar
 
 ## 3a. Environment asset reachability
 
-`presentation-assets-001` carries `environmentAssetIds` alongside
+`presentation-assets-002` carries `environmentAssetIds` alongside
 `requiredAssetIds`, `audioEventIds`, and `musicAssetIds`. Environment art is
 runtime-reachable on the same footing as interface art, and the runtime bundle
 filter admits it by the same rule.
@@ -389,4 +389,4 @@ All eight standard Cameras use stationary housings. No Camera animation may impl
 
 ## Runtime presentation identity
 
-The required HUD, control, telegraph, objective, and audio IDs are enumerated by `contracts/presentation-assets-001.json`. Shipped asset records must resolve every required ID exactly once. Missing, duplicate, unreachable, or undeclared runtime-facing IDs fail asset validation before release.
+The required HUD, control, telegraph, objective, and audio IDs are enumerated by `contracts/presentation-assets-002.json`. Shipped asset records must resolve every required ID exactly once. Missing, duplicate, unreachable, or undeclared runtime-facing IDs fail asset validation before release.

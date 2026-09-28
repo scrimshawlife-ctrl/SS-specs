@@ -57,7 +57,7 @@ Non-trivial or feature-sized work starts with [`intent/`](intent/README.md) befo
 24. [Event catalog](contracts/event-catalog-001.json)
 25. [Run receipt schema](contracts/run-receipt-001.schema.json)
 26. [Asset record schema](contracts/asset-record-001.schema.json)
-27. [Presentation asset manifest](contracts/presentation-assets-001.json)
+27. [Presentation asset manifest](contracts/presentation-assets-002.json)
 27a. [Clip metadata](contracts/clip-metadata-001.json)
 27b. [Procedural VFX](contracts/procedural-vfx-001.json)
 27c. [Ambient motion](contracts/ambient-motion-001.json)
