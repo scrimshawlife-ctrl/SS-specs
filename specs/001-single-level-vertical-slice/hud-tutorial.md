@@ -48,7 +48,8 @@ Left-handed mode reflects movement stick and Dodge across x=422. Pause and infor
 | First movement | `MOVE` |
 | First visible field | `CAMERA FIELDS RAISE EXPOSURE` |
 | First contact | `BREAK LINE OF SIGHT TO RECOVER` |
-| First damageable Camera | `CAMERAS: 3 HITS • DESTRUCTION ADDS EXPOSURE` |
+| First damageable Camera | `MOVE TOWARD A CAMERA TO SHOOT IT • DESTRUCTION ADDS EXPOSURE` |
+| Wave with heat reinforcements | `REINFORCEMENTS +<n> • <STATE>`, e.g. `REINFORCEMENTS +2 • HUNTED` |
 | Camera destruction | `+100 TAMPER` |
 | M-A complete | `CHOOSE ONE COUNTERMEASURE` |
 | M-C activation | `LOCKDOWN` |

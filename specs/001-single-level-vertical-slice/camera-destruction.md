@@ -108,9 +108,17 @@ Candidate priority is:
 | Priority | Candidate class |
 |---:|---|
 | 1 | Enemy within 96 world units of the Player |
-| 2 | Camera currently detecting the Player |
+| 2 | **Chosen Camera**: a damageable Camera the Player is moving toward |
 | 3 | Other enemy |
-| 4 | Other damageable Camera |
+
+A Camera is never an automatic target otherwise (D-082). Destroying one costs a
++100 Tamper Spike, so it is the Player's decision, not the weapon's.
+
+**Chosen Camera.** The Player's velocity `v` is non-zero, and for the vector `d`
+from the Player to the Camera anchor, `dot(v, d) > 0` and
+`4 · dot(v, d)² ≥ 3 · |v|² · |d|²`, which is within 30 degrees of the direction of
+travel. It is evaluated in the deterministic integer layer on Q8 components. A
+standing Player chooses no Camera.
 
 Within the same class, select:
 
@@ -372,6 +380,10 @@ Minimum canonical vectors:
 | CD-012 | Eighth destruction | one Network Blackout event; 8/8 complete |
 | CD-013 | Extract at 0/8 | succeeds when combat graph complete |
 | CD-014 | Extract at 7/8 | succeeds; objective remains incomplete |
+| CD-015 | Player standing still, only a detecting Camera in range | no projectile |
+| CD-016 | Player moving toward a Camera, no enemy within 96 | the Camera is targeted |
+| CD-017 | Player moving 45 degrees away from the only Camera | no projectile |
+| CD-018 | chosen Camera and another enemy beyond 96 units | the Camera is targeted |
 
 ## 19. Non-goals
 
