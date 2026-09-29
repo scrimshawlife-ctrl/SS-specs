@@ -18,14 +18,18 @@ Exposure is the one authoritative surveillance-pressure value. It is determinist
 | Contact gain cap | +5 points/tick |
 | Recovery delay after last contact | 60 ticks |
 | Recovery | −2 points/tick |
-| Camera Tamper Spike | +100 points/destruction |
+| Camera Tamper Spike | +150 points/destruction (D-086) |
 | Tamper floor | 150 points × Cameras destroyed this run (D-084) |
 
 **Tamper floor (D-084).** Recovery never takes Exposure below
 `150 × destroyedCameras`, the number of Cameras destroyed this run. It limits
 recovery only: it never raises Exposure, never adds to a Tamper Spike, and
-never triggers a Detection State event by itself. After three destructions the
-Player can never recover below 450 (`tracked`). A destroyed Camera is a lasting
+never triggers a Detection State event by itself.
+
+Because each Tamper Spike adds exactly the floor increment (+150, D-086), and
+nothing but recovery ever lowers Exposure, Exposure after `k` destructions is
+always at least `min(1000, 150 × k)`. After three destructions the Player is at
+or above 450 (`tracked`) for the rest of the run. A destroyed Camera is a lasting
 mark, not a spike that fades in two seconds.
 
 At 60 ticks/second, one Camera adds 120 points/second. Recovery begins only after 60 complete no-contact ticks and removes 120 points/second. Tamper is instantaneous and is not modified by contact count.
@@ -98,8 +102,8 @@ Tamper and continuous contact may cross several thresholds in one tick. Emit one
 | EX-004 | 60 no-contact ticks from 300 | remains 300 |
 | EX-005 | 61 no-contact ticks from 300 | 298 |
 | EX-006 | contact on no-contact tick 60 | clock resets; contact gain; no recovery |
-| EX-007 | destroy sole detecting Camera at 190 | no contact delta; +100 Tamper = 290, `observed` |
-| EX-008 | destroy two detecting Cameras at 850 | +200 clamps 1000; one Lockdown event |
+| EX-007 | destroy sole detecting Camera at 190 | no contact delta; +150 Tamper = 340, `observed` |
+| EX-008 | destroy two detecting Cameras at 850 | +300 clamps 1000; one Lockdown event |
 | EX-009 | no contact after Lockdown | remains 1000/`lockdown` |
 | EX-010 | delta jumps `hidden` to `hunted` | one old→final transition event |
 | EX-011 | 3 Cameras destroyed, Exposure 500, 200 no-contact ticks | stops at 450; never below |

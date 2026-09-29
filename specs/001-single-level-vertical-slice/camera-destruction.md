@@ -112,7 +112,7 @@ Candidate priority is:
 | 3 | Other enemy |
 
 A Camera is never an automatic target otherwise (D-082). Destroying one costs a
-+100 Tamper Spike, so it is the Player's decision, not the weapon's.
++150 Tamper Spike, so it is the Player's decision, not the weapon's.
 
 **Chosen Camera.** The Player's velocity `v` is non-zero, and for the vector `d`
 from the Player to the Camera anchor, `dot(v, d) > 0` and
@@ -154,7 +154,7 @@ Destroying a Camera produces:
 
 ```text
 CameraDestroyed(cameraID, tick, sourceProjectileID, priorDetectionContact)
-ExposureDelta(reason: cameraTamper, amount: +100, cameraID)
+ExposureDelta(reason: cameraTamper, amount: +150, cameraID)
 ```
 
 Rules:
@@ -191,7 +191,7 @@ The authoritative tick order relevant to Camera destruction is:
 Consequences:
 
 - A Camera destroyed on a tick contributes no continuous detection Exposure on that same tick.
-- Its +100 Tamper Spike still applies.
+- Its +150 Tamper Spike still applies.
 - Other Camera contacts still contribute.
 - If destruction and Player death occur on the same tick, both are recorded; Player death remains terminal.
 - If multiple Cameras are destroyed, events are ordered by stable Camera ID.
@@ -243,7 +243,7 @@ Damage state must remain distinguishable in grayscale and without rapid blinking
 - 4–8 bounded particles;
 - field retracts or collapses immediately from the authoritative event;
 - short network-disconnect audio cue;
-- +100 Tamper Spike shown as a labeled Exposure increment;
+- +150 Tamper Spike shown as a labeled Exposure increment;
 - destroyed housing settles into a stable non-emissive state.
 
 Reduced Motion replaces recoil, field collapse, and debris motion with:
@@ -264,7 +264,7 @@ On the first damageable Camera encounter, teach once:
 Requirements:
 
 - The optional objective HUD shows `CAMERAS destroyed/8`; Camera Integrity is shown by three compact notches when the Camera is targeted, damaged, or within attack range.
-- The Tamper Spike displays `+100 TAMPER` adjacent to the Exposure HUD.
+- The Tamper Spike displays `+150 TAMPER` adjacent to the Exposure HUD.
 - The Camera field disappears immediately at destruction.
 - No loot icon or pickup sound is used.
 - Destroyed Cameras remain visually identifiable on return traversal.
@@ -353,7 +353,7 @@ Telemetry is local receipt data only. No external analytics or network submissio
 ## 17. Edge cases
 
 - Two projectiles hit an Integrity-1 Camera on one tick: first ordered hit destroys it; later hits are ignored.
-- Ricochet destroys two Cameras on one tick: both events and +200 total Tamper apply in stable-ID order.
+- Ricochet destroys two Cameras on one tick: both events and +300 total Tamper apply in stable-ID order.
 - Camera is destroyed while detecting: its continuous contribution is removed before Exposure accumulation; Tamper remains.
 - Camera is destroyed at Exposure 950: Exposure becomes 1000 and Lockdown triggers.
 - Camera is destroyed at Exposure 1000: Exposure remains 1000; destruction is still recorded.
@@ -372,12 +372,12 @@ Minimum canonical vectors:
 
 | ID | Scenario | Expected outcome |
 |---|---|---|
-| CD-001 | Three sequential base impacts | states 3→2→1→0; one +100 Tamper |
+| CD-001 | Three sequential base impacts | states 3→2→1→0; one +150 Tamper |
 | CD-002 | Two impacts only | CRITICAL; field remains fully active |
-| CD-003 | Destroy while detecting | no same-tick contact delta; +100 Tamper |
-| CD-004 | Destroy while not detecting | +100 Tamper; no field |
+| CD-003 | Destroy while detecting | no same-tick contact delta; +150 Tamper |
+| CD-004 | Destroy while not detecting | +150 Tamper; no field |
 | CD-005 | Two simultaneous final impacts | one destruction; one Tamper |
-| CD-006 | Ricochet destroys two Cameras | two ordered destructions; +200 Tamper |
+| CD-006 | Ricochet destroys two Cameras | two ordered destructions; +300 Tamper |
 | CD-007 | Destroy at Exposure 950 | clamp 1000; Lockdown |
 | CD-008 | Hit destroyed Camera | ignored |
 | CD-009 | Restart | all eight Operational at fixed transforms |
