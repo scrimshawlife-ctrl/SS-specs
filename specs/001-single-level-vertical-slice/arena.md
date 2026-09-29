@@ -2,7 +2,7 @@
 
 Status: BASELINE  
 Feature: SS-001  
-Arena version: `civic-seam-arena-001`
+Arena version: `civic-seam-arena-002`
 
 ## 1. Arena thesis
 
@@ -16,11 +16,11 @@ The arena teaches through spatial sequence:
 
 ## 2. Coordinate and footprint contract
 
-Exact coordinates, solids, gates, triggers, spawn sockets, Camera sockets, boss emitters, viewport values, and Extraction geometry are normative in `arena-layout.md` and `contracts/civic-seam-arena-001.json`.
+Exact coordinates, solids, gates, triggers, spawn sockets, Camera sockets, boss emitters, viewport values, and Extraction geometry are normative in `arena-layout.md` and `contracts/civic-seam-arena-002.json`.
 
 - Authoring grid: 64 world units.
 - Baseline arena extent: 36 × 24 cells, or 2304 × 1536 world units.
-- Extent is fixed at 36 × 24 cells for `civic-seam-arena-001`; any dimension or authoritative geometry change requires an arena-version change.
+- Extent is fixed at 36 × 24 cells for `civic-seam-arena-002`; any dimension or authoritative geometry change requires an arena-version change.
 - Traversable primary paths: minimum 3 cells wide.
 - Combat circulation loops: minimum 4 cells wide at pressure points.
 - Protected Spawn Alley: no hostile spawn and no damaging Camera contact.
@@ -125,7 +125,7 @@ Purpose: final survival test and closure.
 
 These are competent-run targets for a 5–8 minute run (D-079). First-run onboarding may be longer. Each segment starts at the event named, except the Camera Corridor, which has no event and starts on first entry into Z-02. Segment names are the design names; the zone column gives the arena manifest's names.
 
-Extraction is short by construction. Its rule is a 300-tick (5 s) hold on the platform (`civic-seam-arena-001` `extraction.countdownTicks`), so its budget is reaching the platform and holding it under pressure, not a two-minute segment. The targets are provisional until the T903/T904 playtests. Scripted probes (`docs/review/T305`) put a perfect-route run at a median of 3:43, and the content's total enemy integrity bounds the kill time alone at about 2:20.
+Extraction is short by construction. Its rule is a 300-tick (5 s) hold on the platform (`civic-seam-arena-002` `extraction.countdownTicks`), so its budget is reaching the platform and holding it under pressure, not a two-minute segment. The targets are provisional until the T903/T904 playtests. Scripted probes (`docs/review/T305`) put a perfect-route run at a median of 3:43, and the content's total enemy integrity bounds the kill time alone at about 2:20.
 
 ## 6. Encounter density
 

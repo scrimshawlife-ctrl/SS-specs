@@ -202,6 +202,11 @@ The Blackout dim is a darkening, not a flash, so `forbidFullScreenWhiteFlash`
 holds. Under Reduced Flash the scene luminance does not change at all
 (hud-tutorial.md). No moment zooms the camera (§ 9).
 
+**No freeze on a wind-up.** `captainTelegraph` carries no hit-stop (it was
+90 ms in `procedural-vfx-001`). A telegraph is the Player's cue to move, and
+freezing the screen as an attack begins steals the reaction time the telegraph
+exists to give. Hit-stop belongs to impacts.
+
 **The existing ten recipes must render.** Before D-088 the runtime projected
 them (`VFXProjector`) but drew none, so no hit-stop, shake, or impact effect ever
 reached the screen. Rendering them is part of this change.

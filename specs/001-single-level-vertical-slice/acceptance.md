@@ -25,7 +25,7 @@ Each criterion requires a linked test, replay fixture, measurement, review plate
 - [ ] A-013A Every standard Camera transitions 3→2→1→0 from exactly three valid impacts.
 - [ ] A-014 Camera damage does not impair detection before destruction.
 - [ ] A-015 Destruction removes only the destroyed Camera field, persists for the run, and restores on restart.
-- [ ] A-016 Each destruction applies one +100 Tamper Spike and no loot or area effect.
+- [ ] A-016 Each destruction applies one +150 Tamper Spike (D-086) and no loot or area effect.
 - [ ] A-017 Automatic targeting and Ricochet follow the exact Camera candidate and tie-break rules.
 - [ ] A-018 Captain Camera remains outside the standard Camera destruction system.
 - [ ] A-019 Eighth Camera destruction completes Network Blackout exactly once; 0–7 remains partial.
@@ -131,7 +131,7 @@ Run three consecutive complete runs on a physical iPhone 12 or approved no-bette
 - [ ] F-011 Reduced Flash, Reduced Motion, captions, HUD scale, and separate audio/haptic controls pass.
 - [ ] F-012 Every upgrade defeats the Captain without undocumented exploits.
 - [ ] F-013 First Camera encounter communicates `3 HITS` and `DESTRUCTION ADDS EXPOSURE` visually, through captions, and through VoiceOver.
-- [ ] F-014 Integrity notches and `+100 TAMPER` remain readable on the SE-class screen.
+- [ ] F-014 Integrity notches and `+150 TAMPER` remain readable on the SE-class screen.
 - [ ] F-015 UI-001 through UI-008 pass on every device class and handedness mode.
 - [ ] F-016 AH-001 through AH-006 pass with audio/haptics both enabled and disabled.
 - [ ] F-017 ER-001 through ER-008 pass, including canonical JSON and UInt64 ID round-trip.

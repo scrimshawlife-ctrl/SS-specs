@@ -108,15 +108,15 @@ The following artifacts are normative:
 - `animation.md`: state machines, clip metadata, telegraphs, event alignment, and reduced motion
 - `arena.md`: arena intent, seven-zone topology, pacing, navigation, surveillance, and spawn fairness
 - `arena-layout.md`: exact coordinate semantics, geometry, gates, sockets, Extraction timing, viewport, and vectors
-- `contracts/civic-seam-arena-001.json`: executable Level 1 geometry and socket source
-- `contracts/civic-seam-arena-001.schema.json`: structural arena-manifest validation
+- `contracts/civic-seam-arena-002.json`: executable Level 1 geometry and socket source
+- `contracts/civic-seam-arena-002.schema.json`: structural arena-manifest validation
 - `camera-destruction.md`: per-run fixed Camera behavior, Integrity, targeting, optional Network Blackout, Tamper Exposure, tick order, presentation, receipts, and golden vectors
 - `camera-placement.md`: seeded authored-socket selection, zone quotas, fairness invariants, RNG isolation, schema, receipts, and golden vectors
 - `encounter-objectives.md`: canonical mob, elite/sub-boss, boss, and Extraction objective graph
 - `enemies-and-encounters.md`: exact standard-enemy state machines, statistics, wave tables, spawning, completion, and vectors
 - `bosses.md`: Improper Search Daemon and Algorithmic Moderate phases, attacks, timing, defeat, and vectors
 - `upgrades.md`: protected one-of-three selection and exact Signal Jammer, Ricochet Pulse, and Ghost Step effects
-- `contracts/combat-content-001.json`: machine-readable combat tuning source
+- `contracts/combat-content-002.json`: machine-readable combat tuning source
 - `hud-tutorial.md`: reference layout, handedness, tutorial state machine, copy, and accessibility
 - `audio-haptics.md`: event projection, priorities, coalescence, music states, and captions
 - `events-receipts-replays.md`: event ordering, receipt persistence, replay validation, and results

@@ -71,7 +71,7 @@ On accepted dodge start, set `cameraInvisibleUntilTick = startTick + 29`, inclus
 | UP-002 | select index 0 | only Signal Jammer active |
 | UP-003 | invalid index | protected state remains; no tick |
 | UP-004 | Jammer with one/two/eight Cameras | deltas +1/+2/+4 |
-| UP-005 | Jammer plus +100 Tamper | Tamper remains +100 |
+| UP-005 | Jammer plus +150 Tamper | Tamper remains +150 |
 | UP-006 | Ricochet equal-distance candidates | lower stable ID continuation |
 | UP-007 | Ricochet first hit destroys Camera | destroyed Camera excluded |
 | UP-008 | Ghost Step starts tick 100 | Camera immune through tick 129 |

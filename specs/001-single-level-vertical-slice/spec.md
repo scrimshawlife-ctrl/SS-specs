@@ -2,8 +2,8 @@
 
 Status: BASELINE  
 Feature ID: SS-001  
-Ruleset version: `ss-rules-001`  
-Arena version: `civic-seam-arena-001`
+Ruleset version: `ss-rules-002`  
+Arena version: `civic-seam-arena-002`
 
 ## 1. Product intent
 
@@ -69,7 +69,7 @@ This feature does not include:
 - **FR-016:** Maximum escalation MUST enter Lockdown exactly once per run.
 - **FR-017:** Level 1 MUST deterministically select exactly eight standard Cameras per run from versioned authored sockets using `camera-placement.md`; after initialization their positions, headings, ranges, and field angles are immutable, and they never pan, relocate, spawn, activate, or respawn during the run.
 - **FR-017A:** A standard Camera MUST require exactly three valid Player projectile impacts to destroy.
-- **FR-018:** Destroying a Camera MUST permanently remove only that Camera field for the current run and apply exactly +100 Tamper Exposure.
+- **FR-018:** Destroying a Camera MUST permanently remove only that Camera field for the current run and apply exactly +150 Tamper Exposure (D-086).
 - **FR-018A:** Destroying all eight Cameras MUST complete optional objective Network Blackout exactly once and MUST NOT alter Extraction eligibility.
 - **FR-019:** Damaged and Critical Cameras MUST retain full detection capability until destroyed.
 
