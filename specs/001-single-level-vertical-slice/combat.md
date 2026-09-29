@@ -26,7 +26,7 @@ An attack opportunity with no valid target produces no projectile and does not s
 
 ## Automatic targeting
 
-Use the classes in `camera-destruction.md`: enemy within 96 units; detecting Camera; other enemy; other Camera. Within class, sort by squared distance to target anchor, then stable entity ID. Range is inclusive. Static solid geometry blocks line of fire; actors and destroyed Camera housings do not, except permanent mount solids.
+Use the classes in `camera-destruction.md`: enemy within 96 units; the chosen Camera the Player is moving toward; other enemy (D-082). No other Camera is an automatic target. Within class, sort by squared distance to target anchor, then stable entity ID. Range is inclusive. Static solid geometry blocks line of fire; actors and destroyed Camera housings do not, except permanent mount solids. A Camera's own mount never blocks line of fire to that Camera (D-085); other mounts block as usual.
 
 Target selection happens at the attack opportunity. If the selected target is invalid before spawn in the same phase, no projectile is created and there is no retarget.
 

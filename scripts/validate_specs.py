@@ -58,7 +58,7 @@ def validate_instance(instance_rel: str, schema_rel: str, label: str | None = No
 
 
 # 3. Machine artifacts conform to the schema that governs them.
-validate_instance("contracts/civic-seam-arena-001.json", "contracts/civic-seam-arena-001.schema.json")
+validate_instance("contracts/civic-seam-arena-002.json", "contracts/civic-seam-arena-002.schema.json")
 validate_instance("fixtures/replay-smoke-001.json", "contracts/runtime-kernel-001.json")
 validate_instance("contracts/camera-placement-001.json", "contracts/camera-placement-001.schema.json")
 
@@ -68,7 +68,7 @@ validate_instance("contracts/camera-placement-001.json", "contracts/camera-place
 # manifest the runtime loads, and that the authored pool still meets the
 # minimum enabled sizes camera-placement.md requires per zone.
 placement = documents.get(ROOT / "contracts/camera-placement-001.json")
-manifest = documents.get(ROOT / "contracts/civic-seam-arena-001.json")
+manifest = documents.get(ROOT / "contracts/civic-seam-arena-002.json")
 if isinstance(placement, dict) and isinstance(manifest, dict):
     sockets = placement.get("sockets")
     if not isinstance(sockets, list):
@@ -87,6 +87,41 @@ if isinstance(placement, dict) and isinstance(manifest, dict):
             have = enabled_by_zone.get(zone, 0)
             if have < need:
                 err(f"camera-placement-001 {zone} has {have} enabled sockets; camera-placement.md requires at least {need}")
+
+# 3b. Every Camera socket can be seen and shot (D-087). Its target anchor and
+# field origin, offset along the heading exactly as the runtime places them
+# (local y forward; heading unit (cos h, -sin h), clockwise-positive), must lie
+# outside every permanent solid, and its mount box must not overlap one. A
+# socket that fails is a Camera nobody can hit or that can see nobody.
+# Gates are excluded: a closed gate opening later is authored intent.
+if isinstance(manifest, dict):
+    import math
+
+    geometry = manifest.get("standardCameraGeometry", {})
+    mount = geometry.get("mountCollisionRadiusUnits", 0)
+    offsets = {
+        "target anchor": geometry.get("targetAnchorOffset", {}),
+        "field origin": geometry.get("fieldOriginOffset", {}),
+    }
+    solids = []
+    for solid in manifest.get("permanentSolids", []):
+        cx, cy = solid["center"]["x"], solid["center"]["y"]
+        hx, hy = solid["halfSize"]["x"], solid["halfSize"]["y"]
+        solids.append((solid["id"], cx - hx, cx + hx, cy - hy, cy + hy))
+    for socket in manifest.get("cameraSockets", []):
+        px, py = socket["position"]["x"], socket["position"]["y"]
+        heading = math.radians(socket["headingMilliDegrees"] / 1000)
+        fx, fy = math.cos(heading), -math.sin(heading)
+        for label, local in offsets.items():
+            lx, ly = local.get("x", 0), local.get("y", 0)
+            x = px + fy * lx + fx * ly
+            y = py - fx * lx + fy * ly
+            for sid, x0, x1, y0, y1 in solids:
+                if x0 <= x <= x1 and y0 <= y <= y1:
+                    err(f"{socket['socketId']}: {label} ({x:.1f}, {y:.1f}) lies inside {sid}")
+        for sid, x0, x1, y0, y1 in solids:
+            if px - mount < x1 and x0 < px + mount and py - mount < y1 and y0 < py + mount:
+                err(f"{socket['socketId']}: mount box overlaps {sid}")
 
 catalog_path = ROOT / "contracts/asset-catalog-001.json"
 record_schema_path = ROOT / "contracts/asset-record-001.schema.json"

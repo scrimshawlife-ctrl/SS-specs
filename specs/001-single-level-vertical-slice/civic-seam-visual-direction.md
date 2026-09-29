@@ -173,7 +173,7 @@ substitute for the rule above:
 ## 5a. Decoration placement
 
 Props and motifs are **non-collidable** and are placed by `decorations` in
-`civic-seam-arena-001`: an asset ID, a centre in units, and an optional
+`civic-seam-arena-002`: an asset ID, a centre in units, and an optional
 `scalePermille`. They are presentation only and introduce no authoritative
 state — a decoration cannot block, damage, or conceal anything.
 

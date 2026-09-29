@@ -130,6 +130,28 @@ On activation, set Exposure to 1000, enter and latch Lockdown if not already lat
 
 Total: 25 enemies.
 
+## Heat reinforcements (D-083)
+
+Being seen raises the pressure. When a wave of **M-A or M-B** starts, read the
+Detection State after the previous tick's Exposure resolution and append
+Autonomous Informants to that wave's spawn list:
+
+| Detection State | Added Informants |
+|---|---:|
+| `hidden` | 0 |
+| `observed` | 0 |
+| `tracked` | 1 |
+| `hunted` | 2 |
+| `lockdown` | 2 |
+
+The values are data in `combat-content-002` (`heat`). Added members spawn after
+the authored members, at the wave's own interval and under the same spawn
+validation. The wave completes only when they are dead too. M-C is unaffected: it
+is the forced Lockdown set piece and is already at full escalation.
+
+The Player is told. The wave's HUD caption names the count and its cause
+(hud-tutorial.md), so the pressure is never invisible (constitution Article IV).
+
 ## Completion and cleanup
 
 - Standard enemy deaths never drop loot, health, currency, or upgrades.
@@ -142,7 +164,7 @@ Total: 25 enemies.
 
 | ID | Scenario | Expected |
 |---|---|---|
-| EN-001 | complete all scheduled waves | totals A=14, B=17, C=25 |
+| EN-001 | complete all scheduled waves while `hidden` | totals A=14, B=17, C=25 |
 | EN-002 | obstruct all spawn sockets | retry every 30 ticks; no unfair spawn |
 | EN-003 | equal valid spawn distance | lower socket ID selected |
 | EN-004 | Fog pulse loses LOS during telegraph | pulse misses |
@@ -152,3 +174,8 @@ Total: 25 enemies.
 | EN-008 | enter M-C already locked down | no duplicate Lockdown event |
 | EN-009 | last enemy dies with pending spawn | encounter not complete |
 | EN-010 | standard enemy death | no reward entity/event |
+| EN-011 | a wave of M-A starts while `hunted` | 2 Informants appended after the authored members |
+| EN-012 | a wave of M-B starts while `tracked` | 1 Informant appended |
+| EN-013 | a wave of M-C starts (always `lockdown`) | no Informants appended |
+| EN-014 | an appended Informant alive, authored members dead | wave not complete |
+| EN-015 | a wave of M-B starts after Lockdown latched early (before M-C) | 2 Informants appended |

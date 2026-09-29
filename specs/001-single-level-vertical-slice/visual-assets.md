@@ -75,7 +75,7 @@ The array names 41 IDs:
 | Group | Count | Derivation |
 |---|---:|---|
 | Ground tiles | 6 | one per authored surface |
-| Solids | 14 | **one per `permanentSolids` entry in `civic-seam-arena-001`**, named for it |
+| Solids | 14 | **one per `permanentSolids` entry in `civic-seam-arena-002`**, named for it |
 | Camera housings | 5 | one per family in the `camera-placement-001` enum |
 | Street props | 12 | the P0 infrastructure kit in `civic-seam-001` §5 |
 | Motif sheets | 4 | phoenix, repair, counter-signal, broadcast glyph |

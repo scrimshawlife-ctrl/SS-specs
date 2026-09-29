@@ -108,9 +108,17 @@ Candidate priority is:
 | Priority | Candidate class |
 |---:|---|
 | 1 | Enemy within 96 world units of the Player |
-| 2 | Camera currently detecting the Player |
+| 2 | **Chosen Camera**: a damageable Camera the Player is moving toward |
 | 3 | Other enemy |
-| 4 | Other damageable Camera |
+
+A Camera is never an automatic target otherwise (D-082). Destroying one costs a
++150 Tamper Spike, so it is the Player's decision, not the weapon's.
+
+**Chosen Camera.** The Player's velocity `v` is non-zero, and for the vector `d`
+from the Player to the Camera anchor, `dot(v, d) > 0` and
+`4 · dot(v, d)² ≥ 3 · |v|² · |d|²`, which is within 30 degrees of the direction of
+travel. It is evaluated in the deterministic integer layer on Q8 components. A
+standing Player chooses no Camera.
 
 Within the same class, select:
 
@@ -120,6 +128,12 @@ Within the same class, select:
 Target selection occurs only at an authoritative attack opportunity. A target is not continuously locked between attacks. If the chosen target becomes invalid before projectile creation, that attack opportunity produces no projectile; it does not retarget inside the same tick.
 
 A Camera behind blocking geometry is not a valid candidate even when its field can reach the Player by a different path.
+
+A Camera's own mount solid is never blocking geometry for shots at that Camera
+(D-085). Its target anchor sits 16 units along the socket heading, and on the
+diagonal headings (45, 135, 225 and 315 degrees) that point falls inside the
+±12-unit mount box. Without this exemption those four sockets could never be
+hit, and a layout that selected one could never reach Network Blackout.
 
 ## 7. Ricochet Pulse
 
@@ -140,7 +154,7 @@ Destroying a Camera produces:
 
 ```text
 CameraDestroyed(cameraID, tick, sourceProjectileID, priorDetectionContact)
-ExposureDelta(reason: cameraTamper, amount: +100, cameraID)
+ExposureDelta(reason: cameraTamper, amount: +150, cameraID)
 ```
 
 Rules:
@@ -177,7 +191,7 @@ The authoritative tick order relevant to Camera destruction is:
 Consequences:
 
 - A Camera destroyed on a tick contributes no continuous detection Exposure on that same tick.
-- Its +100 Tamper Spike still applies.
+- Its +150 Tamper Spike still applies.
 - Other Camera contacts still contribute.
 - If destruction and Player death occur on the same tick, both are recorded; Player death remains terminal.
 - If multiple Cameras are destroyed, events are ordered by stable Camera ID.
@@ -229,7 +243,7 @@ Damage state must remain distinguishable in grayscale and without rapid blinking
 - 4–8 bounded particles;
 - field retracts or collapses immediately from the authoritative event;
 - short network-disconnect audio cue;
-- +100 Tamper Spike shown as a labeled Exposure increment;
+- +150 Tamper Spike shown as a labeled Exposure increment;
 - destroyed housing settles into a stable non-emissive state.
 
 Reduced Motion replaces recoil, field collapse, and debris motion with:
@@ -250,7 +264,7 @@ On the first damageable Camera encounter, teach once:
 Requirements:
 
 - The optional objective HUD shows `CAMERAS destroyed/8`; Camera Integrity is shown by three compact notches when the Camera is targeted, damaged, or within attack range.
-- The Tamper Spike displays `+100 TAMPER` adjacent to the Exposure HUD.
+- The Tamper Spike displays `+150 TAMPER` adjacent to the Exposure HUD.
 - The Camera field disappears immediately at destruction.
 - No loot icon or pickup sound is used.
 - Destroyed Cameras remain visually identifiable on return traversal.
@@ -339,7 +353,7 @@ Telemetry is local receipt data only. No external analytics or network submissio
 ## 17. Edge cases
 
 - Two projectiles hit an Integrity-1 Camera on one tick: first ordered hit destroys it; later hits are ignored.
-- Ricochet destroys two Cameras on one tick: both events and +200 total Tamper apply in stable-ID order.
+- Ricochet destroys two Cameras on one tick: both events and +300 total Tamper apply in stable-ID order.
 - Camera is destroyed while detecting: its continuous contribution is removed before Exposure accumulation; Tamper remains.
 - Camera is destroyed at Exposure 950: Exposure becomes 1000 and Lockdown triggers.
 - Camera is destroyed at Exposure 1000: Exposure remains 1000; destruction is still recorded.
@@ -358,12 +372,12 @@ Minimum canonical vectors:
 
 | ID | Scenario | Expected outcome |
 |---|---|---|
-| CD-001 | Three sequential base impacts | states 3→2→1→0; one +100 Tamper |
+| CD-001 | Three sequential base impacts | states 3→2→1→0; one +150 Tamper |
 | CD-002 | Two impacts only | CRITICAL; field remains fully active |
-| CD-003 | Destroy while detecting | no same-tick contact delta; +100 Tamper |
-| CD-004 | Destroy while not detecting | +100 Tamper; no field |
+| CD-003 | Destroy while detecting | no same-tick contact delta; +150 Tamper |
+| CD-004 | Destroy while not detecting | +150 Tamper; no field |
 | CD-005 | Two simultaneous final impacts | one destruction; one Tamper |
-| CD-006 | Ricochet destroys two Cameras | two ordered destructions; +200 Tamper |
+| CD-006 | Ricochet destroys two Cameras | two ordered destructions; +300 Tamper |
 | CD-007 | Destroy at Exposure 950 | clamp 1000; Lockdown |
 | CD-008 | Hit destroyed Camera | ignored |
 | CD-009 | Restart | all eight Operational at fixed transforms |
@@ -372,6 +386,12 @@ Minimum canonical vectors:
 | CD-012 | Eighth destruction | one Network Blackout event; 8/8 complete |
 | CD-013 | Extract at 0/8 | succeeds when combat graph complete |
 | CD-014 | Extract at 7/8 | succeeds; objective remains incomplete |
+| CD-015 | Player standing still, only a detecting Camera in range | no projectile |
+| CD-016 | Player moving toward a Camera, no enemy within 96 | the Camera is targeted |
+| CD-017 | Player moving 45 degrees away from the only Camera | no projectile |
+| CD-018 | chosen Camera and another enemy beyond 96 units | the Camera is targeted |
+| CD-019 | chosen Camera on a 45-degree socket, clear approach | targeted and damageable; its own mount does not block |
+| CD-020 | a shot at Camera B passes through Camera A's mount | blocked by A's mount |
 
 ## 19. Non-goals
 
