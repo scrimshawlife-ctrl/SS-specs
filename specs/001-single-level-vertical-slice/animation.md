@@ -184,6 +184,33 @@ Camera fields must remain visually distinct from Captain attack cones through bo
 - Invulnerability feedback must remain visible without relying on rapid blinking.
 - Damage numbers are optional and default off; the health/state response remains sufficient without them.
 
+## 8a. Big moments (D-088)
+
+Four moments get their own recipe in `procedural-vfx-002`, on top of the ten
+per-event recipes. Each is presentation only: it never delays, reorders, or
+reads back into the simulation. Each obeys § 8 (hit-stop caps, shake disabled
+under Reduced Motion) and § 10.
+
+| Moment | Event | Default | Reduced |
+|---|---|---|---|
+| Camera kill | `cameraDestroyed` | lens shatter and spark burst, 50 ms hit-stop, small shake | static crack and field cut, 50 ms hit-stop, no shake |
+| Network Blackout | `allCamerasDestroyed` | every Camera field cascades off in stable-ID order over 1.5 s while the scene dims (never brightens), `NETWORK BLACKOUT` title card | static `NETWORK BLACKOUT` banner, no luminance change |
+| Boss phase break | `bossPhaseChanged` | phase name slams in and a ring releases from the Captain, 90 ms hit-stop (Captain class), small shake | phase name cuts in, 90 ms hit-stop, no shake |
+| Heat reinforcements | `waveStarted` with heat reinforcements (D-083) | chevrons at the screen edge point toward the spawn sockets | static edge chevrons |
+
+The Blackout dim is a darkening, not a flash, so `forbidFullScreenWhiteFlash`
+holds. Under Reduced Flash the scene luminance does not change at all
+(hud-tutorial.md). No moment zooms the camera (§ 9).
+
+**No freeze on a wind-up.** `captainTelegraph` carries no hit-stop (it was
+90 ms in `procedural-vfx-001`). A telegraph is the Player's cue to move, and
+freezing the screen as an attack begins steals the reaction time the telegraph
+exists to give. Hit-stop belongs to impacts.
+
+**The existing ten recipes must render.** Before D-088 the runtime projected
+them (`VFXProjector`) but drew none, so no hit-stop, shake, or impact effect ever
+reached the screen. Rendering them is part of this change.
+
 ## 9. Camera motion
 
 - Normal camera follows with bounded smoothing and a dead zone.
