@@ -129,6 +129,12 @@ Target selection occurs only at an authoritative attack opportunity. A target is
 
 A Camera behind blocking geometry is not a valid candidate even when its field can reach the Player by a different path.
 
+A Camera's own mount solid is never blocking geometry for shots at that Camera
+(D-085). Its target anchor sits 16 units along the socket heading, and on the
+diagonal headings (45, 135, 225 and 315 degrees) that point falls inside the
+±12-unit mount box. Without this exemption those four sockets could never be
+hit, and a layout that selected one could never reach Network Blackout.
+
 ## 7. Ricochet Pulse
 
 Ricochet Pulse may damage Cameras.
@@ -384,6 +390,8 @@ Minimum canonical vectors:
 | CD-016 | Player moving toward a Camera, no enemy within 96 | the Camera is targeted |
 | CD-017 | Player moving 45 degrees away from the only Camera | no projectile |
 | CD-018 | chosen Camera and another enemy beyond 96 units | the Camera is targeted |
+| CD-019 | chosen Camera on a 45-degree socket, clear approach | targeted and damageable; its own mount does not block |
+| CD-020 | a shot at Camera B passes through Camera A's mount | blocked by A's mount |
 
 ## 19. Non-goals
 

@@ -19,6 +19,14 @@ Exposure is the one authoritative surveillance-pressure value. It is determinist
 | Recovery delay after last contact | 60 ticks |
 | Recovery | −2 points/tick |
 | Camera Tamper Spike | +100 points/destruction |
+| Tamper floor | 150 points × Cameras destroyed this run (D-084) |
+
+**Tamper floor (D-084).** Recovery never takes Exposure below
+`150 × destroyedCameras`, the number of Cameras destroyed this run. It limits
+recovery only: it never raises Exposure, never adds to a Tamper Spike, and
+never triggers a Detection State event by itself. After three destructions the
+Player can never recover below 450 (`tracked`). A destroyed Camera is a lasting
+mark, not a spike that fades in two seconds.
 
 At 60 ticks/second, one Camera adds 120 points/second. Recovery begins only after 60 complete no-contact ticks and removes 120 points/second. Tamper is instantaneous and is not modified by contact count.
 
@@ -94,6 +102,8 @@ Tamper and continuous contact may cross several thresholds in one tick. Emit one
 | EX-008 | destroy two detecting Cameras at 850 | +200 clamps 1000; one Lockdown event |
 | EX-009 | no contact after Lockdown | remains 1000/`lockdown` |
 | EX-010 | delta jumps `hidden` to `hunted` | one old→final transition event |
+| EX-011 | 3 Cameras destroyed, Exposure 500, 200 no-contact ticks | stops at 450; never below |
+| EX-012 | 1 Camera destroyed, Exposure 120 (below the floor after a same-tick change), no contact | recovery does not apply; Exposure is not raised to 150 |
 
 ## Failure rules
 

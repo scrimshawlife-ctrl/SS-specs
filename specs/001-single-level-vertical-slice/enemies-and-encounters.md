@@ -142,6 +142,7 @@ Autonomous Informants to that wave's spawn list:
 | `observed` | 0 |
 | `tracked` | 1 |
 | `hunted` | 2 |
+| `lockdown` | 2 |
 
 The values are data in `combat-content-002` (`heat`). Added members spawn after
 the authored members, at the wave's own interval and under the same spawn
@@ -177,3 +178,4 @@ The Player is told. The wave's HUD caption names the count and its cause
 | EN-012 | a wave of M-B starts while `tracked` | 1 Informant appended |
 | EN-013 | a wave of M-C starts (always `lockdown`) | no Informants appended |
 | EN-014 | an appended Informant alive, authored members dead | wave not complete |
+| EN-015 | a wave of M-B starts after Lockdown latched early (before M-C) | 2 Informants appended |
