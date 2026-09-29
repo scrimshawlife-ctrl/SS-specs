@@ -113,7 +113,7 @@ Boss defeat retires all boss projectiles and Captain Camera fields immediately. 
 |---|---|---|
 | BO-001 | Daemon uninterrupted cycle | exact 120/45/instant/36/30/60 timing |
 | BO-002 | boss HP 1600/1200/1199/800/799/400/399/1 | phases match table |
-| BO-003 | one batch 610→390 | one transition to Temporary Safeguard |
+| BO-003 | one batch 1220→780 | one transition to Temporary Safeguard |
 | BO-004 | phase transition during telegraph | prior attack canceled; 45-tick recovery |
 | BO-005 | Temporary Order pulse in Public Safety | +11 Exposure before upgrade |
 | BO-006 | same pulse with Signal Jammer | +8 after 25% reduction |

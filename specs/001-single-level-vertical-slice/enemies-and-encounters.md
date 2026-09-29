@@ -153,13 +153,23 @@ resumes patrol.
   M-A–M-C graph.
 - Their deaths count in the receipt like any standard enemy.
 - The ambush multiplier applies to them.
+- While unaware, a patrol member is an automatic target only within
+  `patrol.sightUnits` (240) of the Player (D-092). The weapon's 512-unit reach
+  would otherwise clear the patrol from outside every cone, and it would never
+  be read or timed.
 
-**Fairness.** Checked against the arena data by the validator and runtime tests:
+**Fairness.** Checked against the arena data by runtime tests (the spec validator does not model patrols):
 - no waypoint lies inside a solid, outside its zone, or inside an encounter
   trigger;
 - no cone ever reaches the Player spawn or zone Z-01;
-- for every tick of the patrol cycle, a walkable route from Z-01 into the M-A
-  trigger exists that no cone covers.
+- a walkable route from Z-01 into the M-A trigger that no cone covers exists
+  at every tick of joint patrol simulation for at least the first hour
+  (216,000 ticks), across every Camera subset a legal placement can produce.
+  Members interact through separation, so the joint state has no short cycle,
+  and a bounded horizon is the proof. The debug test covers the first 3,600
+  ticks; an opt-in release test covers the hour.
+
+The cone half-angle must be one with an exact integer cone test (30°, 45°, 60°).
 
 ## Shared steering and separation
 
@@ -266,7 +276,7 @@ The Player is told. The wave's HUD caption names the count and its cause
 | EN-013 | a wave of M-C starts (always `lockdown`) | no Informants appended |
 | EN-014 | an appended Informant alive, authored members dead | wave not complete |
 | EN-015 | a wave of M-B starts after Lockdown latched early (before M-C) | 2 Informants appended |
-| EN-016 | an M-A enemy spawns while `hidden` | unaware; zero velocity; no attack |
+| EN-016 | an M-A enemy spawns while `hidden` | unaware; zero velocity at spawn, then drifts (D-090); no attack |
 | EN-017 | an M-A enemy spawns while `tracked` | aware |
 | EN-018 | any M-C enemy, or a heat reinforcement | aware |
 | EN-019 | the Player comes within 320 units with a clear line | `enemyAlerted` cause `sight`; acts next tick |
@@ -281,4 +291,6 @@ The Player is told. The wave's HUD caption names the count and its cause
 | EN-027 | the Player at 200 units, 60° off facing | stays unaware |
 | EN-028 | the Player at 300 units inside the cone | stays unaware (beyond 240) |
 | EN-029 | a patrol member dies | counted in the receipt; no encounter completes; no heat |
-| EN-030 | any tick of the patrol cycle | an uncovered walkable route from Z-01 to the M-A trigger exists |
+| EN-030 | any tick in the first hour of joint patrol simulation, any legal Camera subset | an uncovered walkable route from Z-01 to the M-A trigger exists |
+| EN-032 | an unaware patrol member 300 units away, nothing else in range | not targeted; no projectile |
+| EN-033 | the same member at 230 units | targeted; the ambush applies |
