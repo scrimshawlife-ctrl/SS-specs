@@ -9,11 +9,11 @@ Level 1 uses exactly five standard enemy archetypes. Statistics are authoritativ
 
 | ID | Role | HP | Radius | Speed | Contact DPS |
 |---|---|---:|---:|---:|---:|
-| `fogAnalyticsCloud` | observation support | 20 | 18 | 84 | 4 |
-| `cableCarCorrelator` | telegraphed charger | 40 | 20 | 108 | 12 |
-| `sutroSignalWitch` | ranged pressure | 30 | 18 | 72 | 6 |
-| `autonomousInformant` | fast pursuer | 20 | 16 | 144 | 8 |
-| `victorianVendor` | slow area denial | 60 | 22 | 60 | 10 |
+| `fogAnalyticsCloud` | observation support | 30 | 18 | 84 | 4 |
+| `cableCarCorrelator` | telegraphed charger | 60 | 20 | 108 | 12 |
+| `sutroSignalWitch` | ranged pressure | 45 | 18 | 72 | 6 |
+| `autonomousInformant` | fast pursuer | 30 | 16 | 144 | 8 |
+| `victorianVendor` | slow area denial | 90 | 22 | 60 | 10 |
 
 All target the Player, use circle collision, obey stable-ID ties, and stop acting immediately at zero HP. They never damage Cameras or one another.
 
@@ -88,8 +88,11 @@ otherwise it spawns unaware:
 - it is a heat reinforcement (D-083), since it was sent because the Player was
   seen.
 
-**Unaware behaviour.** Velocity zero; no telegraph, attack, pulse, charge,
-throw, or mine; no contact damage. It holds its spawn position and presents its
+**Unaware behaviour.** No telegraph, attack, pulse, charge, throw, or mine; no
+contact damage. It **drifts** toward its encounter's trigger centre at
+`awareness.unawareDriftPercent` (25%) of its archetype speed, with normal
+steering and solid collision, and stops within `awareness.unawareDriftStopUnits`
+(48) of it (D-090). Patrol members patrol instead (§ Transit Patrol). It and presents its
 idle clip with an unaware marker (animation.md § 8a).
 
 **Becoming alerted.** Evaluated once per tick, at the start of the enemy phase
@@ -98,7 +101,7 @@ over the ones below it:
 1. **surveillance**: the Detection State is `tracked` or above, which alerts
    every unaware standard enemy;
 2. **damage**: the enemy took damage since its last enemy phase;
-3. **sight**: the Player is within `awareness.sightRangeUnits` (160) with a
+3. **sight**: the Player is within `awareness.sightRangeUnits` (320, D-090) with a
    clear line (the weapon line-of-fire rule against static solids);
 4. **ally**: an unaware enemy within `awareness.allyAlertRadiusUnits` (128) of an
    enemy alerted this tick by damage or sight. This is one hop: an ally alert
@@ -109,7 +112,7 @@ An alerted enemy never returns to unaware. Each alert publishes
 normal state machine on the next tick.
 
 **Ambush.** The first damage an unaware enemy takes is multiplied by
-`awareness.ambushDamageMultiplier` (2) (combat.md). The enemy is aware
+`awareness.ambushDamageMultiplier` (3, D-090) (combat.md). The enemy is aware
 afterwards, so later hits in the same tick are normal.
 
 ## Transit Patrol (P-02, D-091)
@@ -266,11 +269,12 @@ The Player is told. The wave's HUD caption names the count and its cause
 | EN-016 | an M-A enemy spawns while `hidden` | unaware; zero velocity; no attack |
 | EN-017 | an M-A enemy spawns while `tracked` | aware |
 | EN-018 | any M-C enemy, or a heat reinforcement | aware |
-| EN-019 | the Player comes within 160 units with a clear line | `enemyAlerted` cause `sight`; acts next tick |
+| EN-019 | the Player comes within 320 units with a clear line | `enemyAlerted` cause `sight`; acts next tick |
 | EN-020 | the Player is at 150 units behind a solid | stays unaware |
 | EN-021 | Exposure crosses into `tracked` | every unaware standard enemy alerted, cause `surveillance` |
 | EN-022 | an unaware enemy is hit; another unaware enemy is 100 units away, a third 200 units | the hit one is alerted (`damage`), the second (`ally`), the third stays unaware |
 | EN-023 | the elite or the boss | never unaware |
+| EN-031 | an unaware M-A enemy 400 units from the trigger centre | drifts toward it at 25% speed; stops within 48 units |
 | EN-024 | run start | every `patrols` member spawns unaware at its first waypoint |
 | EN-025 | an unaware patrol member reaches a waypoint | holds 30 ticks, then heads for the next, wrapping at the end |
 | EN-026 | the Player at 200 units, inside the 45° cone, clear line | alerted, cause `sight` |

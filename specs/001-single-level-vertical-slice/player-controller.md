@@ -62,6 +62,13 @@ Cooldown begins on the first active tick. Dodge becomes ready when the current t
 
 ## Damage response
 
+**Damage taken (D-090).** Every Integrity loss the Player would take, from any
+source, is scaled by `player.damageTakenPercent` (50) in `combat-content-004`.
+Each loss adds `amount × percent` to an authoritative remainder in hundredths;
+the Integrity removed is `remainder ÷ 100` (integer division), and the rest is
+carried forward. Over any run exactly the stated percentage lands, with no
+rounding drift. Receipts record Integrity actually removed.
+
 Contact damage is continuous and has no invulnerability window. The sum is capped to the three highest simultaneous threat rates, ordered by rate descending then stable entity ID. Integrity clamps to 0…100. Player death resolves before objectives or Extraction on the same tick.
 
 ## Accessibility and layout

@@ -9,7 +9,7 @@ The elite activates in Z-05 after M-C cleanup.
 
 | Property | Value |
 |---|---:|
-| HP | 300 |
+| HP | 450 (D-090) |
 | Radius | 26 |
 | Base speed | 108 units/second |
 | Contact damage | 14 DPS |
@@ -32,7 +32,7 @@ The single boss activates when the living Player enters Z-06 after the elite is 
 
 | Property | Value |
 |---|---:|
-| HP | 800 |
+| HP | 1600 (D-090) |
 | Radius | 30 |
 | Base speed | 120 units/second |
 | Base contact damage | 16 DPS |
@@ -45,10 +45,10 @@ Health bands use HP after the tick's ordered damage batch:
 
 | Phase | HP after batch | Observation | Speed | Contact | Orbit |
 |---|---:|---:|---:|---:|---:|
-| Public Safety | 600–800 | 105/100 | 100/100 | 100/100 | 0/100 |
-| Civil Liberties | 400–599 | 108/100 | 90/100 | 104/100 | 72/100 |
-| Temporary Safeguard | 200–399 | 112/100 | 118/100 | 110/100 | 18/100 |
-| Independent Review | 1–199 | 116/100 | 104/100 | 116/100 | −55/100 |
+| Public Safety | 1200–1600 | 105/100 | 100/100 | 100/100 | 0/100 |
+| Civil Liberties | 800–1199 | 108/100 | 90/100 | 104/100 | 72/100 |
+| Temporary Safeguard | 400–799 | 112/100 | 118/100 | 110/100 | 18/100 |
+| Independent Review | 1–399 | 116/100 | 104/100 | 116/100 | −55/100 |
 
 These ratios adapt verified legacy San Francisco policy values. A damage batch may cross multiple thresholds, but only the final resulting phase is entered and one transition event is emitted. Phase cannot move backward.
 
@@ -112,7 +112,7 @@ Boss defeat retires all boss projectiles and Captain Camera fields immediately. 
 | ID | Scenario | Expected |
 |---|---|---|
 | BO-001 | Daemon uninterrupted cycle | exact 120/45/instant/36/30/60 timing |
-| BO-002 | boss HP 800/600/599/400/399/200/199/1 | phases match table |
+| BO-002 | boss HP 1600/1200/1199/800/799/400/399/1 | phases match table |
 | BO-003 | one batch 610→390 | one transition to Temporary Safeguard |
 | BO-004 | phase transition during telegraph | prior attack canceled; 45-tick recovery |
 | BO-005 | Temporary Order pulse in Public Safety | +11 Exposure before upgrade |
