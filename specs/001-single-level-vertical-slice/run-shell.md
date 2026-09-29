@@ -226,7 +226,7 @@ Under the outcome, the terminal surface shows:
 | time | elapsed ticks as `m:ss` |
 | cameras | `destroyed / 8`, plus `NETWORK BLACKOUT` when all eight fell |
 | peak detection | the highest Detection State reached |
-| ghost | `NEW BEST` when this run replaced the stored best, or the time gap to it |
+| ghost | success only: `NEW BEST` when this run replaced the stored best, otherwise the time behind it as `+m:ss`. Omitted on failure, and when no best exists |
 
 Share opens the system share sheet with a plain-text summary of the same rows
 and the game's name. It shares nothing else: no seed, no receipt, no identifier.
@@ -253,3 +253,4 @@ Proposed, pending acceptance of this document.
 | RS-014 | a ghost is present | the live digest and receipt are identical to a run without the ghost |
 | RS-015 | a stored best from a different Replay Identity | no ghost |
 | RS-016 | Share | the summary contains the § 11 rows and no seed or identifier |
+| RS-017 | run ends in failure with a stored best | no ghost row (a failed run is never "faster") |
