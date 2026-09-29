@@ -58,7 +58,7 @@ def validate_instance(instance_rel: str, schema_rel: str, label: str | None = No
 
 
 # 3. Machine artifacts conform to the schema that governs them.
-validate_instance("contracts/civic-seam-arena-002.json", "contracts/civic-seam-arena-002.schema.json")
+validate_instance("contracts/civic-seam-arena-003.json", "contracts/civic-seam-arena-003.schema.json")
 validate_instance("fixtures/replay-smoke-001.json", "contracts/runtime-kernel-001.json")
 validate_instance("contracts/camera-placement-001.json", "contracts/camera-placement-001.schema.json")
 
@@ -68,7 +68,7 @@ validate_instance("contracts/camera-placement-001.json", "contracts/camera-place
 # manifest the runtime loads, and that the authored pool still meets the
 # minimum enabled sizes camera-placement.md requires per zone.
 placement = documents.get(ROOT / "contracts/camera-placement-001.json")
-manifest = documents.get(ROOT / "contracts/civic-seam-arena-002.json")
+manifest = documents.get(ROOT / "contracts/civic-seam-arena-003.json")
 if isinstance(placement, dict) and isinstance(manifest, dict):
     sockets = placement.get("sockets")
     if not isinstance(sockets, list):

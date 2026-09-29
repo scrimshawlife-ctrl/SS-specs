@@ -112,6 +112,52 @@ normal state machine on the next tick.
 `awareness.ambushDamageMultiplier` (2) (combat.md). The enemy is aware
 afterwards, so later hits in the same tick are normal.
 
+## Transit Patrol (P-02, D-091)
+
+The Camera Corridor holds a patrol: the Player's first stealth problem, and one
+that moves. It is not an encounter. It has no trigger, no gate, no waves, no
+upgrade, and no completion, and it never blocks the route. It is optional: sneak
+past, ambush it, or be seen and fight.
+
+**Members and routes.** `civic-seam-arena-003` `patrols` lists each member's
+archetype and a closed loop of waypoints. Each member spawns **unaware** at its
+first waypoint during the first tick's spawn phase, and follows its loop in
+order, wrapping from last to first.
+
+**Patrolling.** While unaware, a patrol member moves toward its next waypoint
+at `patrol.speedPercent` (40%) of its archetype speed, with the same steering and
+solid collision as any enemy. Within `patrol.arrivalUnits` it has arrived: it
+holds for `patrol.dwellTicks` (30), then targets the next waypoint. Its
+**facing** is its last non-zero travel direction, initially the direction from
+the first waypoint to the second. It never attacks and deals no contact damage
+while unaware (D-089).
+
+**Vision cone.** An unaware patrol member does not use D-089 all-round sight.
+It sees in a cone: range `patrol.sightUnits` (240), half-angle
+`patrol.sightHalfAngleMilliDegrees` (45°) about its facing, with a clear line
+under the weapon line-of-fire rule. The angle test is the integer test of the
+D-082 chosen Camera, at this half-angle. The cone is shown on screen
+(animation.md), because a threat the Player cannot read is not stealth
+(constitution Article IV).
+
+**Alerting.** D-089's causes apply, with the cone in place of sight:
+surveillance, damage, cone sight, and one-hop ally. Once alerted, a member runs
+its archetype's normal state machine and pursues the Player anywhere. It never
+resumes patrol.
+
+**Scope.**
+- Patrol members are excluded from encounter totals, completion, heat, and the
+  M-A–M-C graph.
+- Their deaths count in the receipt like any standard enemy.
+- The ambush multiplier applies to them.
+
+**Fairness.** Checked against the arena data by the validator and runtime tests:
+- no waypoint lies inside a solid, outside its zone, or inside an encounter
+  trigger;
+- no cone ever reaches the Player spawn or zone Z-01;
+- for every tick of the patrol cycle, a walkable route from Z-01 into the M-A
+  trigger exists that no cone covers.
+
 ## Shared steering and separation
 
 Enemies compute desired velocity in ascending entity-ID order. A deterministic separation vector is added for living enemies within combined radii + 8 units, with the lower ID retaining priority. Final speed cannot exceed the archetype maximum. Enemies use the same X-then-Y solid collision order as the Player. Enemies do not block one another or the Player.
@@ -225,3 +271,10 @@ The Player is told. The wave's HUD caption names the count and its cause
 | EN-021 | Exposure crosses into `tracked` | every unaware standard enemy alerted, cause `surveillance` |
 | EN-022 | an unaware enemy is hit; another unaware enemy is 100 units away, a third 200 units | the hit one is alerted (`damage`), the second (`ally`), the third stays unaware |
 | EN-023 | the elite or the boss | never unaware |
+| EN-024 | run start | every `patrols` member spawns unaware at its first waypoint |
+| EN-025 | an unaware patrol member reaches a waypoint | holds 30 ticks, then heads for the next, wrapping at the end |
+| EN-026 | the Player at 200 units, inside the 45° cone, clear line | alerted, cause `sight` |
+| EN-027 | the Player at 200 units, 60° off facing | stays unaware |
+| EN-028 | the Player at 300 units inside the cone | stays unaware (beyond 240) |
+| EN-029 | a patrol member dies | counted in the receipt; no encounter completes; no heat |
+| EN-030 | any tick of the patrol cycle | an uncovered walkable route from Z-01 to the M-A trigger exists |
