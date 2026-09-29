@@ -55,7 +55,8 @@ While the outcome is terminal:
 
 - A single centred panel is presented over a scrim.
 - The panel states the outcome, using the copy in section 5.
-- The panel carries exactly one control, which restarts the run.
+- The panel carries two controls: Restart, the primary control, and Share (§ 11).
+- Under the outcome it shows the run card (§ 11).
 - No tutorial card is presented. A finished run has nothing left to teach.
 - The panel is centred on the safe rectangle and is unaffected by handedness,
   which reflects only the movement stick and Dodge.
@@ -75,6 +76,8 @@ state digest is unaffected, and no authoritative field is introduced.
 | restart control | `RESTART` **(OPEN — see 7.1)** |
 | title, start control | `START` **(OPEN — see 7.1)** |
 | title, settings control | `SETTINGS` **(OPEN — see 7.1)** |
+| title, daily label | `DAILY RUN · <YYYY-MM-DD>` (UTC date of the seed) |
+| share control | `SHARE` |
 
 `RUN COMPLETE` and `PLAYER DOWN` are the words `audio-haptics-001` already uses
 for these events in its accessibility captions ("Run complete", "Player down"),
@@ -106,13 +109,16 @@ that no contract authorises. `RESTART` borrows `FR-004`'s own noun; the other tw
 are the plainest available words for what they do. All three need rows in an
 owning contract, or replacements.
 
-### 7.2 What else, if anything, the surface reports
+### 7.2 RESOLVED (D-081) — What else, if anything, the surface reports
 
 The run receipt carries seed, elapsed ticks, damage dealt and taken, exposure
 peak, cameras destroyed, Network Blackout, boss phases, and more. The surface
 currently reports none of it. Whether any is player-facing — as opposed to
 evidence-only — is undecided. Testers need the seed for `T903`/`T904` evidence;
 a player arguably does not.
+
+Resolved by D-081: the terminal surface shows the run card in § 11. The seed
+itself stays evidence-only; the player sees the date it came from.
 
 ### 7.3 RESOLVED — a title surface exists
 
@@ -148,11 +154,14 @@ It offers exactly two actions:
 
 | Control | Effect |
 |---|---|
-| Start | begins a run |
+| Start | begins today's Daily Run (§ 10) |
 | Settings | presents the existing settings surface |
 
-Nothing else. No run history, no statistics, no continue, no difficulty choice,
-no meta-progression of any kind — those are the expansion this level defers.
+Nothing else. No run history screen, no statistics, no continue, no difficulty
+choice, no meta-progression of any kind — those are the expansion this level
+defers. The one stored run the app keeps is today's best, which exists only to
+drive the ghost (§ 10) and is never listed. The title shows the Daily Run label
+from § 5 under the wordmark.
 
 - The wordmark identifies the product.
 - Controls are at least 44 x 44 points, consistent with every interactive
@@ -174,21 +183,74 @@ Whether the terminal surface should additionally offer a route back to the title
 is **OPEN**. It is not required by anything, and adding a second control to that
 panel trades against the deliberate narrowness of section 6.
 
+## 10. Daily Run and ghost (D-081)
+
+### 10.1 The daily seed
+
+Every run started from the title uses the seed for the current UTC calendar
+date, so every player sees the same Camera layout that day.
+
+```text
+dayKey    = year * 10000 + month * 100 + day          (UTC, as UInt64)
+candidate = SplitMix64.mix(dayKey ^ 0x5353_4441_494C_5900 ^ salt),  salt = 0, 1, 2, …
+seed      = the first candidate whose camera placement selects and passes its runtime asserts
+```
+
+The date is read once, when Start is pressed. Restart keeps the run's seed, so a
+run started before midnight UTC restarts on the same layout. The seed is an input
+to the Replay Identity like any other: the simulation never reads a clock.
+
+### 10.2 The ghost
+
+The ghost is the player's best successful run on the same seed and the same
+Replay Identity. Best means success in the fewest ticks. It is replayed from
+its recorded commands, one tick for each tick of the live run, and drawn as a
+translucent Player silhouette.
+
+- **Presentation only.** It has no collision, damage, audio, haptics, targeting,
+  or effect on any authoritative field, digest, or receipt.
+- It stops at its own terminal tick and fades out.
+- It is discarded when the Replay Identity (ruleset, content, arena, replay
+  schema) differs from the live run's, or when its replay fails to reproduce
+  its stored digest.
+- It is on by default and can be turned off in Settings (`PresentationSettings`).
+  `ER-007` holds.
+
+## 11. Run card and Share (D-081)
+
+Under the outcome, the terminal surface shows:
+
+| Row | Source |
+|---|---|
+| date | the Daily Run's UTC date |
+| time | elapsed ticks as `m:ss` |
+| cameras | `destroyed / 8`, plus `NETWORK BLACKOUT` when all eight fell |
+| peak detection | the highest Detection State reached |
+| ghost | success only: `NEW BEST` when this run replaced the stored best, otherwise the time behind it as `+m:ss`. Omitted on failure, and when no best exists |
+
+Share opens the system share sheet with a plain-text summary of the same rows
+and the game's name. It shares nothing else: no seed, no receipt, no identifier.
+
 ## 9. Acceptance vectors
 
 Proposed, pending acceptance of this document.
 
 | ID | Scenario | Expected |
 |---|---|---|
-| RS-001 | run reaches `success` | panel presents `RUN COMPLETE` and one control |
-| RS-002 | run reaches `failure` | panel presents `PLAYER DOWN` and one control |
+| RS-001 | run reaches `success` | panel presents `RUN COMPLETE`, the run card, Restart, and Share |
+| RS-002 | run reaches `failure` | panel presents `PLAYER DOWN`, the run card, Restart, and Share |
 | RS-003 | touch away from the control on a terminal screen | nothing happens; run stays terminal |
 | RS-004 | touch on the control | run restarts and satisfies `B003` |
 | RS-005 | upgrade selection open | no terminal panel; the touch selects a card |
 | RS-006 | terminal screen at the smallest supported safe rectangle | panel and control fully on screen; control at least 44 × 44 |
 | RS-007 | tutorial card active when the run ends | card is not presented |
 | RS-008 | cold launch | title surface presented; no simulation tick occurs |
-| RS-009 | Start | a run begins from the authored initial state |
+| RS-009 | Start | a run begins from the authored initial state on the § 10.1 daily seed |
 | RS-010 | Settings from the title, handedness changed, then Start | the run honours the changed handedness |
 | RS-011 | Settings from the title | digest and receipt unchanged but for declared presentation metadata (`ER-007`) |
 | RS-012 | run reaches a terminal outcome | terminal surface presented, not the title surface |
+| RS-013 | the same UTC date on two devices | the same seed and Camera layout |
+| RS-014 | a ghost is present | the live digest and receipt are identical to a run without the ghost |
+| RS-015 | a stored best from a different Replay Identity | no ghost |
+| RS-016 | Share | the summary contains the § 11 rows and no seed or identifier |
+| RS-017 | run ends in failure with a stored best | no ghost row (a failed run is never "faster") |
