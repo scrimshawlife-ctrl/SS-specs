@@ -85,6 +85,14 @@ Each state names one music asset, and ambience is a separate bus. These are asse
 
 `presentation-assets-003` registers them as `musicAssetIds` so the runtime bundle filter can reach them; without that registration a delivered music file is unreachable and cannot ship. A state whose asset is not accepted plays no music, and the run continues on the remaining beds.
 
+### Network Blackout drop (D-088)
+
+On `allCamerasDestroyed` the current music bed ducks to silence over 0.1 s,
+holds silence for 1.0 s, and returns over 0.5 s. The existing `network_blackout`
+cue plays at the start of the silence, so the payoff is heard alone. This is
+presentation only: the music state machine does not change, and captions and
+haptics are unchanged.
+
 ### Boss phase beds
 
 The `boss` state is one state, and the Algorithmic Moderate passes through four canonical phases inside it. The state machine does not change: the run is in `boss` throughout. What changes is which bed that state plays.
