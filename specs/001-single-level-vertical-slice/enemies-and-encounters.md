@@ -74,6 +74,44 @@ All target the Player, use circle collision, obey stable-ID ties, and stop actin
 - Maximum two live mines per Vendor; creating a third retires its oldest.
 - Mines are hazards, not targetable entities, and never affect Cameras or enemies.
 
+## Awareness (D-089)
+
+Standard enemies can be **unaware**. Being hidden earns the first strike. The
+elite and the boss are always aware.
+
+**Spawning.** A standard enemy spawns **aware** when any of these holds;
+otherwise it spawns unaware:
+- the Detection State, resolved after the previous tick, is `tracked`,
+  `hunted`, or `lockdown` (`awareness.surveillanceAlertState` or above);
+- its encounter is listed in `awareness.awareEncounters` (M-C, the forced
+  Lockdown set piece);
+- it is a heat reinforcement (D-083), since it was sent because the Player was
+  seen.
+
+**Unaware behaviour.** Velocity zero; no telegraph, attack, pulse, charge,
+throw, or mine; no contact damage. It holds its spawn position and presents its
+idle clip with an unaware marker (animation.md § 8a).
+
+**Becoming alerted.** Evaluated once per tick, at the start of the enemy phase
+(simulation-order.md), in ascending entity ID, with each cause taking precedence
+over the ones below it:
+1. **surveillance**: the Detection State is `tracked` or above, which alerts
+   every unaware standard enemy;
+2. **damage**: the enemy took damage since its last enemy phase;
+3. **sight**: the Player is within `awareness.sightRangeUnits` (160) with a
+   clear line (the weapon line-of-fire rule against static solids);
+4. **ally**: an unaware enemy within `awareness.allyAlertRadiusUnits` (128) of an
+   enemy alerted this tick by damage or sight. This is one hop: an ally alert
+   never propagates further.
+
+An alerted enemy never returns to unaware. Each alert publishes
+`enemyAlerted(entityId, cause)` once. An enemy alerted this tick begins its
+normal state machine on the next tick.
+
+**Ambush.** The first damage an unaware enemy takes is multiplied by
+`awareness.ambushDamageMultiplier` (2) (combat.md). The enemy is aware
+afterwards, so later hits in the same tick are normal.
+
 ## Shared steering and separation
 
 Enemies compute desired velocity in ascending entity-ID order. A deterministic separation vector is added for living enemies within combined radii + 8 units, with the lower ID retaining priority. Final speed cannot exceed the archetype maximum. Enemies use the same X-then-Y solid collision order as the Player. Enemies do not block one another or the Player.
@@ -179,3 +217,11 @@ The Player is told. The wave's HUD caption names the count and its cause
 | EN-013 | a wave of M-C starts (always `lockdown`) | no Informants appended |
 | EN-014 | an appended Informant alive, authored members dead | wave not complete |
 | EN-015 | a wave of M-B starts after Lockdown latched early (before M-C) | 2 Informants appended |
+| EN-016 | an M-A enemy spawns while `hidden` | unaware; zero velocity; no attack |
+| EN-017 | an M-A enemy spawns while `tracked` | aware |
+| EN-018 | any M-C enemy, or a heat reinforcement | aware |
+| EN-019 | the Player comes within 160 units with a clear line | `enemyAlerted` cause `sight`; acts next tick |
+| EN-020 | the Player is at 150 units behind a solid | stays unaware |
+| EN-021 | Exposure crosses into `tracked` | every unaware standard enemy alerted, cause `surveillance` |
+| EN-022 | an unaware enemy is hit; another unaware enemy is 100 units away, a third 200 units | the hit one is alerted (`damage`), the second (`ally`), the third stays unaware |
+| EN-023 | the elite or the boss | never unaware |

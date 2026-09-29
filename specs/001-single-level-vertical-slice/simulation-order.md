@@ -11,7 +11,7 @@ Every authoritative tick executes these phases exactly once and in this order:
 | 2 | Consume normalized Player command and upgrade choice |
 | 3 | Advance cooldowns, durations, and encounter timers |
 | 4 | Resolve Player dodge/ground movement and solid collision |
-| 5 | Resolve enemy intentions, movement, and collision |
+| 5 | Resolve enemy awareness first (D-089: surveillance, damage, sight, one-hop ally, ascending entity ID; publish `enemyAlerted`), then enemy intentions, movement, and collision. An enemy alerted this tick acts from the next tick. |
 | 6 | Sample fixed Camera detection contacts |
 | 7 | Evaluate automatic attacks; allocate projectiles |
 | 8 | Move projectiles; collect world/entity intersections |

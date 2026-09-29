@@ -202,6 +202,12 @@ The Blackout dim is a darkening, not a flash, so `forbidFullScreenWhiteFlash`
 holds. Under Reduced Flash the scene luminance does not change at all
 (hud-tutorial.md). No moment zooms the camera (§ 9).
 
+**Awareness (D-089).** An unaware standard enemy presents its idle clip with a
+small `?` marker above it. It is not colour-only: the marker's shape carries
+the state. `enemyAlerted` plays the `enemyAlerted` recipe (`procedural-vfx-003`),
+a `!` pop above the actor, and the marker is removed. Neither changes any
+authoritative field.
+
 **No freeze on a wind-up.** `captainTelegraph` carries no hit-stop (it was
 90 ms in `procedural-vfx-001`). A telegraph is the Player's cue to move, and
 freezing the screen as an attack begins steals the reaction time the telegraph
