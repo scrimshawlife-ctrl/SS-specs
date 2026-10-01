@@ -116,15 +116,15 @@ Purpose: final survival test and closure.
 
 | Segment | Zone | Starts at | Target elapsed time | Pressure purpose |
 |---|---|---|---:|---|
-| Spawn Alley | Z-01 Residential Wedge | `runStarted` | 0:00–0:10 | Learn movement |
-| Camera Corridor | Z-02 Transit Cut | the Player first enters Z-02 | 0:10–0:40 | Learn observation and recovery; read and pass the Transit Patrol (D-091) |
-| Civic Plaza | Z-03 Civic Plaza | `waveStarted` for M-A | 0:40–1:15 | Combine combat and surveillance |
-| Pressure Route | Z-04 Service Seam | `waveStarted` for M-B | 1:15–2:00 | Express upgrade style |
-| Lockdown Ring | Z-05 Grid Junction | `waveStarted` for M-C | 2:00–4:15 | Escalate and compress choices |
-| Captain Court | Z-06 Authority Court | `bossActivated` | 4:15–5:45 | Mastery test |
-| Extraction | Z-07 Phoenix Steps | `extractionArmed`; ends at `runSucceeded` | 5:45–6:00 | Final known-system pressure |
+| Spawn Alley | Z-01 Residential Wedge | `runStarted` | 0:00–0:05 | Learn movement |
+| Camera Corridor | Z-02 Transit Cut | the Player first enters Z-02 | 0:05–0:30 | Learn observation and recovery; read and pass the Transit Patrol (D-091) |
+| Civic Plaza | Z-03 Civic Plaza | `waveStarted` for M-A | 0:30–1:05 | Combine combat and surveillance |
+| Pressure Route | Z-04 Service Seam | `waveStarted` for M-B | 1:05–1:50 | Express upgrade style |
+| Lockdown Ring | Z-05 Grid Junction | `waveStarted` for M-C | 1:50–4:00 | Escalate and compress choices |
+| Captain Court | Z-06 Authority Court | `bossActivated` | 4:00–5:30 | Mastery test |
+| Extraction | Z-07 Phoenix Steps | `extractionArmed`; ends at `runSucceeded` | 5:30–6:00 | Final known-system pressure |
 
-These are competent-run targets for a 5–8 minute run (D-079), rescaled to the arena as built (D-090). The map is crossed in about ten seconds at 240 units/s, so the opening is short by construction and the minutes come from the fights. The Lockdown Ring starts with M-C, the forced-Lockdown fight in its own zone, and includes the elite (D-090 corrects the earlier `eliteActivated` boundary, which filed M-C under the Pressure Route). First-run onboarding may be longer. Each segment starts at the event named, except the Camera Corridor, which has no event and starts on first entry into Z-02. Segment names are the design names; the zone column gives the arena manifest's names.
+These are competent-run targets for a 5–8 minute run (D-079), rescaled to the arena as built (D-090), and re-based on the measured segment starts plus the patrol (D-093). The map is crossed in about ten seconds at 240 units/s, so the opening is short by construction and the minutes come from the fights. The Lockdown Ring starts with M-C, the forced-Lockdown fight in its own zone, and includes the elite (D-090 corrects the earlier `eliteActivated` boundary, which filed M-C under the Pressure Route). First-run onboarding may be longer. Each segment starts at the event named, except the Camera Corridor, which has no event and starts on first entry into Z-02. Segment names are the design names; the zone column gives the arena manifest's names.
 
 Extraction is short by construction. Its rule is a 300-tick (5 s) hold on the platform (`civic-seam-arena-003` `extraction.countdownTicks`), so its budget is reaching the platform and holding it under pressure, not a two-minute segment. The targets are provisional until the T903/T904 playtests. Scripted probes (`docs/review/T305`) put a perfect-route run at a median of 3:43, and the content's total enemy integrity bounds the kill time alone at about 2:20.
 

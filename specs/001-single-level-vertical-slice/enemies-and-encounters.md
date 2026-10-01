@@ -152,7 +152,12 @@ resumes patrol.
 - Patrol members are excluded from encounter totals, completion, heat, and the
   M-A–M-C graph.
 - Their deaths count in the receipt like any standard enemy.
-- The ambush multiplier applies to them.
+- The ambush multiplier applies to them, but a patrol member spawns with
+  `patrol.integrityPercent` (200%, D-093) of its archetype Integrity: 60 for a
+  Fog Analytics Cloud or an Autonomous Informant. One ambush (30) wounds it
+  but does not kill it, and the hit alerts it (damage) and its neighbours
+  within 128 units (ally). Picking a patrol off is a fight you start; slipping
+  past is the quiet option.
 - While unaware, a patrol member is an automatic target only within
   `patrol.sightUnits` (240) of the Player (D-092). The weapon's 512-unit reach
   would otherwise clear the patrol from outside every cone, and it would never
@@ -294,3 +299,4 @@ The Player is told. The wave's HUD caption names the count and its cause
 | EN-030 | any tick in the first hour of joint patrol simulation, any legal Camera subset | an uncovered walkable route from Z-01 to the M-A trigger exists |
 | EN-032 | an unaware patrol member 300 units away, nothing else in range | not targeted; no projectile |
 | EN-033 | the same member at 230 units | targeted; the ambush applies |
+| EN-034 | an ambush hit on an unaware patrol Fog Cloud (60 Integrity) | 30 damage, survives at 30; alerted (`damage`) next enemy phase; unaware patrol members within 128 alerted (`ally`) |
