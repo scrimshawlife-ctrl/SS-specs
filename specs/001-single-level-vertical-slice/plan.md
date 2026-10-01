@@ -116,7 +116,7 @@ The following artifacts are normative:
 - `enemies-and-encounters.md`: exact standard-enemy state machines, statistics, wave tables, spawning, completion, and vectors
 - `bosses.md`: Improper Search Daemon and Algorithmic Moderate phases, attacks, timing, defeat, and vectors
 - `upgrades.md`: protected one-of-three selection and exact Signal Jammer, Ricochet Pulse, and Ghost Step effects
-- `contracts/combat-content-005.json`: machine-readable combat tuning source
+- `contracts/combat-content-006.json`: machine-readable combat tuning source
 - `hud-tutorial.md`: reference layout, handedness, tutorial state machine, copy, and accessibility
 - `audio-haptics.md`: event projection, priorities, coalescence, music states, and captions
 - `events-receipts-replays.md`: event ordering, receipt persistence, replay validation, and results

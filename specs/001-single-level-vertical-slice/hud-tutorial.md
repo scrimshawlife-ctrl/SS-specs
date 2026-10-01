@@ -58,6 +58,8 @@ Left-handed mode reflects movement stick and Dodge across x=422. Pause and infor
 | Locked Extraction contact | `DEFEAT THE CURRENT AUTHORITY` |
 | Extraction armed | `PHOENIX STEPS OPEN` |
 | Network Blackout | `NETWORK BLACKOUT 8/8` |
+| Quiet approach lost (D-101) | `QUIET APPROACH LOST` |
+| Boss activation with quiet approach (D-101) | `QUIET APPROACH • INTEGRITY <n>`, e.g. `QUIET APPROACH • INTEGRITY 90` |
 
 Copy is uppercase in visual presentation but exposed to VoiceOver in sentence case. Captions use the same semantic message without requiring uppercase pronunciation.
 
@@ -111,6 +113,15 @@ The bar is a 0–1000 projection with threshold notches at 200, 450, 700, and 10
 
 Transitions use a 180-ms outline emphasis. Reduced Motion uses an immediate swap. Reduced Flash forbids full-screen luminance changes.
 
+**Quiet approach (D-101).** While `quietApproach` is `true` and M-C has not
+started, a `QUIET` tag sits under the bar, beside the state label, with the
+hidden-state open-eye glyph. VoiceOver reads it as "Quiet approach: reach the
+Lockdown Ring without being tracked for a stronger restore at the Authority
+Court." When it is lost, the tag is removed and the caption `QUIET APPROACH
+LOST` shows. When M-C starts with it intact, the tag stays, unchanged, until
+boss activation, where the restore caption replaces it. The tag is drawn from
+authoritative state, so it never disagrees with the rule.
+
 ## Extraction display
 
 Render `ceil(remainingTicks / 60)` as 5, 4, 3, 2, 1. The ring uses exact tick progress. Leaving the zone immediately hides the active ring and shows `RESET` for 45 presented ticks. Presentation does not drive completion.
@@ -127,3 +138,6 @@ Render `ceil(remainingTicks / 60)` as 5, 4, 3, 2, 1. The ring uses exact tick pr
 | UI-006 | leave Extraction at one tick remaining | resets to 300; RESET cue |
 | UI-007 | VoiceOver upgrade selection | three ordered complete labels |
 | UI-008 | grayscale/reduced presentation | all critical states remain distinct |
+| UI-009 | run start | `QUIET` tag shown |
+| UI-010 | Detection State reaches `tracked` before M-C | tag removed; `QUIET APPROACH LOST` caption |
+| UI-011 | boss activates with `quietApproach` true at 40 Integrity | `QUIET APPROACH • INTEGRITY 90` caption; tag removed |

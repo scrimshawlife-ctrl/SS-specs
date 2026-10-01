@@ -99,6 +99,12 @@ on its own: the attrition of the run so far does not decide it before the
 first telegraph. The change is authoritative, ordered after the boss
 activation in phase 16, and appears in the receipt as a restore, not as damage.
 
+**Quiet approach (D-101).** If `quietApproach` (exposure.md) is still `true`
+when the boss activates, the floor is `player.courtQuietRestorePercent` (60%)
+instead, that is 90 of 150. This is the stealth reward: a Player who reached
+M-C without ever being `tracked` enters the Captain fight measurably
+stronger. It uses the same restore, so it is never lowered and never damage.
+
 ### Phase presentation (D-096)
 
 Presentation only. Each phase lights the Authority Court differently, on the
@@ -143,6 +149,9 @@ Boss defeat retires all boss projectiles and Captain Camera fields immediately. 
 | BO-003 | one batch 1220→780 | one transition to Temporary Safeguard |
 | BO-020 | boss activates with the Player at 40 Integrity | Player raised to 75 |
 | BO-021 | boss activates with the Player at 120 Integrity | unchanged at 120 |
+| BO-022 | boss activates at 40 Integrity with `quietApproach` true | Player raised to 90 |
+| BO-023 | boss activates at 40 Integrity with `quietApproach` false | Player raised to 75 |
+| BO-024 | boss activates at 100 Integrity with `quietApproach` true | unchanged at 100 |
 | BO-004 | phase transition during telegraph | prior attack canceled; 45-tick recovery |
 | BO-005 | Temporary Order pulse in Public Safety | +11 Exposure before upgrade |
 | BO-006 | same pulse with Signal Jammer | +8 after 25% reduction |
