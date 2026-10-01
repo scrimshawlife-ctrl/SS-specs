@@ -93,8 +93,8 @@ The boss has exactly four attacks.
 ### Captain Court threshold (D-096)
 
 On the tick the boss activates (`bossActivated`), the Player's Integrity is
-raised to at least `player.courtThresholdRestorePercent` (60%) of
-`player.integrity` (90 of 150). It is never lowered. The boss fight is judged
+raised to at least `player.courtThresholdRestorePercent` (50%) of
+`player.integrity` (75 of 150). It is never lowered. The boss fight is judged
 on its own: the attrition of the run so far does not decide it before the
 first telegraph. The change is authoritative, ordered after the boss
 activation in phase 16, and appears in the receipt as a restore, not as damage.
@@ -141,7 +141,7 @@ Boss defeat retires all boss projectiles and Captain Camera fields immediately. 
 | BO-001 | Daemon uninterrupted cycle | exact 120/45/instant/36/30/60 timing |
 | BO-002 | boss HP 1600/1200/1199/800/799/400/399/1 | phases match table |
 | BO-003 | one batch 1220→780 | one transition to Temporary Safeguard |
-| BO-020 | boss activates with the Player at 40 Integrity | Player raised to 90 |
+| BO-020 | boss activates with the Player at 40 Integrity | Player raised to 75 |
 | BO-021 | boss activates with the Player at 120 Integrity | unchanged at 120 |
 | BO-004 | phase transition during telegraph | prior attack canceled; 45-tick recovery |
 | BO-005 | Temporary Order pulse in Public Safety | +11 Exposure before upgrade |
