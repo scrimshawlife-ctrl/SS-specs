@@ -266,6 +266,32 @@ Under the outcome, the terminal surface shows:
 Share opens the system share sheet with a plain-text summary of the same rows
 and the game's name. It shares nothing else: no seed, no receipt, no identifier.
 
+## 12. Medals (D-095)
+
+One level needs more than one way to win. A successful run can earn any of
+five medals. Each is derived from the run's own authoritative event stream and
+terminal state, so a replay of the run earns the same medals. None is
+authoritative state, and none changes rules, the digest, or the receipt.
+
+| Medal | Earned when the run succeeds and |
+|---|---|
+| `GHOST` | the Detection State never reached `tracked` before M-C's first `waveStarted` |
+| `SHADOW` | no Transit Patrol member was alerted before M-A's first `waveStarted` (slipped past) |
+| `BLACKOUT` | Network Blackout (all eight Cameras destroyed) |
+| `SURGICAL` | the Player ends with at least half of `player.integrity` |
+| `SWIFT` | elapsed time is under 5:30 (19,800 ticks) |
+
+- **On the run card:** a `MEDALS` row lists the medals earned, each marked
+  `NEW` if this is the first time today. A failed run shows no medal row.
+- **On the title:** under the Daily Run label, the five medals for today's
+  seed show as earned or not yet earned, by shape (filled or outlined) as well
+  as colour. This is today's goal list, and the only run history shown.
+- **Storage:** medals earned today are stored locally with the day's best run
+  (§ 10.2), keyed by seed and Replay Identity. A new day starts empty.
+- **Share** (§ 11) appends the earned medal names.
+- `GHOST` and `BLACKOUT` pull in opposite directions by design: stealth and
+  loud each have a medal of their own.
+
 ## 9. Acceptance vectors
 
 Proposed, pending acceptance of this document.
@@ -289,3 +315,9 @@ Proposed, pending acceptance of this document.
 | RS-015 | a stored best from a different Replay Identity | no ghost |
 | RS-016 | Share | the summary contains the § 11 rows and no seed or identifier |
 | RS-017 | run ends in failure with a stored best | no ghost row (a failed run is never "faster") |
+| RS-018 | a success that stayed below `tracked` until M-C | `GHOST` earned |
+| RS-019 | a success where a patrol member was alerted before M-A | no `SHADOW` |
+| RS-020 | a success at 74 of 150 Integrity / at 75 | no `SURGICAL` / `SURGICAL` |
+| RS-021 | a failed run that would otherwise qualify | no medals |
+| RS-022 | a replay of a medal run | the same medals |
+| RS-023 | a second run today earns `GHOST` again | `GHOST` shown, not marked `NEW` |
