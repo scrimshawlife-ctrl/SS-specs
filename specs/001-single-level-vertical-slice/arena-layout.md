@@ -109,6 +109,7 @@ Phoenix Steps Extraction is the rectangle centered at (2048,192) with half-size 
 
 - Logical reference viewport: 844 × 390 points in landscape.
 - World camera baseline visible size: 704 × 326 world units (D-094; was 896 × 414).
+- Rule view box: 896 × 414 world units, centred like the camera. It is used by spawn fairness ("outside the current viewport") and by the T1 "Camera in view" tutorial trigger. It is deliberately unchanged by D-094: the visible view always lies inside it, so spawns stay off screen and no rule moves.
 - Follow dead zone: 76 × 50 world units.
 - Maximum look-ahead: 76 units along movement heading.
 - Look-ahead smoothing is presentation-only.

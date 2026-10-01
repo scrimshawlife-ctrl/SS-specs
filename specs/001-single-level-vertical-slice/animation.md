@@ -233,7 +233,7 @@ Lockdown looked like every other minute. The following are presentation only:
 - **Framing.** The camera shows 704 × 326 world units (arena-layout.md), so
   every actor draws about 27% larger than at 896 × 414.
 - **Actor contrast.** The Player and every enemy draw a soft ground shadow (an
-  ellipse at 35% black, 1.4 × radius wide) and a 1-point outline: cool white
+  ellipse at 35% black, 1.4 × the actor's width, that is 2.8 × radius) and a 1-point outline: cool white
   for the Player, warm red-orange for enemies. Outlines carry faction by both
   colour and shape (the Player's is unbroken, an enemy's dashed), never by
   colour alone.
