@@ -322,3 +322,4 @@ Proposed, pending acceptance of this document.
 | RS-021 | a failed run that would otherwise qualify | no medals |
 | RS-022 | a replay of a medal run | the same medals |
 | RS-023 | a second run today earns `GHOST` again | `GHOST` shown, not marked `NEW` |
+| RS-024 | any success | `GHOST` is earned exactly when the authoritative `quietApproach` (exposure.md, D-101) is still `true` at the end of the run |

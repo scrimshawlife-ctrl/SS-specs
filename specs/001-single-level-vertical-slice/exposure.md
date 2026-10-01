@@ -81,6 +81,16 @@ Tamper and continuous contact may cross several thresholds in one tick. Emit one
 
 `Signal Jammer` may reduce only continuous contact delta. Its modifier is applied after aggregation and before Tamper, using integer arithmetic. It cannot reduce a positive contact delta below 1 and never changes Tamper, recovery, thresholds, or Lockdown latching. Its exact value belongs to the upgrade contract.
 
+## Quiet approach (D-101)
+
+`quietApproach` is `true` at run start. In phase 14, after the Detection State
+resolves, it becomes `false` if the state is `tracked` or higher and M-C's
+first wave has not started on an earlier tick. It is latched: falling back to
+`hidden` or `observed` never restores it. Once M-C has started, nothing changes
+it, so the forced Lockdown at M-C never costs it. It is the same condition as
+the `GHOST` medal (run-shell.md § 12), and it pays out once, at the Captain
+Court threshold (bosses.md).
+
 ## Required state
 
 ```json
@@ -88,7 +98,8 @@ Tamper and continuous contact may cross several thresholds in one tick. Emit one
   "exposure": 0,
   "detectionState": "hidden",
   "noContactTicks": 0,
-  "lockdownEntered": false
+  "lockdownEntered": false,
+  "quietApproach": true
 }
 ```
 
@@ -108,6 +119,10 @@ Tamper and continuous contact may cross several thresholds in one tick. Emit one
 | EX-010 | delta jumps `hidden` to `hunted` | one old→final transition event |
 | EX-011 | 3 Cameras destroyed, Exposure 500, 200 no-contact ticks | stops at 450; never below |
 | EX-012 | 1 Camera destroyed, Exposure 120 (below the floor after a same-tick change), no contact | recovery does not apply; Exposure is not raised to 150 |
+| EX-013 | Detection State resolves to `tracked` before M-C has started | `quietApproach` becomes `false` |
+| EX-014 | after EX-013, Exposure recovers to `hidden` | `quietApproach` stays `false` |
+| EX-015 | peak Detection State `observed` until M-C starts, then the forced Lockdown | `quietApproach` stays `true` |
+| EX-016 | Detection State reaches `tracked` on the same tick M-C's first wave starts | `quietApproach` becomes `false` (phase 14 precedes the phase-15 wave start) |
 
 ## Failure rules
 

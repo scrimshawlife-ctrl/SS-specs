@@ -63,7 +63,7 @@ Cooldown begins on the first active tick. Dodge becomes ready when the current t
 ## Damage response
 
 **Damage taken (D-090).** Every Integrity loss the Player would take, from any
-source, is scaled by `player.damageTakenPercent` (50) in `combat-content-005`.
+source, is scaled by `player.damageTakenPercent` (50) in `combat-content-006`.
 Each loss adds `amount × percent` to an authoritative remainder in hundredths;
 the Integrity removed is `remainder ÷ 100` (integer division), and the rest is
 carried forward. Over any run exactly the stated percentage lands, with no
