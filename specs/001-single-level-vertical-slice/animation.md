@@ -250,6 +250,21 @@ Lockdown looked like every other minute. The following are presentation only:
   2 seconds. Under Reduced Flash the tint is a steady 6% with no pulse; under
   Reduced Motion the pulse is replaced by a steady tint. It never brightens
   the scene.
+## 8c. Stealth texture (D-097)
+
+Presentation only.
+
+- **Takedown.** An ambush hit that kills its target is a takedown:
+  - a 70 ms hit-stop and a brief desaturating ring at the target;
+  - the `impact_enemy` cue played 4 semitones lower;
+  - the HUD caption `TAKEDOWN`, a safety-neutral routine caption.
+- **Takedown streak.** Consecutive takedowns, with no aware enemy in between,
+  count up on the HUD (`TAKEDOWN ×3`). The count resets when any enemy becomes
+  aware. It grants nothing.
+- **Near miss.** When the Player is within 1.25 × a patrol member's cone range
+  and inside its half-angle, but not yet seen (outside range or behind a solid),
+  that cone's edge brightens and pulses. Reduced Motion uses a steady bright
+  edge. The Player always sees a cone before it sees them.
 
 ## 9. Camera motion
 

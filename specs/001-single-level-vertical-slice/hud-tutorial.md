@@ -51,6 +51,7 @@ Left-handed mode reflects movement stick and Dodge across x=422. Pause and infor
 | First damageable Camera | `MOVE TOWARD A CAMERA TO SHOOT IT • DESTRUCTION ADDS EXPOSURE` |
 | Wave with heat reinforcements | `REINFORCEMENTS +<n> • <STATE>`, e.g. `REINFORCEMENTS +2 • HUNTED` |
 | First unaware enemy on screen | `UNSEEN ENEMIES HOLD • STRIKE FIRST FOR DOUBLE DAMAGE` |
+| First patrol cone on screen (D-098) | `PATROL • STAY OUT OF THE CONES • WALK PAST OR STRIKE` |
 | Camera destruction | `+150 TAMPER` |
 | M-A complete | `CHOOSE ONE COUNTERMEASURE` |
 | M-C activation | `LOCKDOWN` |
@@ -72,6 +73,22 @@ Copy is uppercase in visual presentation but exposed to VoiceOver in sentence ca
 - Only one tutorial card is visible. Higher safety messages (lethal warning, Lockdown, Extraction) temporarily replace it without changing tutorial progress.
 - Each card has a maximum visual duration of 300 ticks, but its completion condition remains authoritative where specified.
 - Tutorial completion is a local setting. A replay receipt records whether tutorials were enabled, but tutorial state is excluded from gameplay digest.
+
+## Opening and copy timing (D-098)
+
+- **Intro beat.** After Start, a 2-second intro plays before the first tick.
+  The title card `THE CIVIC SEAM` with the Daily Run label holds over the
+  arena. Then the eight Camera fields power on in stable-ID order over
+  1.2 s, each with a short power-up chirp. No tick runs during the intro, the
+  same principle as the upgrade gate freezing the clock, so replays are
+  unaffected. Any touch skips it. Reduced Motion cuts the sequence to a single
+  0.5 s fade.
+- **One line at a time.** A tutorial line appears at the first moment its
+  subject is on screen, never all at once at spawn. Only one tutorial line is
+  visible at a time; later lines queue. A line never overlaps the encounter
+  label or the upgrade prompt: those take precedence, and the line waits.
+- **Encounter labels** (`MOB ENCOUNTER A`) appear when that encounter
+  activates, not before.
 
 ## Upgrade selection
 
