@@ -26,7 +26,7 @@ An attack opportunity with no valid target produces no projectile and does not s
 
 ## Automatic targeting
 
-Use the classes in `camera-destruction.md`: enemy within 96 units; the chosen Camera the Player is moving toward; other enemy (D-082). No other Camera is an automatic target. An **unaware patrol member** (D-091) is a candidate only within `patrol.sightUnits` (240) of the Player (D-092), so ambushing a patrol means entering the range at which it could see you. Within class, sort by squared distance to target anchor, then stable entity ID. Range is inclusive. Static solid geometry blocks line of fire; actors and destroyed Camera housings do not, except permanent mount solids. A Camera's own mount never blocks line of fire to that Camera (D-085); other mounts block as usual.
+Use the classes in `camera-destruction.md`: enemy within 96 units; the chosen Camera the Player is moving toward; other enemy (D-082). No other Camera is an automatic target. An **unaware patrol member** (D-091) is a candidate only within `patrol.sightUnits` (240) of the Player (D-092) **and** only while the Player is moving toward it, by the same 30° integer test as the chosen Camera (D-093). An ambush on a patrol is a choice: walking past holds fire. Within class, sort by squared distance to target anchor, then stable entity ID. Range is inclusive. Static solid geometry blocks line of fire; actors and destroyed Camera housings do not, except permanent mount solids. A Camera's own mount never blocks line of fire to that Camera (D-085); other mounts block as usual.
 
 Target selection happens at the attack opportunity. If the selected target is invalid before spawn in the same phase, no projectile is created and there is no retarget.
 

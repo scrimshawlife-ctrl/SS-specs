@@ -159,7 +159,9 @@ resumes patrol.
   within 128 units (ally). Picking a patrol off is a fight you start; slipping
   past is the quiet option.
 - While unaware, a patrol member is an automatic target only within
-  `patrol.sightUnits` (240) of the Player (D-092). The weapon's 512-unit reach
+  `patrol.sightUnits` (240) of the Player (D-092), and only while the Player
+  moves toward it, by the chosen-Camera 30° test (D-093). Walking past holds
+  fire, so slipping by is possible in a 512-unit corridor. The weapon's 512-unit reach
   would otherwise clear the patrol from outside every cone, and it would never
   be read or timed.
 
@@ -298,5 +300,6 @@ The Player is told. The wave's HUD caption names the count and its cause
 | EN-029 | a patrol member dies | counted in the receipt; no encounter completes; no heat |
 | EN-030 | any tick in the first hour of joint patrol simulation, any legal Camera subset | an uncovered walkable route from Z-01 to the M-A trigger exists |
 | EN-032 | an unaware patrol member 300 units away, nothing else in range | not targeted; no projectile |
-| EN-033 | the same member at 230 units | targeted; the ambush applies |
+| EN-033 | the same member at 230 units, Player moving toward it | targeted; the ambush applies |
+| EN-035 | the same member at 230 units, Player moving perpendicular to it | not targeted; no projectile |
 | EN-034 | an ambush hit on an unaware patrol Fog Cloud (60 Integrity) | 30 damage, survives at 30; alerted (`damage`) next enemy phase; unaware patrol members within 128 alerted (`ally`) |
