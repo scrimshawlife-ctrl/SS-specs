@@ -63,7 +63,7 @@ Non-trivial or feature-sized work starts with [`intent/`](intent/README.md) befo
 27c. [Ambient motion](contracts/ambient-motion-001.json)
 27d. [Visual language](contracts/visual-language-001.json)
 27e. [Asset catalog (intake records)](contracts/asset-catalog-001.json)
-28. [Combat content manifest](contracts/combat-content-004.json)
+28. [Combat content manifest](contracts/combat-content-005.json)
 29. [Global simulation order](specs/001-single-level-vertical-slice/simulation-order.md)
 30. [Encounter objectives and Extraction gate](specs/001-single-level-vertical-slice/encounter-objectives.md)
 31. [Runtime kernel schema](contracts/runtime-kernel-001.json)
