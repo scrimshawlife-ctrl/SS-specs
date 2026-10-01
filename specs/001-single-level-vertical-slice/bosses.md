@@ -35,7 +35,7 @@ The single boss activates when the living Player enters Z-06 after the elite is 
 | HP | 1600 (D-090) |
 | Radius | 30 |
 | Base speed | 120 units/second |
-| Base contact damage | 16 DPS |
+| Base contact damage | 10 DPS (D-096) |
 | Initial attack delay | 90 ticks |
 | Phase transition recovery | 45 ticks, movement only; not damage-immune |
 
@@ -90,6 +90,33 @@ The boss has exactly four attacks.
 - Exact angular ties omit the lower numbered lane.
 - Cooldown contribution: 105 ticks.
 
+### Captain Court threshold (D-096)
+
+On the tick the boss activates (`bossActivated`), the Player's Integrity is
+raised to at least `player.courtThresholdRestorePercent` (50%) of
+`player.integrity` (75 of 150). It is never lowered. The boss fight is judged
+on its own: the attrition of the run so far does not decide it before the
+first telegraph. The change is authoritative, ordered after the boss
+activation in phase 16, and appears in the receipt as a restore, not as damage.
+
+### Phase presentation (D-096)
+
+Presentation only. Each phase lights the Authority Court differently, on the
+world layer (never the HUD), crossfading over 1 s at the phase change:
+
+| Phase | Light |
+|---|---|
+| Public Safety | cool civic white-blue |
+| Civil Liberties | amber |
+| Temporary Safeguard | deep red |
+| Independent Review | stark white with blue edges |
+
+Every boss telegraph draws a **countdown ring** that closes over the
+telegraph's duration, so the moment of resolution is readable without
+counting. Reduced Motion keeps the ring and drops any pulse. Reduced Flash
+lowers each palette to 60% saturation, and no light ever brightens the scene by
+more than the Lockdown tint (animation.md § 8b).
+
 ### Phase schedules
 
 Each phase begins its sequence at index 0. After an attack resolves, wait its cooldown contribution, then advance cyclically.
@@ -114,6 +141,8 @@ Boss defeat retires all boss projectiles and Captain Camera fields immediately. 
 | BO-001 | Daemon uninterrupted cycle | exact 120/45/instant/36/30/60 timing |
 | BO-002 | boss HP 1600/1200/1199/800/799/400/399/1 | phases match table |
 | BO-003 | one batch 1220→780 | one transition to Temporary Safeguard |
+| BO-020 | boss activates with the Player at 40 Integrity | Player raised to 75 |
+| BO-021 | boss activates with the Player at 120 Integrity | unchanged at 120 |
 | BO-004 | phase transition during telegraph | prior attack canceled; 45-tick recovery |
 | BO-005 | Temporary Order pulse in Public Safety | +11 Exposure before upgrade |
 | BO-006 | same pulse with Signal Jammer | +8 after 25% reduction |
