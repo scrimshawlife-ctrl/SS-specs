@@ -219,11 +219,11 @@ translucent Player silhouette.
 ### 10.3 Daily city flavour (D-099)
 
 Presentation only. Each Daily Run takes a look from its UTC day key, through
-the same SplitMix64 mix as § 10.1 (salt 0) and `mod 4` on separate bit ranges:
+the same SplitMix64 mix as § 10.1 (salt 0), one field per byte of the mix:
 
 | Field | Values |
 |---|---|
-| Grade (world colour grade) | `CLEAR`, `OVERCAST`, `GOLDEN HOUR`, `NIGHT SHIFT` |
+| Grade (world colour grade) | `CLEAR`, `OVERCAST`, `GOLDEN HOUR`, `NIGHT SHIFT` (bits 0–7, mod 4) |
 | Fog density | 80%, 100%, 120% of authored opacity (bits 8–15, mod 3) |
 | Headline | one of 12 authored lines (bits 16–23, mod 12) |
 
@@ -282,7 +282,8 @@ authoritative state, and none changes rules, the digest, or the receipt.
 | `SWIFT` | elapsed time is under 5:30 (19,800 ticks) |
 
 - **On the run card:** a `MEDALS` row lists the medals earned, each marked
-  `NEW` if this is the first time today. A failed run shows no medal row.
+  `NEW` if this is the first time today. A failed run shows no medal row, and neither does a successful run that
+  earned no medal.
 - **On the title:** under the Daily Run label, the five medals for today's
   seed show as earned or not yet earned, by shape (filled or outlined) as well
   as colour. This is today's goal list, and the only run history shown.

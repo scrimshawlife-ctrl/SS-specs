@@ -79,14 +79,17 @@ Copy is uppercase in visual presentation but exposed to VoiceOver in sentence ca
 - **Intro beat.** After Start, a 2-second intro plays before the first tick.
   The title card `THE CIVIC SEAM` with the Daily Run label holds over the
   arena. Then the eight Camera fields power on in stable-ID order over
-  1.2 s, each with a short power-up chirp. No tick runs during the intro, the
+  1.2 s, each with a short power-up chirp (the `extraction_tick` cue until a
+  dedicated power-up cue is admitted). No tick runs during the intro, the
   same principle as the upgrade gate freezing the clock, so replays are
   unaffected. Any touch skips it. Reduced Motion cuts the sequence to a single
   0.5 s fade.
 - **One line at a time.** A tutorial line appears at the first moment its
   subject is on screen, never all at once at spawn. Only one tutorial line is
   visible at a time; later lines queue. A line never overlaps the encounter
-  label or the upgrade prompt: those take precedence, and the line waits.
+  label or the upgrade prompt: those take precedence, and the line waits. A
+  new encounter label holds tutorial lines back for 2.5 s, the caption
+  duration.
 - **Encounter labels** (`MOB ENCOUNTER A`) appear when that encounter
   activates, not before.
 
