@@ -223,6 +223,22 @@ exists to give. Hit-stop belongs to impacts.
 them (`VFXProjector`) but drew none, so no hit-stop, shake, or impact effect ever
 reached the screen. Rendering them is part of this change.
 
+## 8c. Stealth texture (D-097)
+
+Presentation only.
+
+- **Takedown.** An ambush hit that kills its target is a takedown:
+  - a 70 ms hit-stop and a brief desaturating ring at the target;
+  - the `impact_enemy` cue played 4 semitones lower;
+  - the HUD caption `TAKEDOWN`, a safety-neutral routine caption.
+- **Takedown streak.** Consecutive takedowns, with no aware enemy in between,
+  count up on the HUD (`TAKEDOWN ×3`). The count resets when any enemy becomes
+  aware. It grants nothing.
+- **Near miss.** When the Player is within 1.25 × a patrol member's cone range
+  and inside its half-angle, but not yet seen (outside range or behind a solid),
+  that cone's edge brightens and pulses. Reduced Motion uses a steady bright
+  edge. The Player always sees a cone before it sees them.
+
 ## 9. Camera motion
 
 - Normal camera follows with bounded smoothing and a dead zone.

@@ -216,6 +216,41 @@ translucent Player silhouette.
 - It is on by default and can be turned off in Settings (`PresentationSettings`).
   `ER-007` holds.
 
+### 10.3 Daily city flavour (D-099)
+
+Presentation only. Each Daily Run takes a look from its UTC day key, through
+the same SplitMix64 mix as § 10.1 (salt 0) and `mod 4` on separate bit ranges:
+
+| Field | Values |
+|---|---|
+| Grade (world colour grade) | `CLEAR`, `OVERCAST`, `GOLDEN HOUR`, `NIGHT SHIFT` |
+| Fog density | 80%, 100%, 120% of authored opacity (bits 8–15, mod 3) |
+| Headline | one of 12 authored lines (bits 16–23, mod 12) |
+
+- **Headlines:**
+  1. `FOG ADVISORY IN EFFECT`
+  2. `NEW CAMERAS APPROVED OVERNIGHT`
+  3. `CIVIC SEAM REOPENS AFTER REVIEW`
+  4. `TEMPORARY ORDER EXTENDED`
+  5. `QUIET HOURS ENFORCED`
+  6. `TRANSIT PATROL DOUBLED`
+  7. `INDEPENDENT REVIEW SCHEDULED`
+  8. `PUBLIC SAFETY NOTICE POSTED`
+  9. `NETWORK MAINTENANCE TONIGHT`
+  10. `PHOENIX STEPS LIGHTS RESTORED`
+  11. `CURFEW RUMOURS DENIED`
+  12. `OBSERVATION WEEK BEGINS`
+
+  None is a real organization, place outside the level, or person.
+- **Where it shows:** the title shows the headline under the Daily Run label,
+  and the grade and fog apply to the world layer for every run that day.
+- **Limits:**
+  - fog density never exceeds what § 8b and the readability floor allow
+    (fog still thins in a fight);
+  - `NIGHT SHIFT` darkens the ground, never actors, telegraphs, or Camera
+    fields, and actor outlines (§ 8b) keep contrast;
+  - nothing here enters the digest or the receipt.
+
 ## 11. Run card and Share (D-081)
 
 Under the outcome, the terminal surface shows:
