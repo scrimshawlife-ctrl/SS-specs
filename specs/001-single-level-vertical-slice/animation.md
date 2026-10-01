@@ -223,6 +223,34 @@ exists to give. Hit-stop belongs to impacts.
 them (`VFXProjector`) but drew none, so no hit-stop, shake, or impact effect ever
 reached the screen. Rendering them is part of this change.
 
+## 8b. Readability and finish (D-094)
+
+A self-review of full runs (2026-10-01) found the action hard to read. Actors
+were small dark shapes on dark ground under grey fog, the HUD carried a
+constant caption scroll, closed gates were bare blockout rectangles, and
+Lockdown looked like every other minute. The following are presentation only:
+
+- **Framing.** The camera shows 704 × 326 world units (arena-layout.md), so
+  every actor draws about 27% larger than at 896 × 414.
+- **Actor contrast.** The Player and every enemy draw a soft ground shadow (an
+  ellipse at 35% black, 1.4 × the actor's width, that is 2.8 × radius) and a 1-point outline: cool white
+  for the Player, warm red-orange for enemies. Outlines carry faction by both
+  colour and shape (the Player's is unbroken, an enemy's dashed), never by
+  colour alone.
+- **Fog thins in a fight.** While any aware enemy is within the viewport, both
+  fog layers render at 50% of their authored opacity, easing over 0.5 s. Fog
+  still never conceals collision, lethal telegraphs, or Camera boundaries
+  (civic-seam-visual-direction.md).
+- **Closed gates.** A closed gate draws as a security barrier: barricade art
+  tiled along the gate's box with a thin warning-light strip on its open face.
+  An open gate draws nothing. Collision is unchanged; the art fills the
+  collision box exactly.
+- **Lockdown atmosphere.** While Lockdown is latched, the world layer (never
+  the HUD) takes a red tint at 6% opacity that pulses to 10% once every
+  2 seconds. Under Reduced Flash the tint is a steady 6% with no pulse; under
+  Reduced Motion the pulse is replaced by a steady tint. It never brightens
+  the scene.
+
 ## 9. Camera motion
 
 - Normal camera follows with bounded smoothing and a dead zone.
