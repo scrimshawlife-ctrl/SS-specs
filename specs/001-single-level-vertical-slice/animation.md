@@ -208,6 +208,12 @@ the state. `enemyAlerted` plays the `enemyAlerted` recipe (`procedural-vfx-003`)
 a `!` pop above the actor, and the marker is removed. Neither changes any
 authoritative field.
 
+**Patrol cones (D-091).** An unaware patrol member draws its vision cone on the
+ground: range 240, half-angle 45°, clipped at solids like a Camera field, in a
+boundary pattern distinct from Camera fields and Captain cones (§ 7). The cone
+is removed when the member is alerted. Reduced Motion keeps the cone and drops
+any sweep animation.
+
 **No freeze on a wind-up.** `captainTelegraph` carries no hit-stop (it was
 90 ms in `procedural-vfx-001`). A telegraph is the Player's cue to move, and
 freezing the screen as an attack begins steals the reaction time the telegraph

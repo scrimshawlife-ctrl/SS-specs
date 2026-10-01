@@ -1,9 +1,9 @@
 # Civic Seam Arena Layout
 
 Status: CANONICAL  
-Contract version: `civic-seam-arena-002`
+Contract version: `civic-seam-arena-003`
 
-The machine-readable source of truth is `contracts/civic-seam-arena-002.json`. This document defines interpretation and validation.
+The machine-readable source of truth is `contracts/civic-seam-arena-003.json`. This document defines interpretation and validation.
 
 ## Coordinate system
 

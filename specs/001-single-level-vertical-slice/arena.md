@@ -2,7 +2,7 @@
 
 Status: BASELINE  
 Feature: SS-001  
-Arena version: `civic-seam-arena-002`
+Arena version: `civic-seam-arena-003`
 
 ## 1. Arena thesis
 
@@ -16,11 +16,11 @@ The arena teaches through spatial sequence:
 
 ## 2. Coordinate and footprint contract
 
-Exact coordinates, solids, gates, triggers, spawn sockets, Camera sockets, boss emitters, viewport values, and Extraction geometry are normative in `arena-layout.md` and `contracts/civic-seam-arena-002.json`.
+Exact coordinates, solids, gates, triggers, spawn sockets, Camera sockets, boss emitters, viewport values, and Extraction geometry are normative in `arena-layout.md` and `contracts/civic-seam-arena-003.json`.
 
 - Authoring grid: 64 world units.
 - Baseline arena extent: 36 × 24 cells, or 2304 × 1536 world units.
-- Extent is fixed at 36 × 24 cells for `civic-seam-arena-002`; any dimension or authoritative geometry change requires an arena-version change.
+- Extent is fixed at 36 × 24 cells for `civic-seam-arena-003`; any dimension or authoritative geometry change requires an arena-version change.
 - Traversable primary paths: minimum 3 cells wide.
 - Combat circulation loops: minimum 4 cells wide at pressure points.
 - Protected Spawn Alley: no hostile spawn and no damaging Camera contact.
@@ -47,6 +47,7 @@ Purpose: line of sight, occlusion, Exposure accumulation, and recovery.
 - The shortest path crosses observation.
 - The safer path teaches breaking line of sight.
 - No enemy attack occurs before the player has received and escaped one readable observation event.
+- A patrol (P-02, D-091) crosses the corridor on authored loops with visible vision cones. It is optional and ungated, and always leaves an uncovered route.
 - Camera wedge boundaries remain visible across all floor materials.
 
 ### Z-03 Civic Plaza
@@ -115,17 +116,17 @@ Purpose: final survival test and closure.
 
 | Segment | Zone | Starts at | Target elapsed time | Pressure purpose |
 |---|---|---|---:|---|
-| Spawn Alley | Z-01 Residential Wedge | `runStarted` | 0:00–0:30 | Learn movement |
-| Camera Corridor | Z-02 Transit Cut | the Player first enters Z-02 | 0:30–1:15 | Learn observation and recovery |
-| Civic Plaza | Z-03 Civic Plaza | `waveStarted` for M-A | 1:15–2:15 | Combine combat and surveillance |
-| Pressure Route | Z-04 Service Seam | `waveStarted` for M-B | 2:15–3:15 | Express upgrade style |
-| Lockdown Ring | Z-05 Grid Junction | `eliteActivated` | 3:15–4:00 | Escalate and compress choices |
-| Captain Court | Z-06 Authority Court | `bossActivated` | 4:00–6:00 | Mastery test |
-| Extraction | Z-07 Phoenix Steps | `extractionArmed`; ends at `runSucceeded` | 6:00–6:30 | Final known-system pressure |
+| Spawn Alley | Z-01 Residential Wedge | `runStarted` | 0:00–0:05 | Learn movement |
+| Camera Corridor | Z-02 Transit Cut | the Player first enters Z-02 | 0:05–0:30 | Learn observation and recovery; read and pass the Transit Patrol (D-091) |
+| Civic Plaza | Z-03 Civic Plaza | `waveStarted` for M-A | 0:30–1:05 | Combine combat and surveillance |
+| Pressure Route | Z-04 Service Seam | `waveStarted` for M-B | 1:05–1:50 | Express upgrade style |
+| Lockdown Ring | Z-05 Grid Junction | `waveStarted` for M-C | 1:50–4:00 | Escalate and compress choices |
+| Captain Court | Z-06 Authority Court | `bossActivated` | 4:00–5:30 | Mastery test |
+| Extraction | Z-07 Phoenix Steps | `extractionArmed`; ends at `runSucceeded` | 5:30–6:00 | Final known-system pressure |
 
-These are competent-run targets for a 5–8 minute run (D-079). First-run onboarding may be longer. Each segment starts at the event named, except the Camera Corridor, which has no event and starts on first entry into Z-02. Segment names are the design names; the zone column gives the arena manifest's names.
+These are competent-run targets for a 5–8 minute run (D-079), rescaled to the arena as built (D-090), and re-based on the measured segment starts plus the patrol (D-093). The map is crossed in about ten seconds at 240 units/s, so the opening is short by construction and the minutes come from the fights. The Lockdown Ring starts with M-C, the forced-Lockdown fight in its own zone, and includes the elite (D-090 corrects the earlier `eliteActivated` boundary, which filed M-C under the Pressure Route). First-run onboarding may be longer. Each segment starts at the event named, except the Camera Corridor, which has no event and starts on first entry into Z-02. Segment names are the design names; the zone column gives the arena manifest's names.
 
-Extraction is short by construction. Its rule is a 300-tick (5 s) hold on the platform (`civic-seam-arena-002` `extraction.countdownTicks`), so its budget is reaching the platform and holding it under pressure, not a two-minute segment. The targets are provisional until the T903/T904 playtests. Scripted probes (`docs/review/T305`) put a perfect-route run at a median of 3:43, and the content's total enemy integrity bounds the kill time alone at about 2:20.
+Extraction is short by construction. Its rule is a 300-tick (5 s) hold on the platform (`civic-seam-arena-003` `extraction.countdownTicks`), so its budget is reaching the platform and holding it under pressure, not a two-minute segment. The targets are provisional until the T903/T904 playtests. Scripted probes (`docs/review/T305`) put a perfect-route run at a median of 3:43, and the content's total enemy integrity bounds the kill time alone at about 2:20.
 
 ## 6. Encounter density
 

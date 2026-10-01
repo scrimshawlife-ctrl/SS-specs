@@ -9,11 +9,11 @@ Level 1 uses exactly five standard enemy archetypes. Statistics are authoritativ
 
 | ID | Role | HP | Radius | Speed | Contact DPS |
 |---|---|---:|---:|---:|---:|
-| `fogAnalyticsCloud` | observation support | 20 | 18 | 84 | 4 |
-| `cableCarCorrelator` | telegraphed charger | 40 | 20 | 108 | 12 |
-| `sutroSignalWitch` | ranged pressure | 30 | 18 | 72 | 6 |
-| `autonomousInformant` | fast pursuer | 20 | 16 | 144 | 8 |
-| `victorianVendor` | slow area denial | 60 | 22 | 60 | 10 |
+| `fogAnalyticsCloud` | observation support | 30 | 18 | 84 | 4 |
+| `cableCarCorrelator` | telegraphed charger | 60 | 20 | 108 | 12 |
+| `sutroSignalWitch` | ranged pressure | 45 | 18 | 72 | 6 |
+| `autonomousInformant` | fast pursuer | 30 | 16 | 144 | 8 |
+| `victorianVendor` | slow area denial | 90 | 22 | 60 | 10 |
 
 All target the Player, use circle collision, obey stable-ID ties, and stop acting immediately at zero HP. They never damage Cameras or one another.
 
@@ -88,8 +88,11 @@ otherwise it spawns unaware:
 - it is a heat reinforcement (D-083), since it was sent because the Player was
   seen.
 
-**Unaware behaviour.** Velocity zero; no telegraph, attack, pulse, charge,
-throw, or mine; no contact damage. It holds its spawn position and presents its
+**Unaware behaviour.** No telegraph, attack, pulse, charge, throw, or mine; no
+contact damage. It **drifts** toward its encounter's trigger centre at
+`awareness.unawareDriftPercent` (25%) of its archetype speed, with normal
+steering and solid collision, and stops within `awareness.unawareDriftStopUnits`
+(48) of it (D-090). Patrol members patrol instead (§ Transit Patrol). It and presents its
 idle clip with an unaware marker (animation.md § 8a).
 
 **Becoming alerted.** Evaluated once per tick, at the start of the enemy phase
@@ -98,7 +101,7 @@ over the ones below it:
 1. **surveillance**: the Detection State is `tracked` or above, which alerts
    every unaware standard enemy;
 2. **damage**: the enemy took damage since its last enemy phase;
-3. **sight**: the Player is within `awareness.sightRangeUnits` (160) with a
+3. **sight**: the Player is within `awareness.sightRangeUnits` (320, D-090) with a
    clear line (the weapon line-of-fire rule against static solids);
 4. **ally**: an unaware enemy within `awareness.allyAlertRadiusUnits` (128) of an
    enemy alerted this tick by damage or sight. This is one hop: an ally alert
@@ -109,8 +112,71 @@ An alerted enemy never returns to unaware. Each alert publishes
 normal state machine on the next tick.
 
 **Ambush.** The first damage an unaware enemy takes is multiplied by
-`awareness.ambushDamageMultiplier` (2) (combat.md). The enemy is aware
+`awareness.ambushDamageMultiplier` (3, D-090) (combat.md). The enemy is aware
 afterwards, so later hits in the same tick are normal.
+
+## Transit Patrol (P-02, D-091)
+
+The Camera Corridor holds a patrol: the Player's first stealth problem, and one
+that moves. It is not an encounter. It has no trigger, no gate, no waves, no
+upgrade, and no completion, and it never blocks the route. It is optional: sneak
+past, ambush it, or be seen and fight.
+
+**Members and routes.** `civic-seam-arena-003` `patrols` lists each member's
+archetype and a closed loop of waypoints. Each member spawns **unaware** at its
+first waypoint during the first tick's spawn phase, and follows its loop in
+order, wrapping from last to first.
+
+**Patrolling.** While unaware, a patrol member moves toward its next waypoint
+at `patrol.speedPercent` (40%) of its archetype speed, with the same steering and
+solid collision as any enemy. Within `patrol.arrivalUnits` it has arrived: it
+holds for `patrol.dwellTicks` (30), then targets the next waypoint. Its
+**facing** is its last non-zero travel direction, initially the direction from
+the first waypoint to the second. It never attacks and deals no contact damage
+while unaware (D-089).
+
+**Vision cone.** An unaware patrol member does not use D-089 all-round sight.
+It sees in a cone: range `patrol.sightUnits` (240), half-angle
+`patrol.sightHalfAngleMilliDegrees` (45°) about its facing, with a clear line
+under the weapon line-of-fire rule. The angle test is the integer test of the
+D-082 chosen Camera, at this half-angle. The cone is shown on screen
+(animation.md), because a threat the Player cannot read is not stealth
+(constitution Article IV).
+
+**Alerting.** D-089's causes apply, with the cone in place of sight:
+surveillance, damage, cone sight, and one-hop ally. Once alerted, a member runs
+its archetype's normal state machine and pursues the Player anywhere. It never
+resumes patrol.
+
+**Scope.**
+- Patrol members are excluded from encounter totals, completion, heat, and the
+  M-A–M-C graph.
+- Their deaths count in the receipt like any standard enemy.
+- The ambush multiplier applies to them, but a patrol member spawns with
+  `patrol.integrityPercent` (200%, D-093) of its archetype Integrity: 60 for a
+  Fog Analytics Cloud or an Autonomous Informant. One ambush (30) wounds it
+  but does not kill it, and the hit alerts it (damage) and its neighbours
+  within 128 units (ally). Picking a patrol off is a fight you start; slipping
+  past is the quiet option.
+- While unaware, a patrol member is an automatic target only within
+  `patrol.sightUnits` (240) of the Player (D-092), and only while the Player
+  moves toward it, by the chosen-Camera 30° test (D-093). Walking past holds
+  fire, so slipping by is possible in a 512-unit corridor. The weapon's 512-unit reach
+  would otherwise clear the patrol from outside every cone, and it would never
+  be read or timed.
+
+**Fairness.** Checked against the arena data by runtime tests (the spec validator does not model patrols):
+- no waypoint lies inside a solid, outside its zone, or inside an encounter
+  trigger;
+- no cone ever reaches the Player spawn or zone Z-01;
+- a walkable route from Z-01 into the M-A trigger that no cone covers exists
+  at every tick of joint patrol simulation for at least the first hour
+  (216,000 ticks), across every Camera subset a legal placement can produce.
+  Members interact through separation, so the joint state has no short cycle,
+  and a bounded horizon is the proof. The debug test covers the first 3,600
+  ticks; an opt-in release test covers the hour.
+
+The cone half-angle must be one with an exact integer cone test (30°, 45°, 60°).
 
 ## Shared steering and separation
 
@@ -217,11 +283,23 @@ The Player is told. The wave's HUD caption names the count and its cause
 | EN-013 | a wave of M-C starts (always `lockdown`) | no Informants appended |
 | EN-014 | an appended Informant alive, authored members dead | wave not complete |
 | EN-015 | a wave of M-B starts after Lockdown latched early (before M-C) | 2 Informants appended |
-| EN-016 | an M-A enemy spawns while `hidden` | unaware; zero velocity; no attack |
+| EN-016 | an M-A enemy spawns while `hidden` | unaware; zero velocity at spawn, then drifts (D-090); no attack |
 | EN-017 | an M-A enemy spawns while `tracked` | aware |
 | EN-018 | any M-C enemy, or a heat reinforcement | aware |
-| EN-019 | the Player comes within 160 units with a clear line | `enemyAlerted` cause `sight`; acts next tick |
+| EN-019 | the Player comes within 320 units with a clear line | `enemyAlerted` cause `sight`; acts next tick |
 | EN-020 | the Player is at 150 units behind a solid | stays unaware |
 | EN-021 | Exposure crosses into `tracked` | every unaware standard enemy alerted, cause `surveillance` |
 | EN-022 | an unaware enemy is hit; another unaware enemy is 100 units away, a third 200 units | the hit one is alerted (`damage`), the second (`ally`), the third stays unaware |
 | EN-023 | the elite or the boss | never unaware |
+| EN-031 | an unaware M-A enemy 400 units from the trigger centre | drifts toward it at 25% speed; stops within 48 units |
+| EN-024 | run start | every `patrols` member spawns unaware at its first waypoint |
+| EN-025 | an unaware patrol member reaches a waypoint | holds 30 ticks, then heads for the next, wrapping at the end |
+| EN-026 | the Player at 200 units, inside the 45° cone, clear line | alerted, cause `sight` |
+| EN-027 | the Player at 200 units, 60° off facing | stays unaware |
+| EN-028 | the Player at 300 units inside the cone | stays unaware (beyond 240) |
+| EN-029 | a patrol member dies | counted in the receipt; no encounter completes; no heat |
+| EN-030 | any tick in the first hour of joint patrol simulation, any legal Camera subset | an uncovered walkable route from Z-01 to the M-A trigger exists |
+| EN-032 | an unaware patrol member 300 units away, nothing else in range | not targeted; no projectile |
+| EN-033 | the same member at 230 units, Player moving toward it | targeted; the ambush applies |
+| EN-035 | the same member at 230 units, Player moving perpendicular to it | not targeted; no projectile |
+| EN-034 | an ambush hit on an unaware patrol Fog Cloud (60 Integrity) | 30 damage, survives at 30; alerted (`damage`) next enemy phase; unaware patrol members within 128 alerted (`ally`) |

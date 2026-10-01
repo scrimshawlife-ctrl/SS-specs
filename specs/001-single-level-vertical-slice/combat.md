@@ -9,7 +9,7 @@ The Player always starts with one automatic `civicPulse` weapon.
 
 | Property | Value |
 |---|---:|
-| Damage to enemies | 10 Integrity; the first hit on an unaware enemy ×2 (ambush, D-089) |
+| Damage to enemies | 10 Integrity; the first hit on an unaware enemy ×3 (ambush, D-089/D-090) |
 | Camera damage | 1 Camera Integrity per valid impact |
 | Cadence | every 30 ticks |
 | First opportunity | tick 30 |
@@ -26,7 +26,7 @@ An attack opportunity with no valid target produces no projectile and does not s
 
 ## Automatic targeting
 
-Use the classes in `camera-destruction.md`: enemy within 96 units; the chosen Camera the Player is moving toward; other enemy (D-082). No other Camera is an automatic target. Within class, sort by squared distance to target anchor, then stable entity ID. Range is inclusive. Static solid geometry blocks line of fire; actors and destroyed Camera housings do not, except permanent mount solids. A Camera's own mount never blocks line of fire to that Camera (D-085); other mounts block as usual.
+Use the classes in `camera-destruction.md`: enemy within 96 units; the chosen Camera the Player is moving toward; other enemy (D-082). No other Camera is an automatic target. An **unaware patrol member** (D-091) is a candidate only within `patrol.sightUnits` (240) of the Player (D-092) **and** only while the Player is moving toward it, by the same 30° integer test as the chosen Camera (D-093). An ambush on a patrol is a choice: walking past holds fire. Within class, sort by squared distance to target anchor, then stable entity ID. Range is inclusive. Static solid geometry blocks line of fire; actors and destroyed Camera housings do not, except permanent mount solids. A Camera's own mount never blocks line of fire to that Camera (D-085); other mounts block as usual.
 
 Target selection happens at the attack opportunity. If the selected target is invalid before spawn in the same phase, no projectile is created and there is no retarget.
 
@@ -68,5 +68,5 @@ Object pooling is presentation/runtime storage only. Every checkout resets all f
 | CB-008 | Camera hit | −1 Camera Integrity regardless of 10 enemy damage |
 | CB-009 | 32 live projectiles | opportunity rejected, count remains 32 |
 | CB-010 | target dies before later ordered hit | later hit cannot damage/retarget it |
-| CB-011 | first hit on an unaware 20-Integrity enemy | 20 damage (10 × 2 ambush); it dies |
-| CB-012 | two hits in one tick on an unaware 40-Integrity enemy | first 20 (ambush), second 10 |
+| CB-011 | first hit on an unaware 30-Integrity enemy | 30 damage (10 × 3 ambush); it dies |
+| CB-012 | two hits in one tick on an unaware 60-Integrity enemy | first 30 (ambush), second 10 |
