@@ -122,7 +122,7 @@ that moves. It is not an encounter. It has no trigger, no gate, no waves, no
 upgrade, and no completion, and it never blocks the route. It is optional: sneak
 past, ambush it, or be seen and fight.
 
-**Members and routes.** `civic-seam-arena-003` `patrols` lists each member's
+**Members and routes.** `civic-seam-arena-004` `patrols` lists each member's
 archetype and a closed loop of waypoints. Each member spawns **unaware** at its
 first waypoint during the first tick's spawn phase, and follows its loop in
 order, wrapping from last to first.

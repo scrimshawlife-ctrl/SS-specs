@@ -112,6 +112,15 @@ A phase whose bed is not accepted falls back to `music_boss`. That keeps the enc
 
 Every safety-critical audio event has a visual caption/event equivalent. Haptics are never the only carrier. Captions identify source direction in eight sectors when the source is offscreen. Caption history retains the last eight messages and is cleared on restart.
 
+**On-screen captions (D-094).** At most **three** captions are visible at once,
+each for 2.5 seconds, with safety-critical captions (damage taken, telegraphs,
+detection rising, Lockdown, extraction) taking precedence over routine ones.
+A caption setting offers **Important** (the default: safety-critical only),
+**All**, and **Off**. Under Off, safety-critical events still carry a visual
+equivalent (HUD state change, telegraph, VFX), so this rule still holds.
+Routine captions (weapon fired, impact, civic pulse) appear only under All.
+The history above is unchanged.
+
 ## Acceptance vectors
 
 | ID | Scenario | Expected |
