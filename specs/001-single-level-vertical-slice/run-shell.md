@@ -275,7 +275,7 @@ authoritative state, and none changes rules, the digest, or the receipt.
 
 | Medal | Earned when the run succeeds and |
 |---|---|
-| `GHOST` | the Detection State never reached `tracked` before M-C's first `waveStarted` |
+| `GHOST` | the authoritative `quietApproach` (exposure.md, D-101) is still `true`: the Detection State never reached `tracked` before M-C activated |
 | `SHADOW` | no Transit Patrol member was alerted before M-A's first `waveStarted` (slipped past) |
 | `BLACKOUT` | Network Blackout (all eight Cameras destroyed) |
 | `SURGICAL` | the Player ends with at least half of `player.integrity` |

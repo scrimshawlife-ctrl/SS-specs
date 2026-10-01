@@ -84,10 +84,12 @@ Tamper and continuous contact may cross several thresholds in one tick. Emit one
 ## Quiet approach (D-101)
 
 `quietApproach` is `true` at run start. In phase 14, after the Detection State
-resolves, it becomes `false` if the state is `tracked` or higher and M-C's
-first wave has not started on an earlier tick. It is latched: falling back to
-`hidden` or `observed` never restores it. Once M-C has started, nothing changes
-it, so the forced Lockdown at M-C never costs it. It is the same condition as
+resolves, it becomes `false` if the state is `tracked` or higher and M-C has
+not activated. It is latched: falling back to `hidden` or `observed` never
+restores it. M-C's activation sets Exposure to 1000 and latches Lockdown in
+that same tick's resolution (enemies-and-encounters.md), so from the
+activation tick on the check no longer runs, and the forced Lockdown never
+costs it. It is the same condition as
 the `GHOST` medal (run-shell.md § 12), and it pays out once, at the Captain
 Court threshold (bosses.md).
 
@@ -121,8 +123,8 @@ Court threshold (bosses.md).
 | EX-012 | 1 Camera destroyed, Exposure 120 (below the floor after a same-tick change), no contact | recovery does not apply; Exposure is not raised to 150 |
 | EX-013 | Detection State resolves to `tracked` before M-C has started | `quietApproach` becomes `false` |
 | EX-014 | after EX-013, Exposure recovers to `hidden` | `quietApproach` stays `false` |
-| EX-015 | peak Detection State `observed` until M-C starts, then the forced Lockdown | `quietApproach` stays `true` |
-| EX-016 | Detection State reaches `tracked` on the same tick M-C's first wave starts | `quietApproach` becomes `false` (phase 14 precedes the phase-15 wave start) |
+| EX-015 | peak Detection State `observed` until M-C activates, then the forced Lockdown on the activation tick | `quietApproach` stays `true` |
+| EX-016 | Detection State reaches `tracked` on the tick before M-C activates | `quietApproach` becomes `false` |
 
 ## Failure rules
 
