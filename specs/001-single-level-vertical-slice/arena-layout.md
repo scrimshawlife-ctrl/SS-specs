@@ -1,9 +1,9 @@
 # Civic Seam Arena Layout
 
 Status: CANONICAL  
-Contract version: `civic-seam-arena-003`
+Contract version: `civic-seam-arena-004`
 
-The machine-readable source of truth is `contracts/civic-seam-arena-003.json`. This document defines interpretation and validation.
+The machine-readable source of truth is `contracts/civic-seam-arena-004.json`. This document defines interpretation and validation.
 
 ## Coordinate system
 
@@ -108,9 +108,9 @@ Phoenix Steps Extraction is the rectangle centered at (2048,192) with half-size 
 ## Camera and viewport framing
 
 - Logical reference viewport: 844 × 390 points in landscape.
-- World camera baseline visible size: 896 × 414 world units.
-- Follow dead zone: 96 × 64 world units.
-- Maximum look-ahead: 96 units along movement heading.
+- World camera baseline visible size: 704 × 326 world units (D-094; was 896 × 414).
+- Follow dead zone: 76 × 50 world units.
+- Maximum look-ahead: 76 units along movement heading.
 - Look-ahead smoothing is presentation-only.
 - World view clamps to arena bounds.
 - Gameplay HUD safe rectangle is provided by the platform after iOS safe-area insets; no arena coordinate depends on device points.
