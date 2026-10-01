@@ -254,17 +254,23 @@ Lockdown looked like every other minute. The following are presentation only:
 
 Presentation only.
 
-- **Takedown.** An ambush hit that kills its target is a takedown:
+- **Takedown.** An ambush hit that kills its target is a takedown. Events
+  carry no ambush flag, so presentation recognises one from snapshots: the
+  enemy dies this tick, was `unaware` at the end of the previous tick, and was
+  not alerted this tick.
   - a 70 ms hit-stop and a brief desaturating ring at the target;
   - the `impact_enemy` cue played 4 semitones lower;
   - the HUD caption `TAKEDOWN`, a safety-neutral routine caption.
 - **Takedown streak.** Consecutive takedowns, with no aware enemy in between,
-  count up on the HUD (`TAKEDOWN ×3`). The count resets when any enemy becomes
-  aware. It grants nothing.
+  count up on the HUD (`TAKEDOWN ×3`), shown from the second takedown; a
+  single takedown already has its caption, ring, and cue. The count resets
+  when any enemy becomes aware, including one that spawns aware (M-C,
+  reinforcements, the elite, the boss). It grants nothing.
 - **Near miss.** When the Player is within 1.25 × a patrol member's cone range
   and inside its half-angle, but not yet seen (outside range or behind a solid),
-  that cone's edge brightens and pulses. Reduced Motion uses a steady bright
-  edge. The Player always sees a cone before it sees them.
+  that cone's edge brightens and pulses, in the cone's own blue made paler,
+  never gold, which is reserved for pickups. Reduced Motion uses a steady
+  bright edge. The Player always sees a cone before it sees them.
 
 ## 9. Camera motion
 
